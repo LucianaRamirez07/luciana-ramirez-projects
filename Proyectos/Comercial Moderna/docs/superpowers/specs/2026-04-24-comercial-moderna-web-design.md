@@ -293,8 +293,8 @@ comercialmoderna.com/
 - Botón alternativo: **[También puedes escribirnos por WhatsApp]**
 
 **Al enviar el formulario:**
-1. Email con todos los datos llega a la bandeja de Comercial Moderna (via Resend) — se necesita email destino de la empresa
-2. Se abre WhatsApp con mensaje pre-llenado: nombre, empresa, tipo de producto y descripción — se necesita número de WhatsApp Business de Comercial Moderna
+1. Email con todos los datos llega a `luciana@comercialmoderna.com` (via Resend)
+2. Se abre WhatsApp con mensaje pre-llenado al número `+57 300 554 4573`
 
 ---
 

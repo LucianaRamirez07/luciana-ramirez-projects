@@ -1,0 +1,48 @@
+import { PortfolioCase } from '@/types'
+
+export const cases: PortfolioCase[] = [
+  {
+    id: 'nutresa-kits',
+    client: 'Nutresa',
+    clientLogo: '/clients/nutresa.png',
+    category: 'oficina-papeleria',
+    title: '500 kits ejecutivos para campaña interna',
+    description: 'Diseñamos y entregamos 500 kits personalizados con libreta, termo y bolígrafo para la campaña de fin de año de Nutresa. Entrega en 10 días hábiles en toda Colombia.',
+    image: '/portfolio/nutresa-kits.jpg',
+    quantity: '500 unidades',
+    deliveryTime: '10 días hábiles',
+  },
+  {
+    id: 'eafit-dotacion',
+    client: 'EAFIT',
+    clientLogo: '/clients/eafit.png',
+    category: 'exteriores-accesorios',
+    title: 'Dotación deportiva para evento universitario',
+    description: 'Suministro de gorras, termos y bolsas ecológicas para evento de bienvenida con más de 800 estudiantes. Bordado y sublimación con imagen institucional.',
+    image: '/portfolio/eafit-dotacion.jpg',
+    quantity: '800 unidades',
+    deliveryTime: '15 días hábiles',
+  },
+  {
+    id: 'leonisa-regalos',
+    client: 'Leonisa',
+    clientLogo: '/clients/leonisa.png',
+    category: 'hogar-estilo-vida',
+    title: 'Regalos de temporada para fuerza de ventas',
+    description: 'Cafeteras de prensa francesa y portacomidas ecológicos personalizados para obsequiar a los mejores vendedores de la temporada.',
+    image: '/portfolio/leonisa-regalos.jpg',
+    quantity: '200 unidades',
+    deliveryTime: '8 días hábiles',
+  },
+  {
+    id: 'auteco-publicitarios',
+    client: 'Auteco',
+    clientLogo: '/clients/auteco.png',
+    category: 'tecnologia',
+    title: 'Parlantes Bluetooth para lanzamiento de producto',
+    description: 'Parlantes Bluetooth con carcasa en bambú grabados con láser para regalo de aliados estratégicos en el lanzamiento de nueva línea de motos.',
+    image: '/portfolio/auteco-parlantes.jpg',
+    quantity: '150 unidades',
+    deliveryTime: '12 días hábiles',
+  },
+]

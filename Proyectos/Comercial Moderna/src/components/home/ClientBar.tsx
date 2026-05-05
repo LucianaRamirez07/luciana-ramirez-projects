@@ -1,10 +1,17 @@
 import Image from 'next/image'
 
 const clients = [
-  { name: 'Nutresa', logo: '/clients/nutresa.png' },
-  { name: 'EAFIT', logo: '/clients/eafit.png' },
-  { name: 'Leonisa', logo: '/clients/leonisa.png' },
-  { name: 'Auteco', logo: '/clients/auteco.png' },
+  { name: 'Leonisa', logo: '/clients/leonisa.png', large: false, xl: true },
+  { name: 'EAFIT', logo: '/clients/eafit.png', large: false, xl: false },
+  { name: 'Auteco', logo: '/clients/auteco.png', large: false, xl: false },
+  { name: 'Nutresa', logo: '/clients/nutresa.png', large: false, xl: false },
+  { name: 'Comfenalco', logo: '/clients/comfenalco.png', large: true, xl: false },
+  { name: 'Vélez', logo: '/clients/velez.png', large: true, xl: false },
+  { name: 'Yamaha', logo: '/clients/yamaha.png', large: false, xl: false },
+  { name: 'TCC', logo: '/clients/TCC.png', large: false, xl: false },
+  { name: 'Las Américas', logo: '/clients/lasamericas.png', large: false, xl: false },
+  { name: 'Manpower', logo: '/clients/manpower.png', large: false, xl: false },
+  { name: 'New School', logo: '/clients/newschool.png', large: false, xl: false },
 ]
 
 export function ClientBar() {
@@ -16,8 +23,8 @@ export function ClientBar() {
       <div className="relative overflow-hidden">
         <div className="flex animate-marquee gap-16 items-center w-max">
           {[...clients, ...clients].map((client, i) => (
-            <div key={i} className="flex-shrink-0 h-8 w-28 relative grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100">
-              <Image src={client.logo} alt={client.name} fill className="object-contain" />
+            <div key={i} className={`flex-shrink-0 relative transition-all opacity-90 hover:opacity-100 ${client.xl ? 'h-36 w-80' : client.large ? 'h-28 w-64' : 'h-20 w-48'}`}>
+              <Image src={client.logo} alt={client.name} fill className="object-contain mix-blend-multiply" unoptimized />
             </div>
           ))}
         </div>

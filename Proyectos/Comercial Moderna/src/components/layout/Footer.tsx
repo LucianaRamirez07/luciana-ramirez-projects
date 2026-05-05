@@ -37,7 +37,7 @@ export function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
           <div className="col-span-2 md:col-span-1">
-            <Image src="/logo.png" alt="Comercial Moderna" width={130} height={38} className="h-9 w-auto brightness-0 invert" />
+            <Image src="/logo.png" alt="Comercial Moderna" width={1910} height={1468} className="h-12 w-auto brightness-0 invert" unoptimized />
             <p className="mt-4 text-sm text-gray-400 font-inter leading-relaxed">
               Soluciones corporativas personalizadas desde Medellín para todo Colombia.
             </p>

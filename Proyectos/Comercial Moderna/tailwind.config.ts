@@ -12,8 +12,9 @@ const config: Config = {
         surface: '#FFFFFF',
       },
       fontFamily: {
-        fustat: ['var(--font-fustat)', 'sans-serif'],
-        inter: ['var(--font-inter)', 'sans-serif'],
+        fustat: ['var(--font-poppins)', 'sans-serif'],
+        inter: ['var(--font-poppins)', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'sans-serif'],
       },
       backgroundImage: {
         'brand-gradient': 'linear-gradient(135deg, #F7941D, #7B2FBE)',

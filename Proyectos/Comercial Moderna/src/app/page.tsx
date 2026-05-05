@@ -1,4 +1,5 @@
 import { Hero } from '@/components/home/Hero'
+import { WhatWeDo } from '@/components/home/WhatWeDo'
 import { ClientBar } from '@/components/home/ClientBar'
 import { NeedsSection } from '@/components/home/NeedsSection'
 import { CustomSection } from '@/components/home/CustomSection'
@@ -32,11 +33,12 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <Hero />
-      <ClientBar />
+      <WhatWeDo />
       <NeedsSection />
       <CustomSection />
       <CatalogPreview />
       <MetricsSection />
+      <ClientBar />
       <FinalCTA />
     </>
   )

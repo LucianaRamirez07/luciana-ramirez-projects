@@ -1,48 +1,63 @@
 import Link from 'next/link'
 
-const needs = [
+const services = [
   {
-    icon: '🎁',
     title: 'Regalos Empresariales',
-    description: 'Detalles corporativos para eventos, fidelización y campañas.',
+    description: 'Detalles corporativos para campañas y eventos que fortalecen tu empresa.',
     href: '/catalogo?tipo=regalos-empresariales',
   },
   {
-    icon: '📢',
-    title: 'Campañas Publicitarias',
-    description: 'Artículos de marca para posicionamiento y marketing.',
+    title: 'Productos Publicitarios',
+    description: 'Artículos promocionales alineados a la identidad y objetivos de tu empresa.',
     href: '/catalogo?tipo=productos-publicitarios',
   },
   {
-    icon: '🎒',
     title: 'Kits Escolares',
-    description: 'Paquetes de útiles para fundaciones y programas sociales.',
+    description: 'Armado y entrega de kits para programas sociales y proyectos empresariales.',
     href: '/catalogo?tipo=kits-escolares',
+  },
+  {
+    title: 'Dotaciones Empresariales',
+    description: 'Uniformes y prendas con personalización técnica avanzada para tu equipo.',
+    href: '/catalogo',
+  },
+  {
+    title: 'Desarrollo de Producto',
+    description: 'Diseño y producción a medida bajo presupuesto y necesidad institucional.',
+    href: '/cotizar',
+  },
+  {
+    title: 'Litografía',
+    description: 'Papelería y material institucional con acabados de alta calidad profesional.',
+    href: '/catalogo',
   },
 ]
 
 export function NeedsSection() {
   return (
-    <section className="py-20 max-w-6xl mx-auto px-4">
-      <div className="text-center mb-12">
-        <h2 className="font-fustat font-bold text-3xl sm:text-4xl text-dark">¿Qué necesitas?</h2>
-        <p className="mt-3 text-muted font-inter">Cuéntanos tu caso — lo conseguimos y lo personalizamos.</p>
-      </div>
-      <div className="grid md:grid-cols-3 gap-6">
-        {needs.map((need) => (
-          <Link
-            key={need.href}
-            href={need.href}
-            className="group p-8 rounded-2xl border border-gray-100 hover:border-primary/30 hover:shadow-lg transition-all bg-white"
-          >
-            <span className="text-4xl">{need.icon}</span>
-            <h3 className="mt-4 font-fustat font-bold text-xl text-dark">{need.title}</h3>
-            <p className="mt-2 text-sm text-muted font-inter leading-relaxed">{need.description}</p>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm text-primary font-inter font-medium group-hover:gap-2 transition-all">
-              Ver productos →
-            </span>
-          </Link>
-        ))}
+    <section className="py-24 bg-dark">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="mb-14">
+          <p className="text-primary font-inter font-semibold text-sm uppercase tracking-widest mb-3">Nuestros Servicios</p>
+          <h2 className="font-fustat font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight">
+            Todo lo que tu empresa<br />necesita, en un solo lugar.
+          </h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s) => (
+            <Link
+              key={s.href + s.title}
+              href={s.href}
+              className="group p-8 rounded-2xl border border-white/10 hover:border-primary/50 hover:bg-white/5 transition-all"
+            >
+              <h3 className="font-fustat font-bold text-2xl text-white">{s.title}</h3>
+              <p className="mt-3 text-base text-white/50 font-inter leading-relaxed">{s.description}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-primary font-inter font-semibold group-hover:gap-3 transition-all">
+                Ver más →
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   )

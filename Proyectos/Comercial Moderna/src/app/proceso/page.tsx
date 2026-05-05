@@ -15,7 +15,7 @@ const steps = [
   {
     number: '02',
     title: 'Te proponemos opciones',
-    description: 'Buscamos las mejores alternativas en precio, material y tiempo de entrega. Te presentamos 2 o 3 opciones con cotización detallada en menos de 24 horas.',
+    description: 'Buscamos las mejores alternativas en precio, material y acabado, y te presentamos varias opciones con cotización detallada para que elijas la que mejor se ajusta a tu presupuesto y necesidad.',
   },
   {
     number: '03',

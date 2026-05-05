@@ -71,7 +71,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between gap-4 text-xs text-gray-500 font-inter">
           <span>© {new Date().getFullYear()} Comercial Moderna Corp. S.A.S. Medellín, Colombia.</span>
-          <span>luciana@comercialmoderna.com</span>
+          <span>Actualizado: mayo 2025 · luciana@comercialmoderna.com</span>
         </div>
       </div>
     </footer>

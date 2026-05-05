@@ -7,6 +7,76 @@ export const metadata: Metadata = {
   description: 'Comercial Moderna es una empresa familiar en Medellín con más de 20 años de experiencia en regalos empresariales, productos publicitarios y kits escolares para empresas e instituciones de Colombia.',
 }
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cuántos años de experiencia tiene Comercial Moderna?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Comercial Moderna tiene más de 20 años de experiencia en el sector de regalos empresariales y productos publicitarios en Colombia. Hemos atendido a más de 300 empresas e instituciones en todo el país.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿En qué ciudades de Colombia hacen entregas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Realizamos entregas en cualquier ciudad de Colombia. Aunque estamos ubicados en Medellín, Antioquia, contamos con cobertura nacional y entregamos directamente en la oficina o punto que el cliente indique.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cuál es el pedido mínimo?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El pedido mínimo varía según el producto, pero trabajamos desde 10 unidades hasta pedidos de 10.000 unidades o más. Tenemos capacidad operativa para proyectos de cualquier escala.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué técnicas de personalización ofrecen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ofrecemos grabado láser, serigrafía (screen), sublimación, bordado, impresión digital y marcado con logo, según el material y el acabado que requiera cada producto.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Trabajan con empresas de todos los tamaños?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sí. Atendemos desde empresas medianas hasta grandes corporaciones como Leonisa, Nutresa, Auteco y EAFIT. También trabajamos con fundaciones e instituciones educativas que necesitan kits escolares o dotaciones institucionales.',
+      },
+    },
+  ],
+}
+
+const faqs = [
+  {
+    question: '¿Cuántos años de experiencia tienen?',
+    answer: 'Más de 20 años en el sector. Hemos atendido a más de 300 empresas e instituciones en toda Colombia, gestionando más de 1.000 tipos de productos distintos.',
+  },
+  {
+    question: '¿En qué ciudades hacen entregas?',
+    answer: 'En cualquier ciudad de Colombia. Estamos en Medellín pero nuestra logística cubre todo el territorio nacional — entregamos directo en tu oficina o el punto que indiques.',
+  },
+  {
+    question: '¿Cuál es el pedido mínimo?',
+    answer: 'Varía según el producto. En general trabajamos desde 10 unidades. Tenemos capacidad para pedidos de hasta 10.000 unidades o más con los mismos estándares de calidad y cumplimiento.',
+  },
+  {
+    question: '¿Qué técnicas de personalización ofrecen?',
+    answer: 'Grabado láser, serigrafía, sublimación, bordado e impresión digital — elegimos la técnica según el material y el acabado que necesites para tu proyecto.',
+  },
+  {
+    question: '¿Trabajan con fundaciones e instituciones educativas?',
+    answer: 'Sí. Tenemos amplia experiencia con kits escolares y dotaciones institucionales para fundaciones, cajas de compensación e instituciones educativas de todo el país.',
+  },
+]
+
 const values = [
   {
     title: 'Cumplimiento y Control',
@@ -47,6 +117,10 @@ const clients = [
 export default function NosotrosPage() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hero */}
       <section className="bg-dark py-24 px-4">
         <div className="max-w-5xl mx-auto">
@@ -123,6 +197,22 @@ export default function NosotrosPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 px-4 max-w-5xl mx-auto">
+        <div className="mb-12 text-center">
+          <p className="text-primary font-inter font-semibold text-sm uppercase tracking-widest mb-3">Preguntas frecuentes</p>
+          <h2 className="font-fustat font-extrabold text-3xl sm:text-4xl text-dark">Resolvemos tus dudas</h2>
+        </div>
+        <div className="divide-y divide-gray-100">
+          {faqs.map((faq) => (
+            <div key={faq.question} className="py-6">
+              <h3 className="font-fustat font-bold text-lg text-dark mb-2">{faq.question}</h3>
+              <p className="text-muted font-inter leading-relaxed">{faq.answer}</p>
+            </div>
+          ))}
         </div>
       </section>
 

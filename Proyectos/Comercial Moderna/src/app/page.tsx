@@ -23,6 +23,9 @@ const localBusinessSchema = {
   },
   areaServed: 'CO',
   priceRange: 'COP',
+  foundingDate: '2005',
+  numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 5, maxValue: 50 },
+  sameAs: ['https://wa.me/573005544573'],
 }
 
 export default function HomePage() {

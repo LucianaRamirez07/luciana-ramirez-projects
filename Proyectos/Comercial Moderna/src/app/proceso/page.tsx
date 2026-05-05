@@ -2,8 +2,47 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Cómo trabajamos',
-  description: 'Proceso de trabajo de Comercial Moderna: desde tu idea hasta la entrega llave en mano.',
+  title: 'Cómo trabajamos | Proceso de compra de regalos empresariales',
+  description: 'Proceso de Comercial Moderna en 4 pasos: cotización, propuesta, producción y entrega llave en mano en toda Colombia. Sin formularios complicados, sin sorpresas.',
+}
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Cómo pedir regalos empresariales personalizados en Comercial Moderna',
+  description: 'Proceso de compra de regalos corporativos, productos publicitarios y kits escolares en 4 pasos simples.',
+  totalTime: 'P7D',
+  supply: [
+    { '@type': 'HowToSupply', name: 'Descripción de tu idea o requerimiento' },
+    { '@type': 'HowToSupply', name: 'Logo de tu empresa en alta resolución' },
+    { '@type': 'HowToSupply', name: 'Cantidad aproximada de unidades' },
+  ],
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: 'Cuéntanos tu idea',
+      text: 'Envíanos tu requerimiento por WhatsApp, email o formulario. Sin reuniones innecesarias — solo dinos qué necesitas.',
+      position: 1,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Recibe tu propuesta y cotización',
+      text: 'Buscamos las mejores alternativas en precio, material y acabado, y te presentamos varias opciones con cotización detallada.',
+      position: 2,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Producción y personalización',
+      text: 'Una vez aprobada la propuesta, iniciamos producción. Marcado con logo, grabado láser, screen, sublimación o bordado.',
+      position: 3,
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Entrega llave en mano',
+      text: 'Entregamos en tu oficina o en el punto que indiques — en Medellín o cualquier ciudad de Colombia. Empaque incluido.',
+      position: 4,
+    },
+  ],
 }
 
 const steps = [
@@ -32,6 +71,10 @@ const steps = [
 export default function ProcesoPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
       <div className="text-center mb-20">
         <h1 className="font-fustat font-bold text-4xl sm:text-5xl text-dark">¿Cómo trabajamos?</h1>
         <p className="mt-4 text-muted font-inter text-lg">Simple, transparente y sin sorpresas.</p>

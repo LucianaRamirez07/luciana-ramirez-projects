@@ -70,7 +70,7 @@ const steps = [
 
 export default function ProcesoPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-20">
+    <div className="max-w-5xl mx-auto px-4 pt-40 pb-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}

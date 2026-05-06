@@ -118,7 +118,7 @@ const categories = [
 
 export default function CatalogoPage() {
   return (
-    <div className="pt-36 pb-24 px-4 max-w-7xl mx-auto">
+    <div className="pt-44 pb-24 px-4 max-w-7xl mx-auto">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

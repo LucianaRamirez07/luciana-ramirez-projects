@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CotizarPage() {
   return (
-    <div className="max-w-2xl mx-auto px-4 py-20">
+    <div className="max-w-2xl mx-auto px-4 pt-40 pb-20">
       <div className="text-center mb-12">
         <h1 className="font-fustat font-bold text-4xl sm:text-5xl text-dark">Solicitar cotización</h1>
         <p className="mt-4 text-muted font-inter text-lg">

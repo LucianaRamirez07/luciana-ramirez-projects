@@ -122,7 +122,7 @@ export default function NosotrosPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       {/* Hero */}
-      <section className="bg-dark py-24 px-4">
+      <section className="bg-dark pt-44 pb-24 px-4">
         <div className="max-w-5xl mx-auto">
           <p className="text-primary font-inter font-semibold text-sm uppercase tracking-widest mb-4">Quiénes somos</p>
           <h1 className="font-fustat font-extrabold text-5xl sm:text-6xl lg:text-7xl text-white leading-[0.95] tracking-tight">

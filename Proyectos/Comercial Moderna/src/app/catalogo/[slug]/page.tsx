@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { products } from '@/data/products'
+import type { ProductTipo } from '@/types'
 
 const categoryMeta: Record<string, { label: string; description: string; tipo?: string }> = {
   'regalos-empresariales': {
@@ -54,13 +55,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   if (!meta) notFound()
 
   const filtered = meta.tipo
-    ? products.filter((p) => p.tipo.includes(meta.tipo as string))
+    ? products.filter((p) => p.tipo.includes(meta.tipo as ProductTipo))
     : []
 
   const waUrl = 'https://wa.me/573005544573?text=' + encodeURIComponent(`Hola, me interesa cotizar productos de la categoría ${meta.label}.`)
 
   return (
-    <div className="pt-36 pb-24 px-4 max-w-7xl mx-auto">
+    <div className="pt-44 pb-24 px-4 max-w-7xl mx-auto">
 
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs font-inter text-muted mb-10">

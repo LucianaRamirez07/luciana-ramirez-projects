@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   },
   description: 'Soluciones corporativas personalizadas: regalos empresariales, productos publicitarios y kits escolares. Medellín, Colombia.',
   metadataBase: new URL('https://www.comercialmoderna.com'),
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'es_CO',

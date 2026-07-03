@@ -20,9 +20,12 @@ const LANGUAGES = [
   { code: 'en', label: 'English' },
 ]
 
-function selectLanguage(code: string) {
+function selectLanguage(code: string, attempt = 0) {
   const combo = document.querySelector<HTMLSelectElement>('select.goog-te-combo')
-  if (!combo) return
+  if (!combo) {
+    if (attempt < 20) setTimeout(() => selectLanguage(code, attempt + 1), 250)
+    return
+  }
   combo.value = code
   combo.dispatchEvent(new Event('change'))
 }
@@ -43,7 +46,10 @@ export function GoogleTranslate() {
 
   return (
     <div ref={wrapperRef} className="relative">
-      <div id="google_translate_element" className="sr-only" />
+      <div
+        id="google_translate_element"
+        style={{ position: 'fixed', top: 0, left: '-9999px', width: '300px', height: '60px' }}
+      />
 
       <button
         onClick={() => setOpen((v) => !v)}

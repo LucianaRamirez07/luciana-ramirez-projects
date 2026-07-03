@@ -20,23 +20,20 @@ const LANGUAGES = [
   { code: 'en', label: 'English' },
 ]
 
-function fireChange(el: HTMLElement) {
-  const evt = document.createEvent('HTMLEvents')
-  evt.initEvent('change', true, true)
-  el.dispatchEvent(evt)
+function setGoogTransCookie(value: string) {
+  const host = window.location.hostname
+  document.cookie = `googtrans=${value}; path=/`
+  document.cookie = `googtrans=${value}; path=/; domain=${host}`
+  document.cookie = `googtrans=${value}; path=/; domain=.${host}`
 }
 
-function selectLanguage(code: string, attempt = 0) {
-  const container = document.getElementById('google_translate_element')
-  const combo = container?.querySelector<HTMLSelectElement>('select.goog-te-combo')
-  if (!combo) {
-    if (attempt < 20) setTimeout(() => selectLanguage(code, attempt + 1), 250)
-    return
+function goToLanguage(code: string) {
+  if (code === 'es') {
+    setGoogTransCookie('/es/es')
+  } else {
+    setGoogTransCookie(`/es/${code}`)
   }
-  combo.value = code
-  // Google Translate a veces ignora el primer evento "change"; se dispara dos veces como workaround conocido
-  fireChange(combo)
-  setTimeout(() => fireChange(combo), 50)
+  window.location.reload()
 }
 
 export function GoogleTranslate() {
@@ -77,7 +74,7 @@ export function GoogleTranslate() {
             <button
               key={lang.code}
               onClick={() => {
-                selectLanguage(lang.code)
+                goToLanguage(lang.code)
                 setOpen(false)
               }}
               className="w-full text-left px-4 py-2.5 text-sm font-inter text-dark/80 hover:bg-gray-50 hover:text-primary transition-colors"

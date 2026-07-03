@@ -20,14 +20,23 @@ const LANGUAGES = [
   { code: 'en', label: 'English' },
 ]
 
+function fireChange(el: HTMLElement) {
+  const evt = document.createEvent('HTMLEvents')
+  evt.initEvent('change', true, true)
+  el.dispatchEvent(evt)
+}
+
 function selectLanguage(code: string, attempt = 0) {
-  const combo = document.querySelector<HTMLSelectElement>('select.goog-te-combo')
+  const container = document.getElementById('google_translate_element')
+  const combo = container?.querySelector<HTMLSelectElement>('select.goog-te-combo')
   if (!combo) {
     if (attempt < 20) setTimeout(() => selectLanguage(code, attempt + 1), 250)
     return
   }
   combo.value = code
-  combo.dispatchEvent(new Event('change'))
+  // Google Translate a veces ignora el primer evento "change"; se dispara dos veces como workaround conocido
+  fireChange(combo)
+  setTimeout(() => fireChange(combo), 50)
 }
 
 export function GoogleTranslate() {

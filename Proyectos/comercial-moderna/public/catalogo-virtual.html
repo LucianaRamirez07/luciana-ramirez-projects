@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" translate="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google" content="notranslate" />
   <title>Catálogo de Productos — Comercial Moderna</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -16,7 +17,8 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { font-family: 'Open Sans', sans-serif; background: #cfd3da; color: var(--negro); }
     .viewer { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 0 100px; }
-    .page-stage { position: relative; width: var(--page-w); height: var(--page-h); box-shadow: 0 10px 50px rgba(0,0,0,0.28); perspective: 2600px; }
+    .page-stage-outer { position: relative; overflow: hidden; flex-shrink: 0; }
+    .page-stage { position: relative; width: var(--page-w); height: var(--page-h); box-shadow: 0 10px 50px rgba(0,0,0,0.28); perspective: 2600px; transform-origin: top left; }
     .page {
       width: var(--page-w); height: var(--page-h); background: var(--blanco); position: absolute; top: 0; left: 0;
       display: none; flex-direction: column; overflow: hidden;
@@ -217,7 +219,8 @@
       .navbar { display: none; }
       .viewer { padding: 0; min-height: 0; }
       body { background: white; }
-      .page-stage { box-shadow: none; width: auto; height: auto; }
+      .page-stage-outer { width: auto !important; height: auto !important; overflow: visible !important; }
+      .page-stage { box-shadow: none; width: auto; height: auto; transform: none !important; }
       .page { position: static; display: flex !important; page-break-after: always; width: var(--page-w); height: var(--page-h); transform: none !important; box-shadow: none !important; }
       .page.page-cover, .page.page-productgrid { position: relative; }
       @page { size: letter; margin: 0; }
@@ -227,7 +230,8 @@
 <body>
 
   <div class="viewer">
-    <div class="page-stage" id="pageStage">
+    <div class="page-stage-outer" id="pageStageOuter">
+      <div class="page-stage" id="pageStage">
 
       <div class="page page-cover">
         <div class="cover-blob-cream"></div>
@@ -11207,6 +11211,7 @@ Screen Paraguas hasta 3 tintas.</span></div></div>
           <div>luciana@comercialmoderna.com · comercialmoderna.com</div>
         </div>
       </div>
+      </div>
     </div>
   </div>
 
@@ -11322,6 +11327,22 @@ Screen Paraguas hasta 3 tintas.</span></div></div>
       if (e.key === 'ArrowLeft') goTo(current - 1, 'prev');
     });
     render();
+
+    const pageStageOuter = document.getElementById('pageStageOuter');
+    const pageStageEl = document.getElementById('pageStage');
+    const PAGE_W = 816, PAGE_H = 1056;
+    function fitToScreen() {
+      const navReserve = 96;
+      const margin = 24;
+      const availW = window.innerWidth - margin * 2;
+      const availH = window.innerHeight - navReserve - margin * 2;
+      const scale = Math.min(availW / PAGE_W, availH / PAGE_H, 1);
+      pageStageOuter.style.width = (PAGE_W * scale) + 'px';
+      pageStageOuter.style.height = (PAGE_H * scale) + 'px';
+      pageStageEl.style.transform = 'scale(' + scale + ')';
+    }
+    window.addEventListener('resize', fitToScreen);
+    fitToScreen();
 
     function setGoogTransCookie(value) {
       const host = window.location.hostname;

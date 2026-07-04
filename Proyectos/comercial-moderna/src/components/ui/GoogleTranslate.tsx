@@ -27,9 +27,17 @@ function setGoogTransCookie(value: string) {
   document.cookie = `googtrans=${value}; path=/; domain=.${host}`
 }
 
+function clearGoogTransCookie() {
+  const host = window.location.hostname
+  const expired = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC'
+  document.cookie = expired
+  document.cookie = `${expired}; domain=${host}`
+  document.cookie = `${expired}; domain=.${host}`
+}
+
 function goToLanguage(code: string) {
   if (code === 'es') {
-    setGoogTransCookie('/es/es')
+    clearGoogTransCookie()
   } else {
     setGoogTransCookie(`/es/${code}`)
   }

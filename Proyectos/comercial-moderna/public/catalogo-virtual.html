@@ -11350,13 +11350,24 @@ Screen Paraguas hasta 3 tintas.</span></div></div>
       document.cookie = `googtrans=${value}; path=/; domain=${host}`;
       document.cookie = `googtrans=${value}; path=/; domain=.${host}`;
     }
+    function clearGoogTransCookie() {
+      const host = window.location.hostname;
+      const expired = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC';
+      document.cookie = expired;
+      document.cookie = `${expired}; domain=${host}`;
+      document.cookie = `${expired}; domain=.${host}`;
+    }
     function getGoogTransLang() {
       const match = document.cookie.match(/googtrans=\/[a-z]{2}\/([a-z]{2})/);
       return match ? match[1] : 'es';
     }
     document.getElementById('btnLang').addEventListener('click', () => {
       const next = getGoogTransLang() === 'en' ? 'es' : 'en';
-      setGoogTransCookie('/es/' + next);
+      if (next === 'es') {
+        clearGoogTransCookie();
+      } else {
+        setGoogTransCookie('/es/' + next);
+      }
       window.location.reload();
     });
     function googleTranslateElementInit() {

@@ -30,14 +30,11 @@ export const metadata: Metadata = {
     url: 'https://www.comercialmoderna.com',
     siteName: 'Comercial Moderna',
   },
-  other: {
-    google: 'notranslate',
-  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={poppins.variable} translate="no">
+    <html lang="es" className={poppins.variable}>
       <body>
         <Navbar />
         <main>{children}</main>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="es" translate="no">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="google" content="notranslate" />
   <title>Catálogo de Productos — Comercial Moderna</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -33,9 +32,6 @@
     .navbar button { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: var(--blanco); background: var(--morado); border: none; border-radius: 20px; padding: 10px 20px; cursor: pointer; }
     .navbar button:disabled { opacity: 0.35; cursor: default; }
     .navbar button:not(:disabled):hover { background: var(--naranja); }
-    .navbar button.lang-btn { padding: 10px; display: flex; align-items: center; justify-content: center; }
-    .goog-te-banner-frame { display: none !important; }
-    body { top: 0 !important; }
     .navbar .pageindicator { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: var(--blanco); min-width: 70px; text-align: center; }
     .navbar select { font-family: 'Open Sans', sans-serif; font-size: 12.5px; padding: 8px 12px; border-radius: 20px; border: none; background: var(--gris-suave); color: var(--negro); }
 
@@ -11246,11 +11242,7 @@ Screen Paraguas hasta 3 tintas.</span></div></div>
 <option value="199">Contraportada</option>
     </select>
     <button id="btnNext">Siguiente →</button>
-    <button id="btnLang" class="lang-btn" title="Cambiar idioma / Change language">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg>
-    </button>
   </div>
-  <div id="google_translate_element" style="position:fixed; top:0; left:-9999px; width:300px; height:60px;"></div>
 
   <script>
     const pages = document.querySelectorAll('.page');
@@ -11343,30 +11335,7 @@ Screen Paraguas hasta 3 tintas.</span></div></div>
     }
     window.addEventListener('resize', fitToScreen);
     fitToScreen();
-
-    function setGoogTransCookie(value) {
-      const host = window.location.hostname;
-      document.cookie = `googtrans=${value}; path=/`;
-      document.cookie = `googtrans=${value}; path=/; domain=${host}`;
-      document.cookie = `googtrans=${value}; path=/; domain=.${host}`;
-    }
-    function getGoogTransLang() {
-      const match = document.cookie.match(/googtrans=\/[a-z]{2}\/([a-z]{2})/);
-      return match ? match[1] : 'es';
-    }
-    document.getElementById('btnLang').addEventListener('click', () => {
-      const next = getGoogTransLang() === 'en' ? 'es' : 'en';
-      setGoogTransCookie('/es/' + next);
-      window.location.reload();
-    });
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement(
-        { pageLanguage: 'es', includedLanguages: 'en,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false },
-        'google_translate_element'
-      );
-    }
   </script>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>

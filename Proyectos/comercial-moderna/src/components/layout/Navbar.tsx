@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { GoogleTranslate } from '@/components/ui/GoogleTranslate'
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -68,7 +67,6 @@ export function Navbar() {
           </ul>
 
           <div className="flex items-center gap-3">
-            <GoogleTranslate />
             <Link
               href="/cotizar"
               className="hidden sm:inline-flex items-center bg-primary text-white font-inter font-semibold text-xs tracking-widest uppercase px-6 py-3 hover:bg-primary/90 transition-all hover:scale-[1.02]"

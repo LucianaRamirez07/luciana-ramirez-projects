@@ -3,7 +3,7 @@ import Image from 'next/image'
 const services = [
   {
     label: 'Regalos Empresariales',
-    img: 'https://comercialmoderna.com/wp-content/uploads/2026/01/Image_202601211510-1-572x1024.jpeg',
+    img: '/catalogo-assets/fotos/creativos/tr006-coffee-experience-box.png',
   },
   {
     label: 'Productos Publicitarios',

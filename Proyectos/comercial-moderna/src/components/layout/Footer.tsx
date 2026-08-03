@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { WHATSAPP_CONTACTS } from '@/lib/contactNumbers'
 
 const columns = [
   {
@@ -30,8 +31,6 @@ const columns = [
 ]
 
 export function Footer() {
-  const waUrl = 'https://wa.me/573005544573'
-
   return (
     <footer className="bg-dark text-white mt-20">
       <div className="max-w-6xl mx-auto px-4 py-16">
@@ -41,14 +40,19 @@ export function Footer() {
             <p className="mt-4 text-sm text-gray-400 font-inter leading-relaxed">
               Soluciones corporativas personalizadas desde Medellín para todo Colombia.
             </p>
-            <a
-              href={waUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm text-primary font-inter hover:text-primary/80 transition-colors"
-            >
-              WhatsApp: +57 300 554 4573
-            </a>
+            <div className="mt-4 flex flex-col gap-2">
+              {WHATSAPP_CONTACTS.map((contact) => (
+                <a
+                  key={contact.number}
+                  href={`https://wa.me/${contact.number}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-primary font-inter hover:text-primary/80 transition-colors"
+                >
+                  WhatsApp: {contact.display}
+                </a>
+              ))}
+            </div>
           </div>
 
           {columns.map((col) => (

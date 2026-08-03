@@ -6,6 +6,7 @@ import { CaseCard } from '@/components/portfolio/CaseCard'
 export const metadata: Metadata = {
   title: 'Portafolio',
   description: 'Proyectos reales con Nutresa, EAFIT, Leonisa y Auteco. Regalos y productos corporativos personalizados entregados en toda Colombia.',
+  alternates: { canonical: '/portafolio' },
 }
 
 export default function PortafolioPage() {

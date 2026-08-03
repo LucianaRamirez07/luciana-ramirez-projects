@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Catálogo de Regalos Empresariales y Productos Publicitarios | Comercial Moderna',
   description: 'Catálogo de regalos empresariales, productos publicitarios, kits escolares, dotaciones y litografía en Colombia. Personalización con logo, entrega nacional.',
+  alternates: { canonical: '/catalogo' },
 }
 
 const faqSchema = {

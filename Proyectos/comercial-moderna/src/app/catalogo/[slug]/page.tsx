@@ -3,37 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { products } from '@/data/products'
+import { categoryMeta } from '@/data/categories'
 import type { ProductTipo } from '@/types'
-
-const categoryMeta: Record<string, { label: string; description: string; tipo?: string }> = {
-  'regalos-empresariales': {
-    label: 'Regalos Empresariales',
-    description: 'Detalles corporativos que refuerzan tu marca en cada ocasión especial.',
-    tipo: 'regalos-empresariales',
-  },
-  'productos-publicitarios': {
-    label: 'Productos Publicitarios',
-    description: 'Artículos con tu logo para eventos, ferias y campañas de marca.',
-    tipo: 'productos-publicitarios',
-  },
-  'kits-escolares': {
-    label: 'Kits Escolares',
-    description: 'Paquetes completos de útiles escolares para fundaciones e instituciones.',
-    tipo: 'kits-escolares',
-  },
-  'dotaciones-empresariales': {
-    label: 'Dotaciones Empresariales',
-    description: 'Uniformes y ropa corporativa con tu identidad visual.',
-  },
-  'desarrollo-de-producto': {
-    label: 'Desarrollo de Producto',
-    description: 'Creamos productos a medida desde cero según tu idea y necesidad.',
-  },
-  'litografia': {
-    label: 'Litografía',
-    description: 'Impresión de alta calidad: folletos, catálogos, etiquetas y más.',
-  },
-}
 
 export async function generateStaticParams() {
   return Object.keys(categoryMeta).map((slug) => ({ slug }))
@@ -46,6 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: meta.label,
     description: meta.description,
+    alternates: { canonical: `/catalogo/${slug}` },
   }
 }
 
@@ -60,8 +32,24 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   const waUrl = 'https://wa.me/573005544573?text=' + encodeURIComponent(`Hola, me interesa cotizar productos de la categoría ${meta.label}.`)
 
+  const faqSchema = meta.faqs && {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: meta.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  }
+
   return (
     <div className="pt-44 pb-24 px-4 max-w-7xl mx-auto">
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
 
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs font-inter text-muted mb-10">
@@ -79,6 +67,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           {meta.label}
         </h1>
         <p className="text-muted font-inter text-lg leading-relaxed">{meta.description}</p>
+        {meta.intro && (
+          <p className="mt-4 text-muted font-inter text-base leading-relaxed">{meta.intro}</p>
+        )}
       </div>
 
       {/* Productos */}
@@ -130,6 +121,21 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           >
             Cotizar por WhatsApp
           </a>
+        </div>
+      )}
+
+      {/* FAQ */}
+      {meta.faqs && (
+        <div className="mt-20 max-w-3xl mx-auto">
+          <h2 className="font-fustat font-extrabold text-2xl sm:text-3xl text-dark mb-8 text-center">Preguntas frecuentes</h2>
+          <div className="divide-y divide-gray-100">
+            {meta.faqs.map((faq) => (
+              <div key={faq.question} className="py-5">
+                <h3 className="font-fustat font-bold text-base text-dark mb-1">{faq.question}</h3>
+                <p className="text-muted font-inter text-sm leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

@@ -5,6 +5,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Nosotros | Empresa de Regalos Empresariales en Medellín',
   description: 'Comercial Moderna es una empresa familiar en Medellín con más de 20 años de experiencia en regalos empresariales, productos publicitarios y kits escolares para empresas e instituciones de Colombia.',
+  alternates: { canonical: '/nosotros' },
 }
 
 const faqSchema = {

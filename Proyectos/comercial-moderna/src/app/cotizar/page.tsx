@@ -5,6 +5,7 @@ import { QuoteFormWrapper } from '@/components/cotizar/QuoteFormWrapper'
 export const metadata: Metadata = {
   title: 'Cotizar',
   description: 'Solicita tu cotización de regalos empresariales y productos publicitarios personalizados. Respuesta en menos de 24 horas.',
+  alternates: { canonical: '/cotizar' },
 }
 
 export default function CotizarPage() {

@@ -4,6 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Cómo trabajamos | Proceso de compra de regalos empresariales',
   description: 'Proceso de Comercial Moderna en 4 pasos: cotización, propuesta, producción y entrega llave en mano en toda Colombia. Sin formularios complicados, sin sorpresas.',
+  alternates: { canonical: '/proceso' },
 }
 
 const howToSchema = {

@@ -5,6 +5,7 @@ import { NeedsSection } from '@/components/home/NeedsSection'
 import { CustomSection } from '@/components/home/CustomSection'
 import { CatalogPreview } from '@/components/home/CatalogPreview'
 import { MetricsSection } from '@/components/home/MetricsSection'
+import { InternationalSection } from '@/components/home/InternationalSection'
 import { FinalCTA } from '@/components/home/FinalCTA'
 
 const localBusinessSchema = {
@@ -42,6 +43,7 @@ export default function HomePage() {
       <CatalogPreview />
       <MetricsSection />
       <ClientBar />
+      <InternationalSection />
       <FinalCTA />
     </>
   )

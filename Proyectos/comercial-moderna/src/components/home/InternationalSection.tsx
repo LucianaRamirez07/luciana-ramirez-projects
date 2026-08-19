@@ -37,7 +37,7 @@ export function InternationalSection() {
               Alcance internacional
             </p>
             <h2 className="font-fustat font-extrabold text-3xl sm:text-4xl leading-tight mb-5">
-              Tu marca, sin fronteras.
+              Tus ideas, sin fronteras.
             </h2>
             <p className="text-white/70 font-inter text-lg leading-relaxed mb-8">
               Además de atender todo Colombia, exportamos regalos empresariales y productos publicitarios a Estados Unidos. Producimos localmente a costos competitivos y coordinamos todo el proceso — cotización, producción, aduanas y entrega — con un equipo que habla tu idioma.

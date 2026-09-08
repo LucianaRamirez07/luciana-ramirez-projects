@@ -28,10 +28,15 @@ const config: Config = {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
+        },
       },
       animation: {
         'blur-fade-up': 'blurFadeUp 0.8s ease-out forwards',
         marquee: 'marquee 20s linear infinite',
+        float: 'float 4s ease-in-out infinite',
       },
     },
   },

@@ -11995,19 +11995,26 @@ Screen Paraguas hasta 3 tintas.</span></div></div>
 
     const pageStageOuter = document.getElementById('pageStageOuter');
     const pageStageEl = document.getElementById('pageStage');
+    const navbarEl = document.querySelector('.navbar');
     const PAGE_W = 816, PAGE_H = 1056;
     function fitToScreen() {
-      const navReserve = 96;
-      const margin = 24;
-      const availW = window.innerWidth - margin * 2;
-      const availH = window.innerHeight - navReserve - margin * 2;
+      const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+      const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      const isMobile = vw < 640;
+      const navReserve = navbarEl ? navbarEl.offsetHeight : 96;
+      const margin = isMobile ? 8 : 24;
+      const availW = vw - margin * 2;
+      const availH = vh - navReserve - margin * 2;
       const scale = Math.min(availW / PAGE_W, availH / PAGE_H, 1);
       pageStageOuter.style.width = (PAGE_W * scale) + 'px';
       pageStageOuter.style.height = (PAGE_H * scale) + 'px';
       pageStageEl.style.transform = 'scale(' + scale + ')';
     }
     window.addEventListener('resize', fitToScreen);
+    window.addEventListener('orientationchange', () => setTimeout(fitToScreen, 150));
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', fitToScreen);
     fitToScreen();
+    setTimeout(fitToScreen, 300);
   </script>
 
 </body>

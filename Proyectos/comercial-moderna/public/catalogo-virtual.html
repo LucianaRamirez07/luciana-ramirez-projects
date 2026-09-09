@@ -221,61 +221,6 @@
       .page.page-cover, .page.page-productgrid { position: relative; }
       @page { size: letter; margin: 0; }
     }
-
-    /* ─── MOBILE: catálogo de una columna, sin proporción fija de hoja ─── */
-    @media (max-width: 767px) {
-      .viewer { padding: 10px 0 120px; align-items: stretch; }
-      .page-stage-outer { width: 100% !important; height: auto !important; box-shadow: none; overflow: visible; }
-      .page-stage { width: 100% !important; height: auto !important; box-shadow: none; }
-      .page {
-        position: relative !important;
-        width: 100% !important;
-        height: auto !important;
-        min-height: 100vh;
-        transform: none !important;
-        transition: none !important;
-      }
-      .page-header { padding: 18px 20px 10px; }
-      .page-header img { height: 62px; }
-      .pht-line1 { font-size: 21px; }
-      .pht-line2 { font-size: 17px; }
-      .page-content { padding: 16px 20px 4px; }
-      .subcat-row { gap: 8px; }
-      .subcat-icon { width: 26px; height: 26px; }
-      .subcat-icon svg { width: 13px; height: 13px; }
-      .subcat-title { font-size: 14px; padding: 7px 16px; margin-left: 0; border-radius: 20px; }
-      .product-heading-sm { min-height: 0; margin-bottom: 4px; }
-      .product-watermark-sm { display: none; }
-      .product-title-sm, .product-title-sm.no-watermark { position: static; font-size: 21px; margin-bottom: 4px; }
-      .product-columns-sm, .product-columns-sm.reverse { flex-direction: column; gap: 12px; }
-      .product-photo-sm { width: 100%; height: 230px; }
-      .product-desc-sm { font-size: 16px; }
-      .spec-text { font-size: 14.5px; }
-      .spec-text strong { font-size: 13.5px; }
-      .product-half + .product-half { margin-top: 18px; }
-      .page-footer { padding: 14px 20px; }
-      .pf-tagline { display: none; }
-      .navbar { padding: 12px 14px; gap: 10px; flex-wrap: nowrap; }
-      .navbar button { padding: 10px 16px; font-size: 12.5px; }
-      .navbar select { flex: 1; min-width: 0; }
-      .navbar .pageindicator { min-width: 0; font-size: 11.5px; }
-
-      .section-title { font-size: 26px; }
-      .qs-tagline { font-size: 16px; margin-bottom: 10px; }
-      .quienes-somos-content p { font-size: 15px; line-height: 1.5; }
-      .servicios-list span { font-size: 12.5px; padding: 6px 12px; }
-      .clientes-line { font-size: 13px; }
-
-      .page-divider, .page-divider-alt { padding: 50px 28px; }
-      .divider-label { font-size: 13px; margin-bottom: 12px; }
-      .divider-title { font-size: 34px; margin-bottom: 14px; }
-
-      .cover-title-new { font-size: 34px; top: auto; bottom: 120px; left: 28px; max-width: calc(100% - 56px); }
-      .cover-sub-new { left: 28px; right: 28px; bottom: 28px; font-size: 12px; padding: 12px 18px; }
-      .cover-logo { top: 40px; height: 110px; }
-      .back-slogan { font-size: 17px; }
-      .back-contact { font-size: 12px; }
-    }
   </style>
 </head>
 <body>
@@ -12054,12 +11999,6 @@ Screen Paraguas hasta 3 tintas.</span></div></div>
     const PAGE_W = 816, PAGE_H = 1056;
     function fitToScreen() {
       const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-      if (vw < 768) {
-        pageStageOuter.style.width = '';
-        pageStageOuter.style.height = '';
-        pageStageEl.style.transform = '';
-        return;
-      }
       const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
       const navReserve = navbarEl ? navbarEl.offsetHeight : 96;
       const margin = 24;

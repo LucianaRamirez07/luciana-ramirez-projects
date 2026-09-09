@@ -35,6 +35,13 @@
     .navbar .pageindicator { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: var(--blanco); min-width: 70px; text-align: center; }
     .navbar select { font-family: 'Open Sans', sans-serif; font-size: 12.5px; padding: 8px 12px; border-radius: 20px; border: none; background: var(--gris-suave); color: var(--negro); }
 
+    @media (max-width: 480px) {
+      .navbar { padding: 8px 6px; gap: 4px; }
+      .navbar button { padding: 7px 10px; font-size: 10.5px; flex-shrink: 0; }
+      .navbar select { max-width: 100px; font-size: 10.5px; padding: 6px 6px; }
+      .navbar .pageindicator { min-width: 34px; font-size: 10.5px; }
+    }
+
     :root {
       --cm-surface: #fbf9f9;
       --cm-primary: #8c4f00;

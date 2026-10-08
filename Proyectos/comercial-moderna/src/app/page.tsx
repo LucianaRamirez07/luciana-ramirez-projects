@@ -1,4 +1,5 @@
 import { Hero } from '@/components/home/Hero'
+import { SeasonalBanners } from '@/components/home/SeasonalBanners'
 import { WhatWeDo } from '@/components/home/WhatWeDo'
 import { ClientBar } from '@/components/home/ClientBar'
 import { NeedsSection } from '@/components/home/NeedsSection'
@@ -38,6 +39,7 @@ export default function HomePage() {
       />
       <Hero />
       <WhatWeDo />
+      <SeasonalBanners />
       <NeedsSection />
       <CustomSection />
       <CatalogPreview />

@@ -8,10 +8,11 @@ interface Banner {
   id: string
   alt: string
   desktop: { src: string; width: number; height: number }
-  // Versión 4:5 para celular. Si todos los banners la tienen, el carrusel cambia de proporción en pantallas angostas.
+  // Versión 4:5 para celular. Si algún banner la tiene, el carrusel cambia de proporción en pantallas angostas;
+  // los que no la tienen se muestran completos y centrados (sin recortar).
   mobile?: { src: string; width: number; height: number }
-  // Primer instante en que el banner ya no se muestra (hora local).
-  until: Date
+  // Primer instante en que el banner ya no se muestra (hora local). Sin fecha, no caduca.
+  until?: Date
   // A dónde lleva el clic en el banner.
   href: string
 }
@@ -23,7 +24,7 @@ const banners: Banner[] = [
     desktop: { src: '/temporada/halloween-escritorio.jpg', width: 1672, height: 941 },
     mobile: { src: '/temporada/halloween-celular.jpg', width: 1122, height: 1402 },
     until: new Date('2026-11-01T00:00:00'),
-    href: '/cotizar',
+    href: '/catalogo',
   },
   {
     id: 'navidad',
@@ -32,6 +33,12 @@ const banners: Banner[] = [
     mobile: { src: '/temporada/navidad-celular.jpg', width: 1122, height: 1402 },
     until: new Date('2027-01-07T00:00:00'),
     href: '/catalogo-navidad.html',
+  },
+  {
+    id: 'dotaciones',
+    alt: 'Dotaciones empresariales: uniformes y prendas corporativas personalizadas — cotiza con nosotros',
+    desktop: { src: '/temporada/dotaciones-escritorio.jpg', width: 1672, height: 941 },
+    href: '/cotizar',
   },
 ]
 
@@ -58,7 +65,7 @@ function BannerPicture({ banner }: { banner: Banner }) {
   return (
     <picture>
       {mobileProps && <source media="(max-width: 767px)" srcSet={mobileProps.srcSet} sizes="100vw" />}
-      <img {...desktopProps} alt={alt} className="w-full h-full object-cover" />
+      <img {...desktopProps} alt={alt} className={cn('w-full h-full', mobile ? 'object-cover' : 'object-contain md:object-cover')} />
     </picture>
   )
 }
@@ -75,7 +82,7 @@ export function SeasonalBanners() {
   const [paused, setPaused] = useState(false)
   const touchStartX = useRef<number | null>(null)
 
-  const active = hour === null ? [] : banners.filter((b) => hour < b.until.getTime())
+  const active = hour === null ? [] : banners.filter((b) => !b.until || hour < b.until.getTime())
   const count = active.length
   const current = count > 0 ? index % count : 0
 
@@ -89,7 +96,7 @@ export function SeasonalBanners() {
   if (count === 0) return null
 
   const go = (to: number) => setIndex((to + count) % count)
-  const hasMobile = active.every((b) => b.mobile)
+  const hasMobile = active.some((b) => b.mobile)
 
   return (
     <section

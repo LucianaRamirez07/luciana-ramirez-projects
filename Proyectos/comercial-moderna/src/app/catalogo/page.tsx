@@ -84,7 +84,7 @@ export default function CatalogoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="flex justify-center mb-20">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
         <a
           href="/catalogo-virtual.html"
           target="_blank"
@@ -92,6 +92,14 @@ export default function CatalogoPage() {
           className="inline-flex items-center justify-center bg-primary text-white font-inter font-semibold text-lg px-10 py-4 hover:bg-primary/90 transition-all"
         >
           Ver catálogo completo →
+        </a>
+        <a
+          href="/catalogo-navidad.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center border-2 border-primary text-primary font-inter font-semibold text-lg px-10 py-[14px] hover:bg-primary hover:text-white transition-all"
+        >
+          Catálogo de Navidad →
         </a>
       </div>
 

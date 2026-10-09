@@ -12,6 +12,8 @@ interface Banner {
   mobile?: { src: string; width: number; height: number }
   // Primer instante en que el banner ya no se muestra (hora local).
   until: Date
+  // A dónde lleva el clic en el banner.
+  href: string
 }
 
 const banners: Banner[] = [
@@ -21,6 +23,7 @@ const banners: Banner[] = [
     desktop: { src: '/temporada/halloween-escritorio.jpg', width: 1672, height: 941 },
     mobile: { src: '/temporada/halloween-celular.jpg', width: 1122, height: 1402 },
     until: new Date('2026-11-01T00:00:00'),
+    href: '/cotizar',
   },
   {
     id: 'navidad',
@@ -28,6 +31,7 @@ const banners: Banner[] = [
     desktop: { src: '/temporada/navidad-escritorio.jpg', width: 1672, height: 941 },
     mobile: { src: '/temporada/navidad-celular.jpg', width: 1122, height: 1402 },
     until: new Date('2027-01-07T00:00:00'),
+    href: '/catalogo-navidad.html',
   },
 ]
 
@@ -118,7 +122,8 @@ export function SeasonalBanners() {
             return (
               <Link
                 key={b.id}
-                href="/cotizar"
+                href={b.href}
+                prefetch={false}
                 aria-hidden={!visible}
                 tabIndex={visible ? 0 : -1}
                 className={cn(

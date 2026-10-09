@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Catálogo de Navidad 2026 — Comercial Moderna</title>
+  <title>Regalos de temporada de Navidad 2026 — Comercial Moderna</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -270,6 +270,16 @@
     .page-back .back-slogan { color: #fff; font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 500; }
     .page-back .back-contact { color: var(--crema); text-shadow: 0 1px 6px rgba(60,0,0,0.6); }
     .page-back .back-contact strong { color: #fff; }
+
+    /* Página "Guía de regalos": árbol con productos como adornos */
+    .page.page-guia { background: var(--crema); }
+    .gd-title { position: absolute; top: 56px; left: 0; right: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 46px; line-height: 1.08; color: #7A0A12; z-index: 3; }
+    .gd-tree { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+    .gd-item { position: absolute; z-index: 2; border-radius: 50%; border: 5px solid #fff; background: #fff; box-shadow: 0 8px 18px rgba(60,0,0,0.28); overflow: hidden; }
+    .gd-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gd-label { position: absolute; z-index: 3; transform: translateY(-50%); font-family: 'Playfair Display', Georgia, serif; font-size: 21px; line-height: 1.15; color: #7A0A12; white-space: nowrap; background: rgba(251,241,230,0.94); padding: 5px 12px; border-radius: 12px; box-shadow: 0 2px 8px rgba(60,0,0,0.12); }
+    .gd-l { text-align: right; }
+    .gd-foot { position: absolute; bottom: 44px; left: 0; right: 0; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; color: #7A0A12; letter-spacing: 0.04em; z-index: 3; }
   </style>
 </head>
 <body>
@@ -281,12 +291,47 @@
       <div class="page page-cover page-cover-navidad">
         <div class="cn-logo"><img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" /></div>
         <div class="cn-title">
-          <div class="cn-kicker">Regalos de temporada</div>
+          <div class="cn-kicker">Regalos de temporada de</div>
           <div class="cn-big">Navidad</div>
-          <div class="cn-year">{ 2026 }</div>
+          <div class="cn-year">2026</div>
         </div>
         <div class="cn-sub">Kits de Navidad y Ocasiones Especiales</div>
         <div class="cn-brand">Comercial Moderna</div>
+      </div>
+
+      <div class="page page-guia">
+        <div class="gd-title">Guía de regalos<br>de Navidad 2026</div>
+        <svg class="gd-tree" viewBox="0 0 816 1056" aria-hidden="true">
+          <defs>
+            <linearGradient id="gTree" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f7a4f"/><stop offset="1" stop-color="#1F5A3A"/></linearGradient>
+            <linearGradient id="gBow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c8202a"/><stop offset="1" stop-color="#8E0F18"/></linearGradient>
+          </defs>
+          <rect x="383" y="850" width="50" height="46" rx="6" fill="#6b4a2f"/>
+          <path d="M 408 215 L 523 420 Q 484.7 446 446.3 420 Q 408.0 446 369.7 420 Q 331.3 446 293.0 420 Z" fill="url(#gTree)" stroke="#143f27" stroke-width="2" stroke-linejoin="round"/><path d="M 408 310 L 568 560 Q 528.0 586 488.0 560 Q 448.0 586 408.0 560 Q 368.0 586 328.0 560 Q 288.0 586 248.0 560 Z" fill="url(#gTree)" stroke="#143f27" stroke-width="2" stroke-linejoin="round"/><path d="M 408 420 L 613 705 Q 572.0 731 531.0 705 Q 490.0 731 449.0 705 Q 408.0 731 367.0 705 Q 326.0 731 285.0 705 Q 244.0 731 203.0 705 Z" fill="url(#gTree)" stroke="#143f27" stroke-width="2" stroke-linejoin="round"/><path d="M 408 540 L 663 850 Q 620.5 876 578.0 850 Q 535.5 876 493.0 850 Q 450.5 876 408.0 850 Q 365.5 876 323.0 850 Q 280.5 876 238.0 850 Q 195.5 876 153.0 850 Z" fill="url(#gTree)" stroke="#143f27" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="385" cy="260" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="436" cy="300" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="350" cy="380" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="470" cy="400" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="300" cy="470" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="520" cy="470" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="262" cy="590" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="560" cy="600" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="330" cy="690" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="500" cy="720" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="230" cy="760" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="590" cy="770" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="300" cy="830" r="4" fill="#E4C06A" opacity="0.9"/><circle cx="520" cy="835" r="4" fill="#E4C06A" opacity="0.9"/>
+          <g transform="translate(408 196)">
+            <path d="M0 0 C -46 -34 -78 -4 -50 14 C -30 26 -8 8 0 0 Z" fill="url(#gBow)" stroke="#6e0a12" stroke-width="1.5"/>
+            <path d="M0 0 C 46 -34 78 -4 50 14 C 30 26 8 8 0 0 Z" fill="url(#gBow)" stroke="#6e0a12" stroke-width="1.5"/>
+            <circle r="9" fill="#a8141d" stroke="#6e0a12" stroke-width="1.5"/>
+            <path d="M-4 8 L-22 52 L-8 44 L-2 58 L4 10 Z" fill="url(#gBow)" stroke="#6e0a12" stroke-width="1.2"/>
+            <path d="M4 8 L22 52 L8 44 L2 58 L-4 10 Z" fill="url(#gBow)" stroke="#6e0a12" stroke-width="1.2"/>
+          </g>
+        </svg>
+        <div class="gd-item" style="left:413.0px; top:281.0px; width:98px; height:98px;"><img src="/catalogo-assets/fotos/kits-regalo/caja-navidena-premium.jpg" alt="Caja Navideña Premium"></div>
+        <div class="gd-label gd-r" style="left:527.0px; top:330px;">Caja Navideña<br>Premium</div>
+        <div class="gd-item" style="left:299.0px; top:372.0px; width:106px; height:106px;"><img src="/catalogo-assets/fotos/kits-regalo/kit-descanso-de-navidad.jpg" alt="Kit Descanso de Navidad"></div>
+        <div class="gd-label gd-l" style="right:533.0px; top:425px;">Kit Descanso<br>de Navidad</div>
+        <div class="gd-item" style="left:427.0px; top:463.0px; width:114px; height:114px;"><img src="/catalogo-assets/fotos/kits-regalo/kit-aventura-camping.jpg" alt="Kit Aventura & Camping"></div>
+        <div class="gd-label gd-r" style="left:557.0px; top:520px;">Kit Aventura<br>&amp; Camping</div>
+        <div class="gd-item" style="left:263.0px; top:555.0px; width:114px; height:114px;"><img src="/catalogo-assets/fotos/kits-regalo/ritual-cafe-colombiano.jpg" alt="Ritual de Café Colombiano"></div>
+        <div class="gd-label gd-l" style="right:569.0px; top:612px;">Ritual de Café<br>Colombiano</div>
+        <div class="gd-item" style="left:455.0px; top:633.0px; width:118px; height:118px;"><img src="/catalogo-assets/fotos/kits-regalo/kit-karaoke-navideno.jpg" alt="Kit Karaoke Navideño"></div>
+        <div class="gd-label gd-r" style="left:589.0px; top:692px;">Kit Karaoke<br>Navideño</div>
+        <div class="gd-item" style="left:227.0px; top:713.0px; width:118px; height:118px;"><img src="/catalogo-assets/fotos/kits-regalo/kit-bienestar-en-casa.jpg" alt="Kit Bienestar en Casa"></div>
+        <div class="gd-label gd-l" style="right:605.0px; top:772px;">Kit Bienestar<br>en Casa</div>
+        <div class="gd-item" style="left:495.0px; top:759.0px; width:106px; height:106px;"><img src="/catalogo-assets/fotos/kits-regalo/kit-picnic-en-familia.jpg" alt="Kit Picnic en Familia"></div>
+        <div class="gd-label gd-r" style="left:617.0px; top:812px;">Kit Picnic<br>en Familia</div>
+        <div class="gd-foot">comercialmoderna.com</div>
       </div>
 
       <div class="page page-productgrid accent-naranja">
@@ -755,8 +800,9 @@
     <span class="pageindicator" id="pageIndicator">1 / 200</span>
     <select id="jumpSelect">
 <option value="0">Portada</option>
-<option value="1">Kits de Navidad y Ocasiones Especiales</option>
-<option value="9">Contraportada</option>
+<option value="1">Guía de regalos de Navidad</option>
+<option value="2">Kits de Navidad y Ocasiones Especiales</option>
+<option value="10">Contraportada</option>
 </select>
     <button id="btnNext">Siguiente →</button>
   </div>

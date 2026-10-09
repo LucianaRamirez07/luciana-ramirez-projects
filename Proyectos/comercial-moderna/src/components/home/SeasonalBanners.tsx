@@ -13,7 +13,7 @@ interface Banner {
   mobile?: { src: string; width: number; height: number }
   // Primer instante en que el banner ya no se muestra (hora local). Sin fecha, no caduca.
   until?: Date
-  // A dónde lleva el clic en el banner.
+  // A dónde lleva el botón "Ver catálogo" mientras este banner se muestra.
   href: string
 }
 
@@ -38,7 +38,7 @@ const banners: Banner[] = [
     id: 'dotaciones',
     alt: 'Dotaciones empresariales: uniformes y prendas corporativas personalizadas — cotiza con nosotros',
     desktop: { src: '/temporada/dotaciones-escritorio.jpg', width: 1672, height: 941 },
-    href: '/cotizar',
+    href: '/catalogo-dotaciones.html',
   },
 ]
 
@@ -127,19 +127,16 @@ export function SeasonalBanners() {
           {active.map((b, i) => {
             const visible = i === current
             return (
-              <Link
+              <div
                 key={b.id}
-                href={b.href}
-                prefetch={false}
                 aria-hidden={!visible}
-                tabIndex={visible ? 0 : -1}
                 className={cn(
                   'absolute inset-0 transition-opacity duration-700 motion-reduce:transition-none',
                   visible ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none',
                 )}
               >
                 <BannerPicture banner={b} />
-            </Link>
+              </div>
             )
           })}
 
@@ -182,6 +179,16 @@ export function SeasonalBanners() {
             ))}
           </div>
         )}
+
+        <div className="mt-6 flex justify-center">
+          <Link
+            href={active[current].href}
+            prefetch={false}
+            className="inline-flex items-center justify-center bg-primary text-white font-inter font-semibold text-base px-8 py-3 hover:bg-primary/90 transition-all"
+          >
+            Ver catálogo →
+          </Link>
+        </div>
       </div>
     </section>
   )

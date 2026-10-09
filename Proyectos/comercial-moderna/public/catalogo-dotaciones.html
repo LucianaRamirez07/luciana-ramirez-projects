@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo de Dotaciones Empresariales — Comercial Moderna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --naranja: #F7941D; --naranja-dark: #e0830c; --naranja-light: #fff8f0;
+      --morado: #7B2D8B; --morado-light: #f5eef8; --morado-claro: #D8B4FE;
+      --negro: #111111; --gris-texto: #4a4a4a; --gris-suave: #f7f7f8;
+      --borde: #e8e8ec; --blanco: #ffffff; --page-w: 816px; --page-h: 1056px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { font-family: 'Open Sans', sans-serif; background: #cfd3da; color: var(--negro); }
+    .viewer { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 0 100px; }
+    .page-stage-outer { position: relative; overflow: hidden; flex-shrink: 0; }
+    .page-stage { position: relative; width: var(--page-w); height: var(--page-h); box-shadow: 0 10px 50px rgba(0,0,0,0.28); perspective: 2600px; transform-origin: top left; }
+    .page {
+      width: var(--page-w); height: var(--page-h); background: var(--blanco); position: absolute; top: 0; left: 0;
+      display: none; flex-direction: column; overflow: hidden;
+      backface-visibility: hidden; transform-style: preserve-3d; transform: rotateY(0deg);
+      transition: transform 0.6s cubic-bezier(.45,.05,.35,1), box-shadow 0.6s;
+    }
+    .page.active { display: flex; }
+    .page.turning-next { transform-origin: left center; transform: rotateY(-155deg); box-shadow: -40px 10px 70px rgba(0,0,0,0.35); }
+    .page.turning-prev { transform-origin: right center; transform: rotateY(155deg); box-shadow: 40px 10px 70px rgba(0,0,0,0.35); }
+
+    .navbar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--negro); padding: 14px 28px; display: flex; align-items: center; justify-content: center; gap: 18px; z-index: 50; }
+    .navbar button { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: var(--blanco); background: var(--morado); border: none; border-radius: 20px; padding: 10px 20px; cursor: pointer; }
+    .navbar button:disabled { opacity: 0.35; cursor: default; }
+    .navbar button:not(:disabled):hover { background: var(--naranja); }
+    .navbar .pageindicator { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: var(--blanco); min-width: 70px; text-align: center; }
+    .navbar select { font-family: 'Open Sans', sans-serif; font-size: 12.5px; padding: 8px 12px; border-radius: 20px; border: none; background: var(--gris-suave); color: var(--negro); }
+
+    @media (max-width: 480px) {
+      .navbar { padding: 8px 6px; gap: 4px; }
+      .navbar button { padding: 7px 10px; font-size: 10.5px; flex-shrink: 0; }
+      .navbar select { max-width: 100px; font-size: 10.5px; padding: 6px 6px; }
+      .navbar .pageindicator { min-width: 34px; font-size: 10.5px; }
+    }
+
+    :root {
+      --cm-surface: #fbf9f9;
+      --cm-primary: #8c4f00;
+      --cm-primary-container: #f7941d;
+      --cm-on-primary-container: #613500;
+      --cm-secondary: #8136c4;
+      --cm-secondary-container: #ba70fe;
+      --cm-on-secondary-container: #440076;
+      --cm-ink: #1b1c1c;
+    }
+    .page.page-cover { align-items: flex-start; justify-content: flex-end; text-align: left; background: #f3e8fb; overflow: hidden; flex-direction: column; }
+    .cover-blob-cream {
+      position: absolute; left: -5%; top: -5%; width: 88%; height: 70%;
+      background: var(--naranja-light);
+      border-radius: 0 0 55% 45% / 0 0 28% 72%;
+      z-index: 1;
+    }
+    .cover-wave-bottom {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 34%;
+      background: var(--morado);
+      border-radius: 55% 45% 0 0 / 100px 130px 0 0;
+      z-index: 2;
+    }
+    .cover-logo {
+      position: absolute; z-index: 5; top: 70px; left: 50%; transform: translateX(-50%);
+      height: 190px; width: auto;
+    }
+    .cover-title-new {
+      position: absolute; z-index: 3; top: 470px; left: 64px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 60px;
+      line-height: 1.05; letter-spacing: -0.02em; color: var(--morado);
+      max-width: 520px;
+    }
+    .cover-title-new .accent { color: var(--naranja); }
+    .cover-sub-new {
+      position: absolute; z-index: 4; bottom: 56px; left: 64px;
+      display: inline-block;
+      background: var(--blanco);
+      color: var(--cm-ink, #1b1c1c);
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px;
+      padding: 14px 26px; border-radius: 9999px;
+    }
+
+    .page-back { justify-content: space-between; padding: 70px 60px; }
+    .back-slogan { font-family: 'Poppins', sans-serif; font-size: 22px; font-style: italic; font-weight: 500; color: var(--morado); }
+    .back-contact { font-size: 13.5px; color: var(--gris-texto); line-height: 2; }
+    .back-contact strong { color: var(--negro); font-size: 15px; }
+
+    .page-header { padding: 10px 44px 8px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--naranja); background: var(--blanco); position: relative; z-index: 2; }
+    .page-header img { height: 108px; width: auto; }
+    .page-header-title { text-align: right; position: relative; }
+    .pht-line1 { font-family: 'Poppins', sans-serif; font-size: 29px; font-weight: 800; color: var(--negro); line-height: 1.1; }
+    .pht-line2 { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--morado); line-height: 1.2; }
+    .accent-naranja .pht-line2 { color: var(--naranja-dark); }
+    .pht-accent { width: 30px; height: 3px; border-radius: 3px; background: var(--naranja); margin: 2px 0 0 auto; }
+    .accent-naranja .pht-accent { background: var(--morado); }
+    .page-footer {
+      margin-top: auto; padding: 12px 44px; display: flex; align-items: center; justify-content: space-between;
+      font-family: 'Poppins', sans-serif; font-size: 11px; color: #999; border-top: 1px solid var(--borde);
+    }
+    .pf-site { display: inline-flex; align-items: center; gap: 6px; text-transform: none; letter-spacing: 0; }
+    .pf-globe { display: inline-flex; color: var(--morado); }
+    .pf-tagline { text-transform: none; letter-spacing: 0; }
+    .pf-tagline strong { color: var(--morado); font-weight: 700; }
+    .page-content { padding: 12px 44px 0px; flex: 1; overflow: hidden; display: flex; flex-direction: column; position: relative; z-index: 2; }
+
+    .section-title { font-family: 'Poppins', sans-serif; font-size: 34px; font-weight: 800; color: var(--negro); margin-bottom: 10px; }
+    .section-title span { color: var(--naranja); }
+    .qs-tagline { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; font-style: italic; color: var(--morado); margin-bottom: 12px; }
+    .quienes-somos-content p { font-size: 17.5px; color: var(--gris-texto); line-height: 1.42; margin-bottom: 8px; }
+    .servicios-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 12px; }
+    .servicios-list span { font-family: 'Poppins', sans-serif; font-size: 16.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--morado); background: var(--morado-light); padding: 8px 16px; border-radius: 20px; }
+    .clientes-line { font-size: 14.5px; color: #888; line-height: 1.9; }
+    .clientes-line strong { color: var(--negro); }
+
+    .page-divider { align-items: flex-start; justify-content: center; padding: 80px 60px; background: linear-gradient(135deg, var(--morado) 0%, #5a2068 100%); color: var(--blanco); }
+    .page-divider-alt { background: linear-gradient(135deg, var(--naranja-dark) 0%, var(--naranja) 100%); }
+    .divider-label { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 4px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+    .divider-title { font-family: 'Poppins', sans-serif; font-size: 68px; font-weight: 800; line-height: 1.15; margin-bottom: 24px; }
+    .divider-title span { color: rgba(255,255,255,0.85); }
+
+    .subcat-row { display: flex; align-items: center; gap: 0; margin-bottom: 8px; }
+    .subcat-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%; background: var(--blanco); color: var(--morado);
+      border: 2px solid var(--morado); flex-shrink: 0; z-index: 2;
+    }
+    .accent-naranja .subcat-icon { color: var(--naranja-dark); border-color: var(--naranja-dark); }
+    .subcat-title {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.8px; color: var(--blanco);
+      background: var(--morado);
+      padding: 9px 22px 9px 16px; border-radius: 0 20px 20px 0;
+      margin-left: -19px; padding-left: 25px;
+    }
+    .accent-naranja .subcat-title { background: var(--naranja-dark); }
+    .subcat-line { flex: 1; height: 2px; background: var(--morado); opacity: 0.4; margin-left: 12px; }
+    .accent-naranja .subcat-line { background: var(--naranja-dark); }
+
+    .page.page-productgrid { background: var(--blanco); overflow: hidden; }
+    .page-blob { position: absolute; border-radius: 50%; z-index: 1; pointer-events: none; }
+    .page-blob.blob-1 { width: 360px; height: 360px; top: -140px; right: -110px; background: var(--naranja); opacity: 0.24; }
+    .page-blob.blob-2 { width: 280px; height: 280px; bottom: -110px; left: -90px; background: var(--morado); opacity: 0.20; }
+    .accent-naranja .page-blob.blob-1 { background: var(--morado); }
+    .accent-naranja .page-blob.blob-2 { background: var(--naranja); }
+
+    .halves-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    /* ─── PRODUCT HALF (2 per page) ─── */
+    .product-half { padding-top: 0px; background: rgba(255,255,255,0.55); border-radius: 14px; }
+    .product-half + .product-half {
+      margin-top: 0; padding-top: 2px;
+      border-top: 2px dotted var(--morado-light);
+      position: relative;
+    }
+    .accent-naranja .product-half + .product-half { border-top-color: var(--naranja-light); }
+    .product-half + .product-half::before, .product-half + .product-half::after {
+      content: ''; position: absolute; top: -3px; width: 7px; height: 7px; background: var(--morado); border-radius: 2px;
+    }
+    .accent-naranja .product-half + .product-half::before, .accent-naranja .product-half + .product-half::after { background: var(--naranja-dark); }
+    .product-half + .product-half::before { left: 0; }
+    .product-half + .product-half::after { right: 0; }
+    .product-heading-sm { position: relative; min-height: 86px; margin-bottom: 0px; }
+    .product-watermark-sm {
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 72px;
+      color: #ececef; line-height: 1; letter-spacing: -1.5px;
+      position: absolute; top: -8px; left: 0; z-index: 1; white-space: nowrap;
+    }
+    .product-title-sm {
+      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 29px;
+      text-transform: uppercase; color: var(--negro);
+      position: relative; top: 26px; z-index: 2; max-width: 560px; line-height: 1.08;
+    }
+    .product-title-sm.no-watermark { top: 4px; font-size: 23px; }
+    .product-columns-sm { display: flex; gap: 22px; align-items: center; }
+    .product-columns-sm.reverse { flex-direction: row-reverse; }
+    .product-photo-sm {
+      width: 215px; height: 215px; flex-shrink: 0; border-radius: 16px; overflow: visible;
+      background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .product-photo-sm.compact { width: 165px; height: 165px; }
+    .product-photo-sm::before {
+      content: ''; position: absolute; inset: 10px; z-index: 0; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--naranja-light) 0%, transparent 70%);
+    }
+    .product-photo-sm img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; padding: 14px; filter: drop-shadow(0 10px 16px rgba(0,0,0,0.12)); }
+    .product-text-sm { flex: 1; }
+    .product-code-label-sm { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 19px; color: var(--naranja); margin-bottom: 3px; }
+    .product-desc-sm { font-size: 18.5px; color: var(--gris-texto); line-height: 1.28; margin-bottom: 2px; }
+    .product-specs-sm { display: flex; flex-direction: column; gap: 1px; }
+    .spec-row { display: flex; align-items: flex-start; gap: 8px; padding-bottom: 1px; border-bottom: 1px dotted var(--borde); }
+    .spec-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .spec-icon {
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+      width: 24px; height: 24px; border-radius: 50%; background: var(--morado-light); color: var(--morado);
+      margin-top: 0;
+    }
+    .spec-icon svg { width: 16px; height: 16px; }
+    .accent-naranja .spec-icon { background: var(--naranja-light); color: var(--naranja-dark); }
+    .spec-text { font-size: 14px; color: #555; line-height: 1.2; }
+    .spec-text strong { color: var(--morado); text-transform: uppercase; font-size: 12.8px; letter-spacing: 0.4px; font-weight: 700; }
+    .accent-naranja .spec-text strong { color: var(--naranja-dark); }
+
+    .product-accent-bar { height: 10px; }
+    .accent-morado .product-accent-bar { background: var(--morado); }
+    .accent-naranja .product-accent-bar { background: var(--naranja); }
+
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .navbar { display: none; }
+      .viewer { padding: 0; min-height: 0; }
+      body { background: white; }
+      .page-stage-outer { width: auto !important; height: auto !important; overflow: visible !important; }
+      .page-stage { box-shadow: none; width: auto; height: auto; transform: none !important; }
+      .page { position: static; display: flex !important; page-break-after: always; width: var(--page-w); height: var(--page-h); transform: none !important; box-shadow: none !important; }
+      .page.page-cover, .page.page-productgrid { position: relative; }
+      @page { size: letter; margin: 0; }
+    }
+
+    /* ===== Catálogo de Dotaciones ===== */
+    .page-sport { background: #fff; }
+    .page-sport .page-header { flex: none; }
+    .ds-title { flex: none; display: flex; align-items: baseline; justify-content: space-between; padding: 10px 28px 4px; }
+    .ds-name { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 30px; text-transform: uppercase; color: var(--negro); letter-spacing: -0.01em; }
+    .ds-slogan { font-family: 'Poppins', sans-serif; font-style: italic; font-weight: 500; font-size: 14px; color: var(--morado); text-align: right; }
+    .ds-featline { flex: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 6px; padding: 2px 28px 6px; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 12.5px; color: var(--gris-texto); }
+    .ds-dot { color: var(--naranja); font-weight: 800; margin: 0 4px; }
+    .ds-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 2px 38px 4px; min-height: 0; }
+    .ds-row { flex: none; display: flex; gap: 10px; align-items: stretch; justify-content: center; }
+    .ds-img { position: relative; flex: none; width: 360px; aspect-ratio: 360 / 352; background: #0b0f0d; border-radius: 12px; overflow: hidden; }
+    .ds-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .ds-g { position: absolute; bottom: 9px; left: 9px; z-index: 2; background: rgba(255,255,255,0.92); color: var(--morado); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; }
+    .ds-line { position: absolute; bottom: 9px; right: 9px; z-index: 2; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; padding: 3px 10px; border-radius: 999px; }
+    .ds-card { flex: none; width: 350px; background: var(--naranja-light); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 9px; overflow: hidden; justify-content: center; }
+    .ds-chip { align-self: flex-start; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; padding: 4px 11px; border-radius: 999px; }
+    .ds-l-dark { background: var(--morado); }
+    .ds-l-white { background: var(--naranja); }
+    .ds-feats { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+    .ds-feats li { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 12.5px; line-height: 1.25; color: var(--negro); padding-left: 14px; position: relative; }
+    .ds-feats li::before { content: ''; position: absolute; left: 0; top: 5px; width: 6px; height: 6px; border-radius: 50%; background: var(--naranja); }
+    .ds-tag { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--naranja-dark); }
+    .ds-h { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 20px; line-height: 1.1; color: var(--morado); }
+    .ds-card p { font-size: 12px; line-height: 1.4; color: var(--gris-texto); }
+    .ds-details { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 2px; }
+    .ds-details li { display: flex; flex-direction: column; font-size: 11.5px; line-height: 1.25; color: var(--gris-texto); }
+    .ds-details strong { font-family: 'Poppins', sans-serif; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--morado); }
+    .ds-one { }
+    .ds-comp { gap: 6px; }
+    .ds-sub { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--naranja-dark); border-bottom: 2px solid var(--naranja); padding: 4px 0 3px; margin-top: 4px; }
+    .ds-trio { display: flex; gap: 10px; }
+    .ds-trio figure { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+    .ds-trio figure img { width: 100%; height: 320px; object-fit: cover; object-position: top; border-radius: 12px; background: #eceef0; display: block; }
+    .ds-trio figcaption { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 12px; color: var(--negro); text-align: center; }
+    .ds-acc figure img { height: 205px; object-fit: contain; background: #fff; border: 1px solid var(--borde); }
+    .ds-acc figure:nth-child(3) img { background: #000; border-color: #000; }
+    .ds-acc figcaption { display: flex; flex-direction: column; font-weight: 400; font-size: 11px; color: var(--gris-texto); line-height: 1.3; }
+    .ds-acc figcaption strong { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 12.5px; color: var(--morado); }
+    .ds-note { font-size: 10px; line-height: 1.35; color: #8a8a8a; margin-top: auto; }
+    /* Portada */
+    .page.page-cover-dot { background: #fff; align-items: flex-start; justify-content: flex-start; text-align: left; position: absolute; }
+    .cd-band { position: absolute; right: -120px; top: -60px; width: 460px; height: 1250px; background: linear-gradient(180deg, var(--morado), #4a1a5a); transform: rotate(12deg); z-index: 1; }
+    .cd-logo { position: absolute; left: 56px; top: 50px; height: 120px; z-index: 3; }
+    .cd-title { position: absolute; left: 56px; top: 210px; z-index: 3; display: flex; flex-direction: column; font-family: 'Poppins', sans-serif; font-weight: 800; line-height: 0.98; letter-spacing: -0.02em; text-transform: uppercase; }
+    .cd-l1 { font-size: 66px; color: var(--negro); }
+    .cd-l2 { font-size: 54px; color: var(--morado); }
+    .cd-sub { position: absolute; left: 56px; top: 438px; z-index: 3; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; color: var(--negro); }
+    .cd-tag { position: absolute; left: 56px; top: 478px; z-index: 3; font-size: 14.5px; color: var(--gris-texto); border-top: 3px solid var(--naranja); padding-top: 10px; width: 320px; }
+    .cd-photos { position: absolute; left: 56px; right: 56px; bottom: 56px; height: 440px; z-index: 3; display: flex; gap: 16px; }
+    .cd-photos img { flex: 1; min-width: 0; height: 100%; object-fit: cover; object-position: top; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.25); border: 6px solid #fff; background: #eceef0; }
+  </style>
+</head>
+<body>
+
+  <div class="viewer">
+    <div class="page-stage-outer" id="pageStageOuter">
+      <div class="page-stage" id="pageStage">
+
+      <div class="page page-cover page-cover-dot">
+        <div class="cd-band"></div>
+        <img class="cd-logo" src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+        <div class="cd-title"><span class="cd-l1">Dotaciones</span><span class="cd-l2">Empresariales</span></div>
+        <div class="cd-sub">Uniformes deportivos institucionales</div>
+        <div class="cd-tag">Identidad, rendimiento y sentido de pertenencia</div>
+        <div class="cd-photos"><img src="/catalogo-assets/dotaciones/uniforme-alterno.jpg" alt="Uniforme deportivo blanco y verde"><img src="/catalogo-assets/dotaciones/uniforme-2.jpg" alt="Uniforme y sudadera institucional"></div>
+      </div>
+
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Atletismo</span><span class="ds-slogan">Disciplina que avanza</span></div>
+        <div class="ds-featline"><span>Tela ultraligera</span><span class="ds-dot">·</span><span>Ajuste atlético</span><span class="ds-dot">·</span><span>Máxima movilidad</span><span class="ds-dot">·</span><span>Identidad institucional</span></div>
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/atletismo-oscura-f.jpg" alt="Uniforme femenino de Atletismo, línea verde oscuro"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/atletismo-oscura-m.jpg" alt="Uniforme masculino de Atletismo, línea verde oscuro"></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/atletismo-blanca-f.jpg" alt="Uniforme femenino de Atletismo, línea blanca"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/atletismo-blanca-m.jpg" alt="Uniforme masculino de Atletismo, línea blanca"></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Voleibol</span><span class="ds-slogan">Disciplina · integridad · juego en equipo</span></div>
+        <div class="ds-featline"><span>Tecnología Cool-Fit</span><span class="ds-dot">·</span><span>Corte ergonómico</span><span class="ds-dot">·</span><span>Diseño moderno</span><span class="ds-dot">·</span><span>Comodidad en cancha</span></div>
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/voleibol-oscura-f.jpg" alt="Uniforme femenino de Voleibol, línea verde oscuro"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/voleibol-oscura-m.jpg" alt="Uniforme masculino de Voleibol, línea verde oscuro"></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/voleibol-blanca-f.jpg" alt="Uniforme femenino de Voleibol, línea blanca"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/voleibol-blanca-m.jpg" alt="Uniforme masculino de Voleibol, línea blanca"></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Fútbol</span><span class="ds-slogan">Pasión · identidad · compromiso</span></div>
+        <div class="ds-featline"><span>Tela de alto rendimiento</span><span class="ds-dot">·</span><span>Corte deportivo</span><span class="ds-dot">·</span><span>Libertad de movimiento</span><span class="ds-dot">·</span><span>Identidad institucional</span></div>
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/futbol-oscura-f.jpg" alt="Uniforme femenino de Fútbol, línea verde oscuro"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/futbol-oscura-m.jpg" alt="Uniforme masculino de Fútbol, línea verde oscuro"></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/futbol-blanca-f.jpg" alt="Uniforme femenino de Fútbol, línea blanca"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/futbol-blanca-m.jpg" alt="Uniforme masculino de Fútbol, línea blanca"></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Fútbol · Arquero</span><span class="ds-slogan">Protección · precisión · liderazgo</span></div>
+        
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/arquero-oscura.jpg" alt="Uniforme de Fútbol · Arquero, línea verde oscuro"></div>
+          <div class="ds-card"><div class="ds-tag">Uniforme especializado</div><div class="ds-h">Seguridad en cada jugada</div><p>Una propuesta diseñada para aportar visibilidad, movilidad y presencia institucional al arquero dentro y fuera del terreno de juego.</p><ul class="ds-details"><li><strong>Protección</strong><span>Diseño especializado para la posición</span></li><li><strong>Movilidad</strong><span>Corte funcional y cómodo</span></li><li><strong>Identidad</strong><span>Aplicación gráfica institucional</span></li><li><strong>Rendimiento</strong><span>Preparado para la exigencia deportiva</span></li></ul></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/arquero-blanca.jpg" alt="Uniforme de Fútbol · Arquero, línea blanca"></div>
+          <div class="ds-card"><div class="ds-tag">Línea alternativa blanca</div><div class="ds-h">Una misma identidad</div><p>Una misma identidad adaptada a cada disciplina deportiva.</p><ul class="ds-details"><li><strong>Paleta</strong><span>Blanco · verde oscuro</span></li><li><strong>Detalles</strong><span>Verde claro · negro</span></li><li><strong>Identidad</strong><span>Aplicación de escudo institucional</span></li></ul></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Bolos</span><span class="ds-slogan">Precisión · enfoque · concentración</span></div>
+        <div class="ds-featline"><span>Tecnología Dri-Fit</span><span class="ds-dot">·</span><span>Tela ultraligera</span><span class="ds-dot">·</span><span>Diseño ergonómico</span><span class="ds-dot">·</span><span>Comodidad y precisión</span></div>
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/bolos-oscura-f.jpg" alt="Uniforme femenino de Bolos, línea verde oscuro"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/bolos-oscura-m.jpg" alt="Uniforme masculino de Bolos, línea verde oscuro"></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/bolos-blanca-f.jpg" alt="Uniforme femenino de Bolos, línea blanca"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/bolos-blanca-m.jpg" alt="Uniforme masculino de Bolos, línea blanca"></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Tejo</span><span class="ds-slogan">Tradición · precisión · identidad</span></div>
+        
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/tejo-oscura.jpg" alt="Uniforme de Tejo, línea verde oscuro"></div>
+          <div class="ds-card"><div class="ds-tag">Uniforme masculino</div><div class="ds-h">Orgullo que representa</div><p>Una propuesta que combina comodidad deportiva con los colores institucionales y la fuerza de una disciplina profundamente colombiana.</p><ul class="ds-details"><li><strong>Comodidad</strong><span>Libertad de movimiento</span></li><li><strong>Frescura</strong><span>Tela ligera para la competencia</span></li><li><strong>Identidad</strong><span>Diseño institucional reconocible</span></li><li><strong>Precisión</strong><span>Ajuste pensado para el desempeño</span></li></ul></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/tejo-blanca.jpg" alt="Uniforme de Tejo, línea blanca"></div>
+          <div class="ds-card"><div class="ds-tag">Línea alternativa blanca</div><div class="ds-h">Una misma identidad</div><p>Una misma identidad adaptada a cada disciplina deportiva.</p><ul class="ds-details"><li><strong>Paleta</strong><span>Blanco · verde oscuro</span></li><li><strong>Detalles</strong><span>Verde claro · negro</span></li><li><strong>Identidad</strong><span>Aplicación de escudo institucional</span></li></ul></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Ajedrez</span><span class="ds-slogan">Estrategia para un mejor país</span></div>
+        <div class="ds-featline"><span>Tela premium</span><span class="ds-dot">·</span><span>Silueta cómoda</span><span class="ds-dot">·</span><span>Diseño estratégico</span><span class="ds-dot">·</span><span>Presencia institucional</span></div>
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/ajedrez-oscura-f.jpg" alt="Uniforme femenino de Ajedrez, línea verde oscuro"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/ajedrez-oscura-m.jpg" alt="Uniforme masculino de Ajedrez, línea verde oscuro"></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/ajedrez-blanca-f.jpg" alt="Uniforme femenino de Ajedrez, línea blanca"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/ajedrez-blanca-m.jpg" alt="Uniforme masculino de Ajedrez, línea blanca"></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Tenis de mesa</span><span class="ds-slogan">Disciplina · estrategia · resultados</span></div>
+        <div class="ds-featline"><span>Tela ultraligera</span><span class="ds-dot">·</span><span>Tecnología Dri-Fit</span><span class="ds-dot">·</span><span>Ajuste atlético</span><span class="ds-dot">·</span><span>Frescura en cada punto</span></div>
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/tenis-oscura-f.jpg" alt="Uniforme femenino de Tenis de mesa, línea verde oscuro"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/tenis-oscura-m.jpg" alt="Uniforme masculino de Tenis de mesa, línea verde oscuro"></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-g">Femenino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/tenis-blanca-f.jpg" alt="Uniforme femenino de Tenis de mesa, línea blanca"></div>
+          <div class="ds-img"><span class="ds-g">Masculino</span><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/tenis-blanca-m.jpg" alt="Uniforme masculino de Tenis de mesa, línea blanca"></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Natación</span><span class="ds-slogan">Técnica · resistencia · velocidad</span></div>
+        
+        <div class="ds-body">
+          <div class="ds-row"><div class="ds-img"><span class="ds-line ds-l-dark">Línea verde oscuro</span><img src="/catalogo-assets/dotaciones/natacion-oscura.jpg" alt="Uniforme de Natación, línea verde oscuro"></div>
+          <div class="ds-card"><div class="ds-tag">Diseño de alto rendimiento</div><div class="ds-h">Movimiento sin límites</div><p>Una propuesta que integra la identidad institucional con una silueta hidrodinámica, ajuste ergonómico y gráfica lateral inspirada en velocidad y progreso.</p><ul class="ds-details"><li><strong>Tecnología</strong><span>hidrodinámica</span></li><li><strong>Secado</strong><span>rápido</span></li><li><strong>Ajuste</strong><span>ergonómico</span></li><li><strong>Paleta</strong><span>institucional</span></li></ul></div></div>
+          <div class="ds-row"><div class="ds-img"><span class="ds-line ds-l-white">Línea blanca</span><img src="/catalogo-assets/dotaciones/natacion-blanca.jpg" alt="Uniforme de Natación, línea blanca"></div>
+          <div class="ds-card"><div class="ds-tag">Línea alternativa blanca</div><div class="ds-h">Una misma identidad</div><p>Una misma identidad adaptada a cada disciplina deportiva.</p><ul class="ds-details"><li><strong>Paleta</strong><span>Blanco · verde oscuro</span></li><li><strong>Detalles</strong><span>Verde claro · negro</span></li><li><strong>Identidad</strong><span>Aplicación de escudo institucional</span></li></ul></div></div>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-sport">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <div class="page-header-title">
+            <div class="pht-line1">Dotaciones</div>
+            <div class="pht-line2">Empresariales</div>
+            <div class="pht-accent"></div>
+          </div>
+        </div>
+        <div class="ds-title"><span class="ds-name">Línea complementaria</span><span class="ds-slogan">Presentación · comodidad · identidad</span></div>
+        <div class="ds-body ds-comp">
+          <div class="ds-sub">Uniformes</div>
+          <div class="ds-trio">
+            <figure><img src="/catalogo-assets/dotaciones/uniforme-1.jpg" alt="Uniforme 01"><figcaption>Uniforme 01</figcaption></figure>
+            <figure><img src="/catalogo-assets/dotaciones/uniforme-2.jpg" alt="Uniforme 02"><figcaption>Uniforme 02</figcaption></figure>
+            <figure><img src="/catalogo-assets/dotaciones/uniforme-alterno.jpg" alt="Uniforme alterno"><figcaption>Uniforme alterno</figcaption></figure>
+          </div>
+          <div class="ds-sub">Accesorios</div>
+          <div class="ds-trio ds-acc">
+            <figure><img src="/catalogo-assets/dotaciones/accesorio-maletin.jpg" alt="Maletín deportivo"><figcaption><strong>Maletín deportivo</strong>Amplio, resistente y fácil de transportar</figcaption></figure>
+            <figure><img src="/catalogo-assets/dotaciones/accesorio-tula.jpg" alt="Tula deportiva"><figcaption><strong>Tula deportiva</strong>Liviana, práctica y con bolsillo frontal</figcaption></figure>
+            <figure><img src="/catalogo-assets/dotaciones/accesorio-gorra.jpg" alt="Gorra institucional"><figcaption><strong>Gorra institucional</strong>Ajustable, cómoda y con identidad institucional</figcaption></figure>
+          </div>
+          <p class="ds-note">Imágenes de carácter ilustrativo. Materiales, tallaje, técnicas de marcación y ubicación final de elementos se validan mediante muestra física y aprobación.</p>
+        </div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+      <div class="page page-cover page-back">
+        <img class="cover-logo" src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+        <div class="back-slogan">conectados contigo</div>
+        <div class="back-contact">
+          <div><strong>Comercial Moderna Corp. S.A.S.</strong></div>
+          <div>Calle 12 Sur #18-210, El Poblado · Medellín, Colombia</div>
+          <div>CEL: 324 547 8625 · 300 554 45 73</div>
+          <div>luciana@comercialmoderna.com · comercialmoderna.com</div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <button id="btnPrev">← Anterior</button>
+    <span class="pageindicator" id="pageIndicator">1 / 200</span>
+    <select id="jumpSelect">
+<option value="0">Portada</option>
+<option value="1">Uniformes deportivos</option>
+<option value="10">Línea complementaria</option>
+<option value="11">Contraportada</option>
+</select>
+    <button id="btnNext">Siguiente →</button>
+  </div>
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    const total = pages.length;
+    let current = 0;
+    let animating = false;
+
+    function updateChrome() {
+      document.getElementById('pageIndicator').textContent = (current + 1) + ' / ' + total;
+      document.getElementById('btnPrev').disabled = current === 0;
+      document.getElementById('btnNext').disabled = current === total - 1;
+      document.getElementById('jumpSelect').value = String(
+        Array.from(document.getElementById('jumpSelect').options)
+          .map(o => parseInt(o.value))
+          .filter(v => v <= current)
+          .pop() ?? 0
+      );
+    }
+
+    function render() {
+      pages.forEach((p, i) => p.classList.toggle('active', i === current));
+      updateChrome();
+    }
+
+    function goTo(newIndex, direction) {
+      if (animating || newIndex === current || newIndex < 0 || newIndex >= total) return;
+      animating = true;
+      const oldPage = pages[current];
+      const newPage = pages[newIndex];
+      const turnClass = direction === 'next' ? 'turning-next' : 'turning-prev';
+
+      newPage.style.zIndex = 5;
+      newPage.classList.add('active');
+      oldPage.style.zIndex = 15;
+      void oldPage.offsetWidth;
+
+      let finished = false;
+      function finish() {
+        if (finished) return;
+        finished = true;
+        oldPage.removeEventListener('transitionend', onEnd);
+        oldPage.classList.remove('active', turnClass);
+        oldPage.style.zIndex = '';
+        newPage.style.zIndex = '';
+        current = newIndex;
+        animating = false;
+        updateChrome();
+      }
+      function onEnd(e) {
+        if (e.target !== oldPage || e.propertyName !== 'transform') return;
+        finish();
+      }
+      oldPage.addEventListener('transitionend', onEnd);
+      // Safety net: some browsers can fail to fire transitionend on these
+      // stacked/preserve-3d elements, which would otherwise permanently
+      // block further page turns.
+      setTimeout(finish, 700);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          oldPage.classList.add(turnClass);
+        });
+      });
+    }
+
+    document.getElementById('btnPrev').addEventListener('click', () => goTo(current - 1, 'prev'));
+    document.getElementById('btnNext').addEventListener('click', () => goTo(current + 1, 'next'));
+    document.getElementById('jumpSelect').addEventListener('change', (e) => {
+      current = parseInt(e.target.value);
+      render();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') goTo(current + 1, 'next');
+      if (e.key === 'ArrowLeft') goTo(current - 1, 'prev');
+    });
+    render();
+
+    const pageStageOuter = document.getElementById('pageStageOuter');
+    const pageStageEl = document.getElementById('pageStage');
+    const navbarEl = document.querySelector('.navbar');
+    const PAGE_W = 816, PAGE_H = 1056;
+    function fitToScreen() {
+      const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+      const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      const navReserve = navbarEl ? navbarEl.offsetHeight : 96;
+      const margin = 24;
+      const availW = vw - margin * 2;
+      const availH = vh - navReserve - margin * 2;
+      const scale = Math.min(availW / PAGE_W, availH / PAGE_H, 1);
+      pageStageOuter.style.width = (PAGE_W * scale) + 'px';
+      pageStageOuter.style.height = (PAGE_H * scale) + 'px';
+      pageStageEl.style.transform = 'scale(' + scale + ')';
+    }
+    window.addEventListener('resize', fitToScreen);
+    window.addEventListener('orientationchange', () => setTimeout(fitToScreen, 150));
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', fitToScreen);
+    fitToScreen();
+    setTimeout(fitToScreen, 300);
+  </script>
+
+</body>
+</html>

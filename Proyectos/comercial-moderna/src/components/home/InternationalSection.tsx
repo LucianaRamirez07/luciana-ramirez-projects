@@ -3,10 +3,10 @@ import { buildContactWaUrl } from '@/lib/contactNumbers'
 const MESSAGE = 'Hola, quiero información sobre sus servicios internacionales.'
 
 const features = [
-  { icon: '🌎', text: 'Producción competitiva en Colombia, con envío internacional coordinado de punta a punta.' },
-  { icon: '🗣️', text: 'Hablamos inglés — comunicación directa y sin fricciones con tu equipo.' },
-  { icon: '📦', text: 'Coordinamos aduanas, logística y entrega final en Estados Unidos.' },
-  { icon: '🤝', text: 'Un solo equipo, de la cotización a la entrega — sin intermediarios.' },
+  { text: 'Producción competitiva en Colombia, con envío internacional coordinado de punta a punta.' },
+  { text: 'Hablamos inglés — comunicación directa y sin fricciones con tu equipo.' },
+  { text: 'Coordinamos aduanas, logística y entrega final en Estados Unidos.' },
+  { text: 'Un solo equipo, de la cotización a la entrega — sin intermediarios.' },
 ]
 
 const contacts = [
@@ -46,7 +46,7 @@ export function InternationalSection() {
             <ul className="space-y-4 mb-8">
               {features.map((f) => (
                 <li key={f.text} className="flex gap-3 items-start">
-                  <span className="text-xl leading-none">{f.icon}</span>
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
                   <span className="text-white/80 font-inter text-sm leading-relaxed">{f.text}</span>
                 </li>
               ))}

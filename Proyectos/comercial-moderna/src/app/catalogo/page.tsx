@@ -109,6 +109,14 @@ export default function CatalogoPage() {
         >
           Catálogo de Dotaciones →
         </a>
+        <a
+          href="/catalogo-halloween.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center border-2 border-primary text-primary font-inter font-semibold text-lg px-10 py-[14px] hover:bg-primary hover:text-white transition-all"
+        >
+          Catálogo de Halloween →
+        </a>
       </div>
 
       {/* FAQ */}

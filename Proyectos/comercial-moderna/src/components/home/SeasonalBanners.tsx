@@ -3,6 +3,7 @@ import { getImageProps } from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { cn } from '@/lib/utils'
+import { buildContactWaUrl } from '@/lib/contactNumbers'
 
 interface Banner {
   id: string
@@ -15,6 +16,8 @@ interface Banner {
   until?: Date
   // A dónde lleva el botón "Ver catálogo" mientras este banner se muestra.
   href: string
+  // Mensaje con el que se abre WhatsApp al tocar el banner.
+  whatsapp: string
 }
 
 const banners: Banner[] = [
@@ -24,7 +27,8 @@ const banners: Banner[] = [
     desktop: { src: '/temporada/halloween-escritorio.jpg', width: 1672, height: 941 },
     mobile: { src: '/temporada/halloween-celular.jpg', width: 1122, height: 1402 },
     until: new Date('2026-11-01T00:00:00'),
-    href: '/catalogo',
+    href: '/catalogo-halloween.html',
+    whatsapp: 'Hola, vi el banner de Halloween y quiero cotizar regalos de temporada.',
   },
   {
     id: 'navidad',
@@ -33,15 +37,18 @@ const banners: Banner[] = [
     mobile: { src: '/temporada/navidad-celular.jpg', width: 1122, height: 1402 },
     until: new Date('2027-01-07T00:00:00'),
     href: '/catalogo-navidad.html',
+    whatsapp: 'Hola, vi el banner de Navidad y quiero cotizar regalos navideños para mi empresa.',
   },
   {
     id: 'dotaciones',
     alt: 'Dotaciones empresariales: uniformes y prendas corporativas personalizadas — cotiza con nosotros',
     desktop: { src: '/temporada/dotaciones-escritorio.jpg', width: 1672, height: 941 },
     href: '/catalogo-dotaciones.html',
+    whatsapp: 'Hola, vi el banner de Dotaciones y quiero cotizar uniformes y prendas corporativas.',
   },
 ]
 
+const WHATSAPP_NUMBER = '573005544573'
 const AUTOPLAY_MS = 6000
 const SWIPE_PX = 40
 const HOUR = 3_600_000
@@ -135,7 +142,15 @@ export function SeasonalBanners() {
                   visible ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none',
                 )}
               >
-                <BannerPicture banner={b} />
+                <a
+                  href={buildContactWaUrl(WHATSAPP_NUMBER, b.whatsapp)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={visible ? 0 : -1}
+                  className="block h-full w-full"
+                >
+                  <BannerPicture banner={b} />
+                </a>
               </div>
             )
           })}

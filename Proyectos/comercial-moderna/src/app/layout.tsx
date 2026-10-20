@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.comercialmoderna.com'),
   alternates: { canonical: '/' },
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    icon: '/logo-192.png',
+    shortcut: '/logo-192.png',
+    apple: '/logo-192.png',
   },
   openGraph: {
     type: 'website',

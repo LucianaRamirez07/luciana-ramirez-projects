@@ -38,10 +38,10 @@ export function Navbar() {
             <Image
               src="/logo.png"
               alt="Comercial Moderna"
-              width={1910}
-              height={1468}
+              width={300}
+              height={231}
+              priority
               className="h-28 w-auto transition-all duration-300"
-              unoptimized
             />
           </Link>
 
@@ -94,7 +94,7 @@ export function Navbar() {
       {/* Mobile menu fullscreen */}
       {open && (
         <div className="md:hidden fixed inset-0 z-40 bg-dark flex flex-col items-center justify-center gap-8">
-          <Image src="/logo.png" alt="Comercial Moderna" width={1910} height={1468} className="h-16 w-auto brightness-0 invert mb-4" unoptimized />
+          <Image src="/logo.png" alt="Comercial Moderna" width={200} height={154} className="h-16 w-auto brightness-0 invert mb-4" />
           {navLinks.map((link) => (
             <Link
               key={link.href}

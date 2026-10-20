@@ -302,12 +302,12 @@
       <div class="page-stage" id="pageStage">
 
       <div class="page page-cover page-cover-hw">
-        <img class="ch-img" src="/catalogo-assets/halloween/portada-halloween.jpg" alt="Catálogo de regalos Halloween 2026 de Comercial Moderna: detalles corporativos y regalos de temporada" />
+        <img class="ch-img" src="/catalogo-assets/halloween/portada-halloween.webp" alt="Catálogo de regalos Halloween 2026 de Comercial Moderna: detalles corporativos y regalos de temporada" />
       </div>
 
       <div class="page page-productgrid accent-naranja">
         <div class="page-header">
-          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <img src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
           <div class="kt-title">
             <span class="kt-script">Kits de Halloween</span>
             <span class="kt-caps">Regalos de temporada</span>
@@ -319,7 +319,7 @@
           <div class="product-half">
             <div class="product-heading-sm"><div class="product-title-sm no-watermark">Kit Halloween: Calabaza, Dulces y Mándalas</div></div>
             <div class="product-columns-sm">
-              <div class="product-photo-sm"><img src="/catalogo-assets/halloween/kit-halloween-completo.jpg" alt="Kit Halloween: Calabaza, Dulces y Mándalas"></div>
+              <div class="product-photo-sm"><img src="/catalogo-assets/halloween/kit-halloween-completo.webp" alt="Kit Halloween: Calabaza, Dulces y Mándalas"></div>
               <div class="product-text-sm">
                 <div class="product-code-label-sm">Kit Halloween: Calabaza, Dulces y Mándalas</div>
                 <p class="product-desc-sm">Un detalle divertido, creativo y especial para celebrar Halloween con los niños.</p>
@@ -330,7 +330,7 @@
           <div class="product-half">
             <div class="product-heading-sm"><div class="product-title-sm no-watermark">Kit de Mándalas y Colores en Bolsa de Halloween</div></div>
             <div class="product-columns-sm reverse">
-              <div class="product-photo-sm"><img src="/catalogo-assets/halloween/kit-mandalas-colores.jpg" alt="Kit de Mándalas y Colores en Bolsa de Halloween"></div>
+              <div class="product-photo-sm"><img src="/catalogo-assets/halloween/kit-mandalas-colores.webp" alt="Kit de Mándalas y Colores en Bolsa de Halloween"></div>
               <div class="product-text-sm">
                 <div class="product-code-label-sm">Kit de Mándalas y Colores en Bolsa de Halloween</div>
                 <p class="product-desc-sm">Kit infantil para colorear, con los artículos organizados cuidadosamente.</p>
@@ -349,7 +349,7 @@
 
       <div class="page page-productgrid accent-naranja">
         <div class="page-header">
-          <img src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+          <img loading="lazy" decoding="async" src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
           <div class="kt-title">
             <span class="kt-script">Kits de Halloween</span>
             <span class="kt-caps">Regalos de temporada</span>
@@ -361,7 +361,7 @@
           <div class="product-half">
             <div class="product-heading-sm"><div class="product-title-sm no-watermark">Calabaza de Halloween con Dulces</div></div>
             <div class="product-columns-sm">
-              <div class="product-photo-sm"><img src="/catalogo-assets/halloween/calabaza-con-dulces.jpg" alt="Calabaza de Halloween con Dulces"></div>
+              <div class="product-photo-sm"><img loading="lazy" decoding="async" src="/catalogo-assets/halloween/calabaza-con-dulces.webp" alt="Calabaza de Halloween con Dulces"></div>
               <div class="product-text-sm">
                 <div class="product-code-label-sm">Calabaza de Halloween con Dulces</div>
                 <p class="product-desc-sm">Recipiente en forma de calabaza lleno de dulces, con presentación organizada y llamativa.</p>
@@ -387,7 +387,7 @@
       </div>
 
       <div class="page page-cover page-back">
-        <img class="cover-logo" src="/catalogo-assets/logo-catalogo.png" alt="Comercial Moderna" />
+        <img loading="lazy" decoding="async" class="cover-logo" src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
         <div class="back-slogan">conectados contigo</div>
         <div class="back-contact">
           <div><strong>Comercial Moderna Corp. S.A.S.</strong></div>
@@ -417,7 +417,15 @@
     let current = 0;
     let animating = false;
 
+    // Carga anticipada: las imágenes de las páginas cercanas pasan de "lazy" a "eager" para que estén listas al pasar de página.
+    function warmNear() {
+      for (let i = Math.max(0, current - 1); i <= Math.min(total - 1, current + 3); i++) {
+        pages[i].querySelectorAll('img[loading="lazy"]').forEach((im) => { im.loading = 'eager'; });
+      }
+    }
+
     function updateChrome() {
+      warmNear();
       document.getElementById('pageIndicator').textContent = (current + 1) + ' / ' + total;
       document.getElementById('btnPrev').disabled = current === 0;
       document.getElementById('btnNext').disabled = current === total - 1;

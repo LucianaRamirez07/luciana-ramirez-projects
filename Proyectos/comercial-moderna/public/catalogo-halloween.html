@@ -291,8 +291,15 @@
     .hw-cta-p { font-size: 16px; color: #efe3f5; }
     .hw-cta-c { font-weight: 500; font-size: 14px; letter-spacing: 0.06em; margin-top: 8px; }
     /* Portada: la imagen llena la página; si sobra alto se recorta arriba y la barra de íconos de abajo queda intacta */
-    .page.page-cover-hw { background: #1a0f24; align-items: flex-start; justify-content: flex-start; text-align: left; position: absolute; }
-    .ch-img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
+    .page.page-cover-hw { background: #1a0f24; align-items: flex-start; justify-content: flex-start; text-align: left; position: absolute; overflow: hidden; }
+    .page-cover-hw::before { content: ''; position: absolute; inset: -40px; background: url('/catalogo-assets/halloween/portada-halloween.webp') center / cover no-repeat; filter: blur(26px) brightness(0.75); }
+    .ch-img { position: relative; z-index: 1; display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+    /* Las fotos de producto se ven completas (sin recortar); a los lados se extiende la misma foto, borrosa */
+    .page-productgrid .product-photo-sm { overflow: hidden; background: #fff; }
+    .page-productgrid .product-photo-sm::before { display: block; content: ''; position: absolute; inset: -30px; z-index: 0; background: var(--fondo) center / cover no-repeat; filter: blur(22px) brightness(0.95); }
+    .page-productgrid .product-photo-sm img { position: relative; z-index: 1; object-fit: contain; object-position: center; }
+    /* El logo del encabezado, oscuro sobre morado, se leía mal: va sobre una tarjeta crema */
+    .page-productgrid .page-header img { height: 100px; background: #FFF3E6; border-radius: 14px; padding: 6px 16px; }
   </style>
 </head>
 <body>
@@ -319,7 +326,7 @@
           <div class="product-half">
             <div class="product-heading-sm"><div class="product-title-sm no-watermark">Kit Halloween: Calabaza, Dulces y Mándalas</div></div>
             <div class="product-columns-sm">
-              <div class="product-photo-sm"><img src="/catalogo-assets/halloween/kit-halloween-completo.webp" alt="Kit Halloween: Calabaza, Dulces y Mándalas"></div>
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/kit-halloween-completo.webp')"><img src="/catalogo-assets/halloween/kit-halloween-completo.webp" alt="Kit Halloween: Calabaza, Dulces y Mándalas"></div>
               <div class="product-text-sm">
                 <div class="product-code-label-sm">Kit Halloween: Calabaza, Dulces y Mándalas</div>
                 <p class="product-desc-sm">Un detalle divertido, creativo y especial para celebrar Halloween con los niños.</p>
@@ -330,7 +337,7 @@
           <div class="product-half">
             <div class="product-heading-sm"><div class="product-title-sm no-watermark">Kit de Mándalas y Colores en Bolsa de Halloween</div></div>
             <div class="product-columns-sm reverse">
-              <div class="product-photo-sm"><img src="/catalogo-assets/halloween/kit-mandalas-colores.webp" alt="Kit de Mándalas y Colores en Bolsa de Halloween"></div>
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/kit-mandalas-colores.webp')"><img src="/catalogo-assets/halloween/kit-mandalas-colores.webp" alt="Kit de Mándalas y Colores en Bolsa de Halloween"></div>
               <div class="product-text-sm">
                 <div class="product-code-label-sm">Kit de Mándalas y Colores en Bolsa de Halloween</div>
                 <p class="product-desc-sm">Kit infantil para colorear, con los artículos organizados cuidadosamente.</p>
@@ -361,7 +368,7 @@
           <div class="product-half">
             <div class="product-heading-sm"><div class="product-title-sm no-watermark">Calabaza de Halloween con Dulces</div></div>
             <div class="product-columns-sm">
-              <div class="product-photo-sm"><img loading="lazy" src="/catalogo-assets/halloween/calabaza-con-dulces.webp" alt="Calabaza de Halloween con Dulces"></div>
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/calabaza-con-dulces.webp')"><img loading="lazy" src="/catalogo-assets/halloween/calabaza-con-dulces.webp" alt="Calabaza de Halloween con Dulces"></div>
               <div class="product-text-sm">
                 <div class="product-code-label-sm">Calabaza de Halloween con Dulces</div>
                 <p class="product-desc-sm">Recipiente en forma de calabaza lleno de dulces, con presentación organizada y llamativa.</p>

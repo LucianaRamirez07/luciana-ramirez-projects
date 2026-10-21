@@ -300,6 +300,10 @@
     .page-productgrid .product-photo-sm img { position: relative; z-index: 1; object-fit: contain; object-position: center; }
     /* El logo del encabezado, oscuro sobre morado, se leía mal: va sobre una tarjeta crema */
     .page-productgrid .page-header img { height: 100px; background: #FFF3E6; border-radius: 14px; padding: 6px 16px; }
+    .page.page-cierre-hw { background: linear-gradient(135deg, #2a1250 0%, #5a2068 60%, #7B2D8B 100%); align-items: center; justify-content: center; text-align: center; }
+    .page-cierre-hw .hw-cta-t { font-size: 96px; }
+    .page-cierre-hw .hw-cta-p { font-size: 20px; max-width: 520px; }
+    .page-cierre-hw .hw-cta-c { font-size: 16px; }
   </style>
 </head>
 <body>
@@ -356,7 +360,7 @@
 
       <div class="page page-productgrid accent-naranja">
         <div class="page-header">
-          <img loading="lazy" src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
+          <img src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
           <div class="kt-title">
             <span class="kt-script">Kits de Halloween</span>
             <span class="kt-caps">Regalos de temporada</span>
@@ -368,7 +372,7 @@
           <div class="product-half">
             <div class="product-heading-sm"><div class="product-title-sm no-watermark">Calabaza de Halloween con Dulces</div></div>
             <div class="product-columns-sm">
-              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/calabaza-con-dulces.webp')"><img loading="lazy" src="/catalogo-assets/halloween/calabaza-con-dulces.webp" alt="Calabaza de Halloween con Dulces"></div>
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/calabaza-con-dulces.webp')"><img src="/catalogo-assets/halloween/calabaza-con-dulces.webp" alt="Calabaza de Halloween con Dulces"></div>
               <div class="product-text-sm">
                 <div class="product-code-label-sm">Calabaza de Halloween con Dulces</div>
                 <p class="product-desc-sm">Recipiente en forma de calabaza lleno de dulces, con presentación organizada y llamativa.</p>
@@ -376,12 +380,15 @@
               </div>
             </div>
           </div>
-          <div class="product-half hw-cta">
-            <div class="hw-cta-in">
-              <span class="hw-cta-k">Regalos de temporada</span>
-              <span class="hw-cta-t">Cotiza con nosotros</span>
-              <span class="hw-cta-p">Cotización gratuita. Escríbenos y te presentamos opciones.</span>
-              <span class="hw-cta-c">www.comercialmoderna.com &nbsp;·&nbsp; CEL 324 547 8625 &nbsp;·&nbsp; 300 554 45 73</span>
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Kit Halloween Didáctico: Slime + Tangram</div></div>
+            <div class="product-columns-sm reverse">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/kit-didactico-slime-tangram.webp')"><img src="/catalogo-assets/halloween/kit-didactico-slime-tangram.webp" alt="Kit Halloween Didáctico: Slime + Tangram"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Kit Halloween Didáctico: Slime + Tangram</div>
+                <p class="product-desc-sm">Un kit infantil que une juego y aprendizaje: un slime y un tangram de madera de 7 fichas de colores, en una bolsa de Halloween lista para regalar.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7v3M11 7v3M15 7v3"/></svg></span><span class="spec-text"><strong>Material</strong> Slime de material no tóxico, en recipiente hermético sellado, y tangram de madera.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Bolsa decorativa con temática de Halloween, en empaque individual y lista para obsequiar.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> 1 slime mediano y 1 tangram de madera con 7 fichas geométricas coloridas.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Estimula la creatividad, la concentración, el razonamiento espacial y la coordinación. Ideal para celebraciones infantiles y actividades empresariales.</span></div></div>
+              </div>
             </div>
           </div>
           </div>
@@ -390,6 +397,183 @@
         <div class="page-footer">
           <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
           <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+
+      <div class="page page-productgrid accent-naranja">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
+          <div class="kt-title">
+            <span class="kt-script">Kits de Halloween</span>
+            <span class="kt-caps">Regalos de temporada</span>
+            <span class="kt-sub">Halloween 2026</span>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="halves-container">
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Minislime Halloween</div></div>
+            <div class="product-columns-sm">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/minislime.webp')"><img loading="lazy" src="/catalogo-assets/halloween/minislime.webp" alt="Minislime Halloween"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Minislime Halloween</div>
+                <p class="product-desc-sm">Un minislime en envase decorado con figuras de Halloween, como la calabaza, el fantasma y Frankenstein. Pequeño, colorido y divertido: un detalle para repartir en grupo, que llega con tarjeta.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Envase decorado con temática de Halloween, con tarjeta.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> 1 minislime en envase.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Personalizable con el logo de tu empresa. El logo va en la tarjeta.</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Botones Halloween</div></div>
+            <div class="product-columns-sm reverse">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/botones-halloween.webp')"><img loading="lazy" src="/catalogo-assets/halloween/botones-halloween.webp" alt="Botones Halloween"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Botones Halloween</div>
+                <p class="product-desc-sm">Pines redondos con diseños de calabaza, fantasmita y murciélago, cada uno en su tarjeta decorada. Un recuerdo para llevar en la ropa o en la maleta, ideal para repartir en eventos y celebraciones.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Tarjeta decorada con temática de Halloween.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> 2 botones de 25 mm de diámetro.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Personalizable con el logo de tu empresa.</span></div></div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="product-accent-bar"></div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+
+      <div class="page page-productgrid accent-naranja">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
+          <div class="kt-title">
+            <span class="kt-script">Kits de Halloween</span>
+            <span class="kt-caps">Regalos de temporada</span>
+            <span class="kt-sub">Halloween 2026</span>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="halves-container">
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Recogecables Halloween</div></div>
+            <div class="product-columns-sm">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/recogecables-calabaza.webp')"><img loading="lazy" src="/catalogo-assets/halloween/recogecables-calabaza.webp" alt="Recogecables Halloween"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Recogecables Halloween</div>
+                <p class="product-desc-sm">Un organizador de cables con forma de calabaza de Halloween: práctico, con cierre de broche, y con tu logo para que tu marca acompañe a quien lo use todos los días. Un detalle útil para equipos de trabajo.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 7v3M11 7v3M15 7v3"/></svg></span><span class="spec-text"><strong>Material</strong> Material flexible, en color naranja con detalles decorativos en negro.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Diseño de calabaza de Halloween, con cierre tipo broche que sujeta los cables sin enredos.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> 1 recogecables con diseño de calabaza.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Mantiene ordenados los cables de carga, audífonos y otros accesorios. Logo de tu empresa en color negro.</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Miniponque Halloween</div></div>
+            <div class="product-columns-sm reverse">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/miniponque.webp')"><img loading="lazy" src="/catalogo-assets/halloween/miniponque.webp" alt="Miniponque Halloween"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Miniponque Halloween</div>
+                <p class="product-desc-sm">Un miniponque en su capacillo naranja, empacado en bolsa transparente con moño y una tarjeta de fantasma que dice «Feliz Halloween». Un detalle dulce, individual y listo para entregar.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Bolsa de polipropileno transparente con moño y tarjeta alusiva a Halloween.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> 1 miniponque.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Personalizable con el logo de tu empresa.</span></div></div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="product-accent-bar"></div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+
+      <div class="page page-productgrid accent-naranja">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
+          <div class="kt-title">
+            <span class="kt-script">Kits de Halloween</span>
+            <span class="kt-caps">Regalos de temporada</span>
+            <span class="kt-sub">Halloween 2026</span>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="halves-container">
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Minialfajores Halloween</div></div>
+            <div class="product-columns-sm">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/minialfajores.webp')"><img loading="lazy" src="/catalogo-assets/halloween/minialfajores.webp" alt="Minialfajores Halloween"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Minialfajores Halloween</div>
+                <p class="product-desc-sm">Tres minialfajores rellenos, empacados juntos en bolsa transparente con moño naranja y tarjeta de calabaza «Feliz Halloween». Un obsequio dulce y bien presentado para compartir en el equipo.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Bolsa de polipropileno transparente con moño y tarjeta alusiva a Halloween.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> 3 minialfajores.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Personalizable con el logo de tu empresa.</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Galletas de Mantequilla Halloween</div></div>
+            <div class="product-columns-sm reverse">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/galletas-mantequilla.webp')"><img loading="lazy" src="/catalogo-assets/halloween/galletas-mantequilla.webp" alt="Galletas de Mantequilla Halloween"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Galletas de Mantequilla Halloween</div>
+                <p class="product-desc-sm">Cinco galletas de mantequilla, empacadas en bolsa transparente con moño negro y una tarjeta de calabaza «Feliz Halloween». Un detalle clásico, sencillo y siempre bien recibido.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Bolsa de polipropileno transparente con moño y tarjeta alusiva a Halloween.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> 5 galletas de mantequilla.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Personalizable con el logo de tu empresa.</span></div></div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="product-accent-bar"></div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+
+      <div class="page page-productgrid accent-naranja">
+        <div class="page-header">
+          <img src="/catalogo-assets/logo-catalogo.webp" alt="Comercial Moderna" />
+          <div class="kt-title">
+            <span class="kt-script">Kits de Halloween</span>
+            <span class="kt-caps">Regalos de temporada</span>
+            <span class="kt-sub">Halloween 2026</span>
+          </div>
+        </div>
+        <div class="page-content">
+          <div class="halves-container">
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Chupeta de Marshmallow Halloween</div></div>
+            <div class="product-columns-sm">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/chupeta-marshmallow.webp')"><img loading="lazy" src="/catalogo-assets/halloween/chupeta-marshmallow.webp" alt="Chupeta de Marshmallow Halloween"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Chupeta de Marshmallow Halloween</div>
+                <p class="product-desc-sm">Una chupeta de marshmallow con carita de fantasma, en palito de madera y bolsa transparente con moño naranja. Tierna y divertida, perfecta para fiestas infantiles y para repartir en la celebración.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Bolsa de polipropileno con moño.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> 1 chupeta de marshmallow, con tarjeta con mensaje alusiva a Halloween.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Personalizable con el logo de tu empresa.</span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="product-half">
+            <div class="product-heading-sm"><div class="product-title-sm no-watermark">Mini Marshmallows Halloween</div></div>
+            <div class="product-columns-sm reverse">
+              <div class="product-photo-sm" style="--fondo: url('/catalogo-assets/halloween/mini-marshmallows.webp')"><img loading="lazy" src="/catalogo-assets/halloween/mini-marshmallows.webp" alt="Mini Marshmallows Halloween"></div>
+              <div class="product-text-sm">
+                <div class="product-code-label-sm">Mini Marshmallows Halloween</div>
+                <p class="product-desc-sm">Una bolsita de marshmallows pequeños de colores suaves, con solapa naranja de fantasma y murciélagos que dice «Feliz Halloween». Ligera, vistosa y fácil de repartir en grupos grandes.</p>
+                <div class="product-specs-sm"><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M12 8v13M3 12.5h18"/><path d="M12 8c-1.3-3.6-6-3.6-6 0M12 8c1.3-3.6 6-3.6 6 0"/></svg></span><span class="spec-text"><strong>Presentación</strong> Solapa o bolsa con moño.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4" cy="6" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.3" fill="currentColor" stroke="none"/></svg></span><span class="spec-text"><strong>Contenido</strong> Bolsita de minimarshmallows con tarjeta alusiva a Halloween.</span></div><div class="spec-row"><span class="spec-icon"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v5.2M12 7.8h.01"/></svg></span><span class="spec-text"><strong>Observación</strong> Personalizable con el logo de tu empresa.</span></div></div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="product-accent-bar"></div>
+        <div class="page-footer">
+          <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+        </div>
+      </div>
+
+      <div class="page page-cierre-hw">
+        <div class="hw-cta-in">
+          <span class="hw-cta-k">Regalos de temporada</span>
+          <span class="hw-cta-t">Cotiza con nosotros</span>
+          <span class="hw-cta-p">Cotización gratuita. Escríbenos y te presentamos opciones para tu empresa.</span>
+          <span class="hw-cta-c">www.comercialmoderna.com &nbsp;·&nbsp; CEL 324 547 8625 &nbsp;·&nbsp; 300 554 45 73</span>
         </div>
       </div>
 
@@ -413,7 +597,8 @@
     <select id="jumpSelect">
 <option value="0">Portada</option>
 <option value="1">Kits de Halloween</option>
-<option value="3">Contraportada</option>
+<option value="7">Cotiza con nosotros</option>
+<option value="8">Contraportada</option>
 </select>
     <button id="btnNext">Siguiente →</button>
   </div>

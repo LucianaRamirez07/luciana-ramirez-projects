@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Regalos de temporada de Halloween 2026 — Comercial Moderna</title>
+  <title>Regalos de temporada de Halloween 2026: Comercial Moderna</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
       --naranja: #F7941D; --naranja-dark: #e0830c; --naranja-light: #fff8f0;
@@ -15,7 +15,7 @@
       --borde: #e8e8ec; --blanco: #ffffff; --page-w: 816px; --page-h: 1056px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { font-family: 'Open Sans', sans-serif; background: #cfd3da; color: var(--negro); }
+    html, body { font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif; background: #cfd3da; color: var(--negro); }
     .viewer { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 0 100px; }
     .page-stage-outer { position: relative; overflow: hidden; flex-shrink: 0; }
     .page-stage { position: relative; width: var(--page-w); height: var(--page-h); box-shadow: 0 10px 50px rgba(0,0,0,0.28); perspective: 2600px; transform-origin: top left; }
@@ -30,11 +30,11 @@
     .page.turning-prev { transform-origin: right center; transform: rotateY(155deg); box-shadow: 40px 10px 70px rgba(0,0,0,0.35); }
 
     .navbar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--negro); padding: 14px 28px; display: flex; align-items: center; justify-content: center; gap: 18px; z-index: 50; }
-    .navbar button { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; color: var(--blanco); background: var(--morado); border: none; border-radius: 20px; padding: 10px 20px; cursor: pointer; }
+    .navbar button { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 700; color: var(--blanco); background: var(--morado); border: none; border-radius: 20px; padding: 10px 20px; cursor: pointer; }
     .navbar button:disabled { opacity: 0.35; cursor: default; }
     .navbar button:not(:disabled):hover { background: var(--naranja); }
-    .navbar .pageindicator { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; color: var(--blanco); min-width: 70px; text-align: center; }
-    .navbar select { font-family: 'Open Sans', sans-serif; font-size: 12.5px; padding: 8px 12px; border-radius: 20px; border: none; background: var(--gris-suave); color: var(--negro); }
+    .navbar .pageindicator { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: 600; color: var(--blanco); min-width: 70px; text-align: center; }
+    .navbar select { font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif; font-size: 12.5px; padding: 8px 12px; border-radius: 20px; border: none; background: var(--gris-suave); color: var(--negro); }
 
     @media (max-width: 480px) {
       .navbar { padding: 8px 6px; gap: 4px; }
@@ -72,7 +72,7 @@
     }
     .cover-title-new {
       position: absolute; z-index: 3; top: 470px; left: 64px;
-      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 60px;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 60px;
       line-height: 1.05; letter-spacing: -0.02em; color: var(--morado);
       max-width: 520px;
     }
@@ -82,26 +82,26 @@
       display: inline-block;
       background: var(--blanco);
       color: var(--cm-ink, #1b1c1c);
-      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 13px;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 13px;
       padding: 14px 26px; border-radius: 9999px;
     }
 
     .page-back { justify-content: space-between; padding: 70px 60px; }
-    .back-slogan { font-family: 'Poppins', sans-serif; font-size: 22px; font-style: italic; font-weight: 500; color: var(--morado); }
+    .back-slogan { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-style: italic; font-weight: 500; color: var(--morado); }
     .back-contact { font-size: 13.5px; color: var(--gris-texto); line-height: 2; }
     .back-contact strong { color: var(--negro); font-size: 15px; }
 
     .page-header { padding: 10px 44px 8px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--naranja); background: var(--blanco); position: relative; z-index: 2; }
     .page-header img { height: 108px; width: auto; }
     .page-header-title { text-align: right; position: relative; }
-    .pht-line1 { font-family: 'Poppins', sans-serif; font-size: 29px; font-weight: 800; color: var(--negro); line-height: 1.1; }
-    .pht-line2 { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 700; color: var(--morado); line-height: 1.2; }
+    .pht-line1 { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 29px; font-weight: 800; color: var(--negro); line-height: 1.1; }
+    .pht-line2 { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 22px; font-weight: 700; color: var(--morado); line-height: 1.2; }
     .accent-naranja .pht-line2 { color: var(--naranja-dark); }
     .pht-accent { width: 30px; height: 3px; border-radius: 3px; background: var(--naranja); margin: 2px 0 0 auto; }
     .accent-naranja .pht-accent { background: var(--morado); }
     .page-footer {
       margin-top: auto; padding: 12px 44px; display: flex; align-items: center; justify-content: space-between;
-      font-family: 'Poppins', sans-serif; font-size: 11px; color: #999; border-top: 1px solid var(--borde);
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 11px; color: #999; border-top: 1px solid var(--borde);
     }
     .pf-site { display: inline-flex; align-items: center; gap: 6px; text-transform: none; letter-spacing: 0; }
     .pf-globe { display: inline-flex; color: var(--morado); }
@@ -109,19 +109,19 @@
     .pf-tagline strong { color: var(--morado); font-weight: 700; }
     .page-content { padding: 12px 44px 0px; flex: 1; overflow: hidden; display: flex; flex-direction: column; position: relative; z-index: 2; }
 
-    .section-title { font-family: 'Poppins', sans-serif; font-size: 34px; font-weight: 800; color: var(--negro); margin-bottom: 10px; }
+    .section-title { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 34px; font-weight: 800; color: var(--negro); margin-bottom: 10px; }
     .section-title span { color: var(--naranja); }
-    .qs-tagline { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 600; font-style: italic; color: var(--morado); margin-bottom: 12px; }
+    .qs-tagline { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 600; font-style: italic; color: var(--morado); margin-bottom: 12px; }
     .quienes-somos-content p { font-size: 17.5px; color: var(--gris-texto); line-height: 1.42; margin-bottom: 8px; }
     .servicios-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 12px; }
-    .servicios-list span { font-family: 'Poppins', sans-serif; font-size: 16.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--morado); background: var(--morado-light); padding: 8px 16px; border-radius: 20px; }
+    .servicios-list span { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 16.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--morado); background: var(--morado-light); padding: 8px 16px; border-radius: 20px; }
     .clientes-line { font-size: 14.5px; color: #888; line-height: 1.9; }
     .clientes-line strong { color: var(--negro); }
 
     .page-divider { align-items: flex-start; justify-content: center; padding: 80px 60px; background: linear-gradient(135deg, var(--morado) 0%, #5a2068 100%); color: var(--blanco); }
     .page-divider-alt { background: linear-gradient(135deg, var(--naranja-dark) 0%, var(--naranja) 100%); }
-    .divider-label { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 4px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
-    .divider-title { font-family: 'Poppins', sans-serif; font-size: 68px; font-weight: 800; line-height: 1.15; margin-bottom: 24px; }
+    .divider-label { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 4px; color: rgba(255,255,255,0.6); margin-bottom: 20px; }
+    .divider-title { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 68px; font-weight: 800; line-height: 1.15; margin-bottom: 24px; }
     .divider-title span { color: rgba(255,255,255,0.85); }
 
     .subcat-row { display: flex; align-items: center; gap: 0; margin-bottom: 8px; }
@@ -133,7 +133,7 @@
     .accent-naranja .subcat-icon { color: var(--naranja-dark); border-color: var(--naranja-dark); }
     .subcat-title {
       display: inline-block;
-      font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 800;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: 800;
       text-transform: uppercase; letter-spacing: 0.8px; color: var(--blanco);
       background: var(--morado);
       padding: 9px 22px 9px 16px; border-radius: 0 20px 20px 0;
@@ -173,12 +173,12 @@
     .product-half + .product-half::after { right: 0; }
     .product-heading-sm { position: relative; min-height: 86px; margin-bottom: 0px; }
     .product-watermark-sm {
-      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 72px;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 72px;
       color: #ececef; line-height: 1; letter-spacing: -1.5px;
       position: absolute; top: -8px; left: 0; z-index: 1; white-space: nowrap;
     }
     .product-title-sm {
-      font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 29px;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 29px;
       text-transform: uppercase; color: var(--negro);
       position: relative; top: 26px; z-index: 2; max-width: 560px; line-height: 1.08;
     }
@@ -198,7 +198,7 @@
     }
     .product-photo-sm img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: contain; padding: 14px; filter: drop-shadow(0 10px 16px rgba(0,0,0,0.12)); }
     .product-text-sm { flex: 1; }
-    .product-code-label-sm { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 19px; color: var(--naranja); margin-bottom: 3px; }
+    .product-code-label-sm { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 19px; color: var(--naranja); margin-bottom: 3px; }
     .product-desc-sm { font-size: 18.5px; color: var(--gris-texto); line-height: 1.28; margin-bottom: 2px; }
     .product-specs-sm { display: flex; flex-direction: column; gap: 1px; }
     .spec-row { display: flex; align-items: flex-start; gap: 8px; padding-bottom: 1px; border-bottom: 1px dotted var(--borde); }
@@ -234,9 +234,9 @@
     .page-productgrid .page-header { flex-direction: row-reverse; height: 132px; padding: 0 40px; border-bottom: 3px solid var(--dorado); background: linear-gradient(110deg, #4a1a6b 0%, #7B2D8B 55%, #2a1250 100%); }
     .page-productgrid .page-header img { height: 84px; }
     .kt-title { display: flex; flex-direction: column; align-items: flex-start; color: #FFD9A0; }
-    .kt-script { font-family: 'Great Vibes', cursive; font-size: 58px; line-height: 1; background: linear-gradient(180deg, #FFD9A0 0%, #F7941D 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .kt-caps { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 19px; letter-spacing: 0.34em; text-transform: uppercase; margin-top: 2px; }
-    .kt-sub { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 14px; letter-spacing: 0.14em; opacity: 0.9; margin-top: 4px; }
+    .kt-script { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 58px; line-height: 1; background: linear-gradient(180deg, #FFD9A0 0%, #F7941D 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .kt-caps { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 19px; letter-spacing: 0.34em; text-transform: uppercase; margin-top: 2px; }
+    .kt-sub { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-style: italic; font-size: 14px; letter-spacing: 0.14em; opacity: 0.9; margin-top: 4px; }
     .page-productgrid .page-content { padding: 0; }
     .page-productgrid .halves-container { display: flex; flex-direction: column; gap: 0; height: 100%; }
     .page-productgrid .product-half { position: relative; height: 436px; margin: 0; padding: 0; background: #1a1024; border-radius: 0; overflow: hidden; flex: none; }
@@ -249,7 +249,7 @@
     .page-productgrid .product-columns-sm.reverse .product-photo-sm { left: auto; right: 0; }
     .page-productgrid .product-text-sm { position: absolute; top: 16px; bottom: 16px; right: 0; width: 42%; padding: 20px 22px 14px 24px; background: #FFF3E6; border-radius: 30px 0 0 30px; display: flex; flex-direction: column; overflow: hidden; box-shadow: -6px 0 22px rgba(0,0,0,0.18); }
     .page-productgrid .product-columns-sm.reverse .product-text-sm { right: auto; left: 0; border-radius: 0 30px 30px 0; box-shadow: 6px 0 22px rgba(0,0,0,0.25); background: #2a1250; }
-    .page-productgrid .product-code-label-sm { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.05; color: #4a1a6b; margin: 0 0 8px; }
+    .page-productgrid .product-code-label-sm { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-weight: 600; font-size: 27px; line-height: 1.05; color: #4a1a6b; margin: 0 0 8px; }
     .page-productgrid .product-desc-sm { font-size: 12.5px; line-height: 1.35; color: #2b2233; margin: 0 0 10px; }
     .page-productgrid .product-specs-sm { display: flex; flex-direction: column; gap: 7px; }
     .page-productgrid .spec-row { display: flex; align-items: flex-start; gap: 10px; border: 0; padding: 0; }
@@ -285,9 +285,9 @@
     .page-productgrid .product-columns-sm.reverse .product-photo-sm { width: 58%; background: #fff; }
     .page-productgrid .product-columns-sm.reverse .product-photo-sm img { object-fit: contain; }
     .hw-cta { background: linear-gradient(135deg, #2a1250 0%, #5a2068 60%, #7B2D8B 100%) !important; display: flex; align-items: center; justify-content: center; text-align: center; }
-    .hw-cta-in { display: flex; flex-direction: column; align-items: center; gap: 12px; color: #fff; font-family: 'Poppins', sans-serif; padding: 0 60px; }
+    .hw-cta-in { display: flex; flex-direction: column; align-items: center; gap: 12px; color: #fff; font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; padding: 0 60px; }
     .hw-cta-k { font-weight: 600; font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase; color: #F7941D; }
-    .hw-cta-t { font-family: 'Great Vibes', cursive; font-size: 72px; line-height: 1; color: #FFD9A0; }
+    .hw-cta-t { font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-size: 72px; line-height: 1; color: #FFD9A0; }
     .hw-cta-p { font-size: 16px; color: #efe3f5; }
     .hw-cta-c { font-weight: 500; font-size: 14px; letter-spacing: 0.06em; margin-top: 8px; }
     /* Portada: la imagen llena la página; si sobra alto se recorta arriba y la barra de íconos de abajo queda intacta */
@@ -304,6 +304,12 @@
     .page-cierre-hw .hw-cta-t { font-size: 96px; }
     .page-cierre-hw .hw-cta-p { font-size: 20px; max-width: 520px; }
     .page-cierre-hw .hw-cta-c { font-size: 16px; }
+    /* Llamado a la acción: un solo botón, mismo estilo en todos los catálogos */
+    .cta-wa { display: inline-flex; align-items: center; justify-content: center; align-self: flex-start; margin-top: 18px; padding: 14px 30px; border-radius: 999px; background: #F7941D; color: #2a1250; font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; font-size: 17px; letter-spacing: 0.02em; text-decoration: none; white-space: nowrap; box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
+    .cta-wa:hover { transform: translateY(-1px); }
+    .cta-wa:active { transform: translateY(1px) scale(0.98); }
+    .cta-wa:focus-visible { outline: 3px solid #111; outline-offset: 3px; }
+    .cta-wa-grande { align-self: center; margin: 14px 0 6px; font-size: 20px; padding: 16px 38px; }
   </style>
 </head>
 <body>
@@ -354,7 +360,7 @@
         <div class="product-accent-bar"></div>
         <div class="page-footer">
           <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
-          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong></span>
         </div>
       </div>
 
@@ -396,7 +402,7 @@
         <div class="product-accent-bar"></div>
         <div class="page-footer">
           <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
-          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong></span>
         </div>
       </div>
 
@@ -438,7 +444,7 @@
         <div class="product-accent-bar"></div>
         <div class="page-footer">
           <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
-          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong></span>
         </div>
       </div>
 
@@ -480,7 +486,7 @@
         <div class="product-accent-bar"></div>
         <div class="page-footer">
           <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
-          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong></span>
         </div>
       </div>
 
@@ -522,7 +528,7 @@
         <div class="product-accent-bar"></div>
         <div class="page-footer">
           <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
-          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong></span>
         </div>
       </div>
 
@@ -564,16 +570,17 @@
         <div class="product-accent-bar"></div>
         <div class="page-footer">
           <span class="pf-site"><span class="pf-globe"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.8 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.8-3.8-9S9.5 5.5 12 3z"/></svg></span> www.comercialmoderna.com</span>
-          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong> &nbsp;&middot;&middot;&middot;&middot;</span>
+          <span class="pf-tagline">Creamos experiencias que <strong>fortalecen tu marca</strong></span>
         </div>
       </div>
 
       <div class="page page-cierre-hw">
         <div class="hw-cta-in">
           <span class="hw-cta-k">Regalos de temporada</span>
-          <span class="hw-cta-t">Cotiza con nosotros</span>
-          <span class="hw-cta-p">Cotización gratuita. Escríbenos y te presentamos opciones para tu empresa.</span>
-          <span class="hw-cta-c">www.comercialmoderna.com &nbsp;·&nbsp; CEL 324 547 8625 &nbsp;·&nbsp; 300 554 45 73</span>
+          <span class="hw-cta-t">Cuéntanos qué necesitas</span>
+          <span class="hw-cta-p">Dinos cuántos regalos buscas y para qué fecha. Te enviamos opciones para tu presupuesto.</span>
+          <a class="cta-wa cta-wa-grande" href="https://wa.me/573005544573?text=Hola%2C%20vi%20el%20cat%C3%A1logo%20de%20Halloween%20y%20quiero%20cotizar%20regalos%20de%20temporada%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp</a>
+          <span class="hw-cta-c">www.comercialmoderna.com, CEL 324 547 8625, 300 554 45 73</span>
         </div>
       </div>
 
@@ -582,10 +589,11 @@
         <div class="back-slogan">conectados contigo</div>
         <div class="back-contact">
           <div><strong>Comercial Moderna Corp. S.A.S.</strong></div>
-          <div>Calle 12 Sur #18-210, El Poblado · Medellín, Colombia</div>
-          <div>CEL: 324 547 8625 · 300 554 45 73</div>
-          <div>luciana@comercialmoderna.com · comercialmoderna.com</div>
-        </div>
+          <div>Calle 12 Sur #18-210, El Poblado, Medellín, Colombia</div>
+          <div>CEL: 324 547 8625, 300 554 45 73</div>
+          <div>luciana@comercialmoderna.com, comercialmoderna.com</div>
+                <a class="cta-wa" href="https://wa.me/573005544573?text=Hola%2C%20vi%20el%20cat%C3%A1logo%20de%20Halloween%20y%20quiero%20cotizar%20regalos%20de%20temporada%20para%20mi%20empresa." target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp</a>
+      </div>
       </div>
       </div>
     </div>
@@ -597,7 +605,7 @@
     <select id="jumpSelect">
 <option value="0">Portada</option>
 <option value="1">Kits de Halloween</option>
-<option value="7">Cotiza con nosotros</option>
+<option value="7">Cuéntanos qué necesitas</option>
 <option value="8">Contraportada</option>
 </select>
     <button id="btnNext">Siguiente →</button>

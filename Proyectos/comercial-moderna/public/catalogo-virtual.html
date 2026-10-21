@@ -242,6 +242,11 @@
     .page.compacta2 .product-desc-sm { font-size: 17.5px; }
     .page.compacta2 .spec-text { font-size: 13.5px; }
     .page.compacta2 .spec-text strong { font-size: 12.5px; }
+    /* Portada: la imagen se extiende (desenfocada) detrás de la hoja para que la pantalla se vea llena */
+    body::before { content: ''; position: fixed; inset: 0; z-index: -1; background: linear-gradient(135deg, #f3e8fb 0%, #d8b4fe 55%, #7B2D8B 130%); filter: none; opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
+    body.en-portada::before { opacity: 1; }
+    body.en-portada, html:has(body.en-portada) { background: transparent; }
+    @media (prefers-reduced-motion: reduce) { body::before { transition: none; } }
   </style>
 </head>
 <body>
@@ -11953,6 +11958,7 @@ Screen Paraguas hasta 3 tintas.</span></div></div>
     }
 
     function updateChrome() {
+      document.body.classList.toggle('en-portada', current === 0);
       warmNear();
       document.getElementById('pageIndicator').textContent = (current + 1) + ' / ' + total;
       document.getElementById('btnPrev').disabled = current === 0;

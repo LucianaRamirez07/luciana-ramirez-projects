@@ -310,6 +310,11 @@
     .cta-wa:active { transform: translateY(1px) scale(0.98); }
     .cta-wa:focus-visible { outline: 3px solid #111; outline-offset: 3px; }
     .cta-wa-grande { align-self: center; margin: 14px 0 6px; font-size: 22px; padding: 16px 38px; }
+    /* Portada: la imagen se extiende (desenfocada) detrás de la hoja para que la pantalla se vea llena */
+    body::before { content: ''; position: fixed; inset: 0; z-index: -1; background: url('/catalogo-assets/halloween/portada-halloween.webp') center / cover no-repeat; filter: blur(46px) brightness(0.8) saturate(1.1); transform: scale(1.15); opacity: 0; transition: opacity 0.5s ease; pointer-events: none; }
+    body.en-portada::before { opacity: 1; }
+    body.en-portada, html:has(body.en-portada) { background: transparent; }
+    @media (prefers-reduced-motion: reduce) { body::before { transition: none; } }
   </style>
 </head>
 <body>
@@ -625,6 +630,7 @@
     }
 
     function updateChrome() {
+      document.body.classList.toggle('en-portada', current === 0);
       warmNear();
       document.getElementById('pageIndicator').textContent = (current + 1) + ' / ' + total;
       document.getElementById('btnPrev').disabled = current === 0;

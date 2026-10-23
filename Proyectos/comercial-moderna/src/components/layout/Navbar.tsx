@@ -28,7 +28,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
       <div className={cn(
-        'mx-4 mt-3 rounded-2xl px-8 py-3 max-w-6xl xl:mx-auto transition-all duration-300',
+        'mx-4 mt-3 rounded-2xl px-4 sm:px-8 py-2 sm:py-3 max-w-6xl xl:mx-auto transition-all duration-300',
         scrolled || !isHome
           ? 'bg-white/95 backdrop-blur-md border border-gray-100 shadow-md'
           : 'bg-transparent border border-transparent'
@@ -41,7 +41,7 @@ export function Navbar() {
               width={300}
               height={231}
               priority
-              className="h-28 w-auto transition-all duration-300"
+              className="h-14 sm:h-20 md:h-28 w-auto transition-all duration-300"
             />
           </Link>
 

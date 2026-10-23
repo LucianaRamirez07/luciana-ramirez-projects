@@ -12,7 +12,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative h-screen min-h-[600px] flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-28 pb-44 md:pt-0 md:pb-0 md:h-screen md:min-h-[600px]">
 
       {/* Video de fondo con efecto slow */}
       <video
@@ -32,16 +32,16 @@ export function Hero() {
 
       {/* Contenido */}
       <div className="relative z-20 text-center px-6 max-w-5xl mx-auto">
-        <span className="block text-sm sm:text-base font-semibold tracking-[4px] uppercase text-white mb-6 opacity-0-init animate-blur-fade-up">
+        <span className="block text-xs sm:text-base font-semibold tracking-[3px] sm:tracking-[4px] uppercase text-white mb-4 sm:mb-6 opacity-0-init animate-blur-fade-up">
           MEDELLÍN — COLOMBIA
         </span>
 
-        <h1 className="font-fustat font-extrabold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[1.0] tracking-tight mb-8 opacity-0-init animate-blur-fade-up animate-delay-100">
+        <h1 className="font-fustat font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[1.05] tracking-tight mb-6 sm:mb-8 opacity-0-init animate-blur-fade-up animate-delay-100">
           Regalos corporativos<br />
-          <em className="not-italic bg-brand-gradient bg-clip-text text-transparent">que se recuerdan.</em>
+          <em className="not-italic bg-brand-gradient bg-clip-text text-transparent [filter:drop-shadow(0_2px_10px_rgba(0,0,0,0.55))]">que se recuerdan.</em>
         </h1>
 
-        <p className="text-lg sm:text-xl text-white font-inter font-semibold max-w-2xl mx-auto leading-relaxed mb-12 opacity-0-init animate-blur-fade-up animate-delay-200">
+        <p className="text-base sm:text-xl text-white font-inter font-semibold max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-12 opacity-0-init animate-blur-fade-up animate-delay-200">
           Kits y regalos corporativos para empresas e instituciones — personalizados y entregados en todo Colombia.
         </p>
 
@@ -60,21 +60,21 @@ export function Hero() {
           </Link>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center items-center gap-4 opacity-0-init animate-blur-fade-up animate-delay-400">
+        <div className="mt-8 sm:mt-10 flex flex-wrap justify-center items-center gap-x-4 gap-y-2 opacity-0-init animate-blur-fade-up animate-delay-400">
           {['Entrega nacional', 'Personalización', 'Asesoría'].map((item, i) => (
-            <span key={item} className="font-inter text-sm font-semibold text-white tracking-wide flex items-center gap-4">
+            <span key={item} className="font-inter text-xs sm:text-sm font-semibold text-white tracking-wide flex items-center gap-4">
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary inline-block" />
                 {item}
               </span>
-              {i < 2 && <span className="text-white/20">|</span>}
+              {i < 2 && <span className="hidden sm:inline text-white/20">|</span>}
             </span>
           ))}
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+      <div className="hidden md:block absolute bottom-20 left-1/2 -translate-x-1/2 z-20 animate-bounce">
         <svg className="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
         </svg>

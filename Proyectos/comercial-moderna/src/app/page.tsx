@@ -26,6 +26,12 @@ const localBusinessSchema = {
     addressRegion: 'Antioquia',
     addressCountry: 'CO',
   },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '08:00',
+    closes: '19:00',
+  },
   areaServed: 'CO',
   priceRange: 'COP',
   foundingDate: '2005',

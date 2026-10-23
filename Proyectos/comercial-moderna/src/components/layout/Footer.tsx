@@ -41,6 +41,9 @@ export function Footer() {
             <p className="mt-4 text-sm text-gray-400 font-inter leading-relaxed">
               Soluciones corporativas personalizadas desde Medellín para todo Colombia.
             </p>
+            <p className="mt-2 text-sm text-gray-400 font-inter">
+              Horario: lunes a sábado, 8:00 a. m. a 7:00 p. m.
+            </p>
             <div className="mt-4 flex flex-col gap-2">
               {WHATSAPP_CONTACTS.map((contact) => (
                 <a

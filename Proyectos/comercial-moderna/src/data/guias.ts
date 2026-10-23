@@ -510,6 +510,91 @@ export const guias: Guia[] = [
       },
     ],
   },
+  {
+    slug: 'que-productos-publicitarios-recomendamos-para-ferias-y-eventos',
+    categoria: 'productos-publicitarios',
+    titulo: '¿Qué productos publicitarios recomendamos para ferias y eventos?',
+    descripcion:
+      'Productos publicitarios para ferias y eventos corporativos: termos, lapiceros, libretas, bolsas ecológicas, llaveros y artículos tecnológicos con el logo de tu empresa.',
+    resumen:
+      'En Comercial Moderna recomendamos productos publicitarios como termos, lapiceros, libretas, bolsas ecológicas, llaveros, artículos tecnológicos y otros detalles personalizados. Son ideales para ferias y eventos corporativos porque son prácticos, útiles y permiten que tu marca permanezca presente en la vida cotidiana de los clientes.',
+    publicada: '2026-10-23',
+    actualizada: '2026-10-23',
+    bloques: [
+      { tipo: 'h2', texto: 'Productos que recomendamos para ferias y eventos' },
+      {
+        tipo: 'tarjetas',
+        items: [
+          { titulo: 'Termos', texto: 'Un producto de uso diario que lleva tu marca a la oficina, al gimnasio y a los viajes.' },
+          { titulo: 'Lapiceros', texto: 'Prácticos y fáciles de entregar en cantidad a todos los asistentes.' },
+          { titulo: 'Libretas', texto: 'Un detalle útil para tomar notas, que se conserva después del evento.' },
+          { titulo: 'Bolsas ecológicas', texto: 'Útiles para llevar lo que se recoge en la feria y para volver a usar.' },
+          { titulo: 'Llaveros', texto: 'Pequeños y livianos, acompañan a la persona todos los días.' },
+          { titulo: 'Artículos tecnológicos', texto: 'Un detalle actual y práctico para quien quieres que te recuerde.' },
+        ],
+      },
+      {
+        tipo: 'p',
+        texto:
+          'Estos productos son ideales porque son prácticos y útiles: quien los recibe los usa, y así tu marca permanece presente en su vida cotidiana mucho después del evento.',
+      },
+      { tipo: 'h2', texto: '¿Cuántas unidades pedir?' },
+      {
+        tipo: 'p',
+        texto:
+          'Las cantidades dependen del tipo de evento, el número de asistentes, el presupuesto y los objetivos de cada empresa. Ofrecemos opciones tanto para eventos pequeños como para ferias de gran participación, adaptándonos a las necesidades de cada cliente para lograr una mayor visibilidad y recordación de marca.',
+      },
+      { tipo: 'h2', texto: 'Cómo preparar tu pedido' },
+      {
+        tipo: 'lista',
+        items: [
+          'Calcula cuántas personas esperas y a cuántas quieres entregarles un detalle.',
+          'Define tu presupuesto y compara dos o tres opciones.',
+          'Ten tu logo en el mejor formato que tengas.',
+          'Cotiza con anticipación: personalizar y entregar requiere tiempo de producción.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Cómo pedir tu cotización en 4 pasos' },
+      {
+        tipo: 'pasos',
+        items: [
+          'Nos cuentas tu idea por WhatsApp, correo o el formulario de cotización.',
+          'Te proponemos opciones con una cotización detallada.',
+          'Producimos y personalizamos con tu logo.',
+          'Entregamos llave en mano en tu oficina, en cualquier ciudad de Colombia.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Dónde ver más' },
+      {
+        tipo: 'enlaces',
+        items: [
+          { href: '/catalogo/productos-publicitarios', texto: 'Productos publicitarios' },
+          { href: '/guias/cuanto-cuesta-un-regalo-empresarial-personalizado', texto: '¿Cuánto cuesta un regalo empresarial personalizado?' },
+          { href: '/cotizar', texto: 'Pedir una cotización' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Qué productos publicitarios recomiendan para ferias y eventos?',
+        answer:
+          'Termos, lapiceros, libretas, bolsas ecológicas, llaveros, artículos tecnológicos y otros detalles personalizados con tu logo.',
+      },
+      {
+        question: '¿Cuántas unidades debo pedir para un evento?',
+        answer:
+          'Depende del tipo de evento, el número de asistentes, el presupuesto y los objetivos de tu empresa. Tenemos opciones para eventos pequeños y para ferias de gran participación.',
+      },
+      {
+        question: '¿Cuál es el pedido mínimo?',
+        answer: 'En general trabajamos desde 10 unidades, con capacidad para pedidos de hasta 10.000 o más.',
+      },
+      {
+        question: '¿La cotización tiene costo?',
+        answer: 'No. Ofrecemos cotización gratuita.',
+      },
+    ],
+  },
 ]
 
 export function getGuia(slug: string): Guia | undefined {

@@ -31,6 +31,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     ? products.filter((p) => p.tipo.includes(meta.tipo as ProductTipo))
     : []
 
+  const guiasCategoria = guias.filter((g) => g.categoria === slug)
+
   const waUrl = 'https://wa.me/573005544573?text=' + encodeURIComponent(`Hola, me interesa cotizar productos de la categoría ${meta.label}.`)
 
   const faqSchema = meta.faqs && {
@@ -140,11 +142,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         </div>
       )}
 
-      {slug === 'regalos-empresariales' && (
+      {guiasCategoria.length > 0 && (
         <section aria-label="Guías relacionadas" className="mt-16 max-w-2xl">
           <h2 className="font-fustat font-bold text-2xl text-dark mb-4">Guías para elegir tus regalos</h2>
           <ul className="space-y-2">
-            {guias.map((g) => (
+            {guiasCategoria.map((g) => (
               <li key={g.slug}>
                 <Link href={`/guias/${g.slug}`} className="text-primary font-inter font-semibold hover:underline">
                   {g.titulo} →

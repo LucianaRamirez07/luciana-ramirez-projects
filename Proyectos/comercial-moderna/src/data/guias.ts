@@ -16,6 +16,8 @@ export type Guia = {
   descripcion: string
   /** Respuesta corta de 40 a 60 palabras, que las IA y Google pueden citar tal cual. */
   resumen: string
+  /** Categoría del catálogo donde se enlaza esta guía, si aplica. */
+  categoria?: string
   publicada: string // 'YYYY-MM-DD'
   actualizada: string // 'YYYY-MM-DD'
   bloques: GuiaBloque[]
@@ -25,6 +27,7 @@ export type Guia = {
 export const guias: Guia[] = [
   {
     slug: 'cuanto-cuesta-un-regalo-empresarial-personalizado',
+    categoria: 'regalos-empresariales',
     titulo: '¿Cuánto cuesta un regalo empresarial personalizado?',
     descripcion:
       'Qué define el precio de un regalo empresarial personalizado en Colombia: producto, cantidad, personalización, empaque y fecha. Cómo ajustar tu presupuesto.',
@@ -116,6 +119,7 @@ export const guias: Guia[] = [
   },
   {
     slug: 'que-regalar-a-empleados-en-diciembre',
+    categoria: 'regalos-empresariales',
     titulo: 'Qué regalar a empleados en diciembre: ideas de Navidad',
     descripcion:
       'Ideas de regalos corporativos de Navidad para empleados: bienestar, familia, directivos, viaje y detalles sencillos, con el logo de tu empresa.',
@@ -262,6 +266,165 @@ export const guias: Guia[] = [
         question: '¿Qué puedo regalar con un presupuesto pequeño?',
         answer:
           'Un detalle sencillo con significado, como las 5 velas grabadas con los valores de tu empresa en bolsa de yute. Pídenos opciones en distintos niveles y compáralas.',
+      },
+    ],
+  },
+  {
+    slug: 'como-armar-un-kit-escolar-institucional',
+    categoria: 'kits-escolares',
+    titulo: 'Cómo armar un kit escolar institucional',
+    descripcion:
+      'Qué incluye un kit escolar para fundaciones, colegios y programas sociales, cómo definir el contenido según tu presupuesto y cómo pedir la cotización.',
+    resumen:
+      'Un kit escolar institucional es un conjunto de útiles empacados y personalizados con la imagen de tu fundación, colegio o programa social. Se arma a la medida: tú nos cuentas cuántos kits necesitas y con qué presupuesto cuentas, y en Comercial Moderna proponemos el contenido, lo preparamos en Medellín y lo entregamos en toda Colombia.',
+    publicada: '2026-10-23',
+    actualizada: '2026-10-23',
+    bloques: [
+      { tipo: 'h2', texto: 'Qué puede llevar un kit escolar' },
+      {
+        tipo: 'p',
+        texto:
+          'El contenido depende de la necesidad de los niños y del programa. Un kit puede incluir cuadernos, esferos, lápices, colores, regla, tijeras y otros útiles, empacados y personalizados con la imagen de tu institución. No hay un kit único: lo armamos a la medida.',
+      },
+      { tipo: 'h2', texto: 'Cómo definir el contenido de tu kit' },
+      {
+        tipo: 'pasos',
+        items: [
+          'Define cuántos kits necesitas y a quiénes van dirigidos.',
+          'Fija el presupuesto con el que cuenta tu institución. Con ese dato proponemos opciones.',
+          'Elige los útiles que no pueden faltar y cuáles son opcionales.',
+          'Decide cómo quieres presentar el kit: con tu logo y con un empaque que facilite repartirlo.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Cómo ajustar el kit a tu presupuesto' },
+      {
+        tipo: 'lista',
+        items: [
+          'Pide una versión completa y una básica para comparar la inversión por kit.',
+          'Prioriza los útiles que se usan todos los días antes que los complementarios.',
+          'Cotiza con anticipación: preparar y empacar muchos kits toma tiempo de producción.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Cómo pedir tu cotización en 4 pasos' },
+      {
+        tipo: 'pasos',
+        items: [
+          'Nos cuentas tu idea por WhatsApp, correo o el formulario de cotización.',
+          'Te proponemos opciones con una cotización detallada.',
+          'Producimos y personalizamos con tu logo.',
+          'Entregamos llave en mano en tu institución, en cualquier ciudad de Colombia.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Dónde ver más' },
+      {
+        tipo: 'enlaces',
+        items: [
+          { href: '/catalogo/kits-escolares', texto: 'Kits escolares' },
+          { href: '/proceso', texto: 'Cómo trabajamos' },
+          { href: '/cotizar', texto: 'Pedir una cotización' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Qué incluye un kit escolar institucional?',
+        answer:
+          'Cuadernos, esferos, lápices, colores, regla, tijeras y otros útiles según la necesidad, empacados y personalizados con la imagen de tu fundación o institución.',
+      },
+      {
+        question: '¿Pueden armar el kit según el presupuesto de mi institución?',
+        answer:
+          'Sí. Cuéntanos cuántos kits necesitas y con qué presupuesto cuentas, y te proponemos opciones con una cotización detallada.',
+      },
+      {
+        question: '¿Hacen entregas de kits escolares en toda Colombia?',
+        answer: 'Sí. Entregamos en cualquier ciudad de Colombia, directo en tu institución o el punto que nos indiques.',
+      },
+      {
+        question: '¿La cotización de los kits tiene costo?',
+        answer: 'No. Ofrecemos cotización gratuita.',
+      },
+    ],
+  },
+  {
+    slug: 'dotaciones-empresariales-como-elegir-uniformes',
+    categoria: 'dotaciones-empresariales',
+    titulo: 'Dotaciones empresariales: cómo elegir uniformes para tu equipo',
+    descripcion:
+      'Qué son las dotaciones empresariales, qué técnicas existen para personalizar uniformes con tu logo (bordado, serigrafía, screen y sublimación) y cómo cotizarlas.',
+    resumen:
+      'Las dotaciones empresariales son los uniformes, la ropa corporativa y los accesorios que identifican a tu equipo. En Comercial Moderna los personalizamos con tu logo mediante bordado, serigrafía, screen o sublimación, según la prenda y el diseño, con empaque listo para distribuir y entrega en cualquier ciudad de Colombia.',
+    publicada: '2026-10-23',
+    actualizada: '2026-10-23',
+    bloques: [
+      { tipo: 'h2', texto: 'Qué son las dotaciones empresariales' },
+      {
+        tipo: 'p',
+        texto:
+          'Son los uniformes, la ropa corporativa y los accesorios que usa tu equipo y que llevan la identidad visual de tu empresa. También las instituciones y los equipos deportivos las usan: tenemos propuestas de uniformes deportivos institucionales para varias disciplinas.',
+      },
+      { tipo: 'h2', texto: 'Cómo se personaliza un uniforme' },
+      {
+        tipo: 'tarjetas',
+        items: [
+          { titulo: 'Bordado', texto: 'El logo se borda directamente sobre la prenda.' },
+          { titulo: 'Serigrafía', texto: 'El diseño se estampa sobre la prenda.' },
+          { titulo: 'Screen', texto: 'Otra opción de estampado para tu logo, según la prenda.' },
+          { titulo: 'Sublimación', texto: 'Una técnica pensada para diseños completos, como los de los uniformes deportivos.' },
+        ],
+      },
+      {
+        tipo: 'p',
+        texto:
+          'La técnica adecuada depende de la prenda y de tu logo. Al cotizar te recomendamos la que mejor se ve con tu diseño.',
+      },
+      { tipo: 'h2', texto: 'Qué tener claro antes de cotizar' },
+      {
+        tipo: 'lista',
+        items: [
+          'Cuántas personas recibirán uniforme y qué prendas necesita cada cargo.',
+          'Tu logo en el mejor formato que tengas.',
+          'La fecha en que necesitas la entrega: personalizar y empacar requiere tiempo de producción.',
+          'Si lo quieres empacado para repartir por persona, área o sede.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Cómo pedir tu cotización en 4 pasos' },
+      {
+        tipo: 'pasos',
+        items: [
+          'Nos cuentas tu idea por WhatsApp, correo o el formulario de cotización.',
+          'Te proponemos opciones con una cotización detallada.',
+          'Producimos y personalizamos con tu logo.',
+          'Entregamos llave en mano en tu oficina, en cualquier ciudad de Colombia.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Dónde ver más' },
+      {
+        tipo: 'enlaces',
+        items: [
+          { href: '/catalogo/dotaciones-empresariales', texto: 'Dotaciones empresariales' },
+          { href: '/catalogo-dotaciones.html', texto: 'Catálogo de dotaciones' },
+          { href: '/cotizar', texto: 'Pedir una cotización' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Qué dotaciones empresariales manejan?',
+        answer: 'Uniformes, ropa corporativa y accesorios, personalizados con tu logo y con empaque listo para entregar.',
+      },
+      {
+        question: '¿Cómo se personalizan los uniformes?',
+        answer:
+          'Con bordado, serigrafía, screen o sublimación, según la prenda y el diseño. Al cotizar te recomendamos la técnica que mejor se ve con tu logo.',
+      },
+      {
+        question: '¿Tienen uniformes deportivos para equipos institucionales?',
+        answer: 'Sí. Tenemos propuestas de uniformes deportivos institucionales para varias disciplinas, en nuestro catálogo de dotaciones.',
+      },
+      {
+        question: '¿Hacen entregas de dotaciones en toda Colombia?',
+        answer: 'Sí. Entregamos en cualquier ciudad del país, con personalización incluida y empaque listo para distribuir.',
       },
     ],
   },

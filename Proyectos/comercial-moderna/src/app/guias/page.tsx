@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { guias } from '@/data/guias'
 
 export const metadata: Metadata = {
-  title: 'Guías de regalos empresariales',
+  title: 'Guías para empresas e instituciones',
   description:
-    'Guías para elegir y cotizar regalos empresariales: cuánto cuestan, qué regalar a tus empleados y cómo pedir tu cotización en Colombia.',
+    'Guías para elegir y cotizar regalos empresariales, kits escolares y dotaciones: precios, ideas y cómo pedir tu cotización en Colombia.',
   alternates: { canonical: '/guias' },
 }
 
@@ -18,10 +18,10 @@ export default function GuiasPage() {
     <div className="pt-44 pb-24 px-4 max-w-3xl mx-auto">
       <div className="mb-12">
         <h1 className="font-fustat font-extrabold text-4xl sm:text-5xl text-dark leading-tight mb-4">
-          Guías de regalos empresariales
+          Guías para empresas e instituciones
         </h1>
         <p className="text-muted font-inter text-lg leading-relaxed">
-          Respuestas claras para elegir, presupuestar y pedir regalos corporativos personalizados.
+          Respuestas claras para elegir, presupuestar y pedir regalos corporativos, kits escolares y dotaciones personalizados.
         </p>
       </div>
 

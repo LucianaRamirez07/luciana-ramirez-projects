@@ -918,6 +918,17 @@
     const pageStageEl = document.getElementById('pageStage');
     const navbarEl = document.querySelector('.navbar');
     const PAGE_W = 816, PAGE_H = 1056;
+    let baseScale = 1, zoom = 1, tx = 0, ty = 0;
+    const ZOOM_MAX = 2.4;
+    function applyTransform() {
+      const s = baseScale * zoom;
+      const ow = PAGE_W * baseScale, oh = PAGE_H * baseScale;
+      tx = Math.min(0, Math.max(ow - PAGE_W * s, tx));
+      ty = Math.min(0, Math.max(oh - PAGE_H * s, ty));
+      pageStageEl.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + s + ')';
+      pageStageOuter.style.touchAction = zoom > 1 ? 'none' : '';
+    }
+    function resetZoom() { zoom = 1; tx = 0; ty = 0; applyTransform(); }
     function fitToScreen() {
       const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
       const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
@@ -925,11 +936,46 @@
       const margin = vw < 600 ? 6 : 24;
       const availW = vw - margin * 2;
       const availH = vh - navReserve - margin * 2;
-      const scale = Math.min(availW / PAGE_W, availH / PAGE_H, 1);
-      pageStageOuter.style.width = (PAGE_W * scale) + 'px';
-      pageStageOuter.style.height = (PAGE_H * scale) + 'px';
-      pageStageEl.style.transform = 'scale(' + scale + ')';
+      baseScale = Math.min(availW / PAGE_W, availH / PAGE_H, 1);
+      pageStageOuter.style.width = (PAGE_W * baseScale) + 'px';
+      pageStageOuter.style.height = (PAGE_H * baseScale) + 'px';
+      applyTransform();
     }
+    // Celular: doble toque amplía la página (y vuelve a reducirla); al ampliar se arrastra con un dedo.
+    (function () {
+      let lastTap = 0, drag = null, moved = false;
+      pageStageOuter.addEventListener('pointerdown', (e) => {
+        if (e.pointerType === 'mouse') return;
+        moved = false;
+        if (zoom > 1) { drag = { x: e.clientX, y: e.clientY, tx: tx, ty: ty }; pageStageOuter.setPointerCapture(e.pointerId); }
+      });
+      pageStageOuter.addEventListener('pointermove', (e) => {
+        if (!drag) return;
+        const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+        if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+        tx = drag.tx + dx; ty = drag.ty + dy; applyTransform();
+      });
+      pageStageOuter.addEventListener('pointerup', (e) => {
+        drag = null;
+        if (e.pointerType === 'mouse' || moved) return;
+        const now = Date.now();
+        if (now - lastTap < 320) {
+          const r = pageStageOuter.getBoundingClientRect();
+          const px = e.clientX - r.left, py = e.clientY - r.top;
+          if (zoom > 1) { resetZoom(); }
+          else {
+            const k = ZOOM_MAX;
+            zoom = k; tx = px - (px - tx) * k; ty = py - (py - ty) * k;
+            applyTransform();
+          }
+          lastTap = 0;
+        } else { lastTap = now; }
+      });
+      pageStageOuter.addEventListener('pointercancel', () => { drag = null; });
+      document.addEventListener('click', (e) => { if (e.target.closest('.navbar')) resetZoom(); });
+      document.addEventListener('change', (e) => { if (e.target.closest('.navbar')) resetZoom(); });
+      document.addEventListener('keydown', resetZoom);
+    })();
     window.addEventListener('resize', fitToScreen);
     window.addEventListener('orientationchange', () => setTimeout(fitToScreen, 150));
     if (window.visualViewport) window.visualViewport.addEventListener('resize', fitToScreen);

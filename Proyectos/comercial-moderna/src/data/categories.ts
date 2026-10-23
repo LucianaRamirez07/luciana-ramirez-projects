@@ -7,6 +7,8 @@ export type CategoryMeta = {
   /** Catálogo propio (archivo en /public) cuando la categoría no tiene productos en la lista. */
   catalogoUrl?: string
   intro?: string
+  /** Para categorías de servicio sin productos en lista: qué puede pedirte el cliente. */
+  servicios?: string[]
   faqs?: CategoryFaq[]
 }
 
@@ -15,11 +17,11 @@ export const categoryMeta: Record<string, CategoryMeta> = {
     label: 'Regalos Empresariales',
     description: 'Detalles corporativos que refuerzan tu marca en cada ocasión especial.',
     tipo: 'regalos-empresariales',
-    intro: 'En Comercial Moderna diseñamos y producimos regalos empresariales personalizados en Medellín, con entrega a toda Colombia. Trabajamos con empresas e instituciones que buscan fortalecer su marca a través de detalles corporativos de calidad — desde termos y libretas ejecutivas hasta kits completos para eventos y fechas especiales. Personalizamos cada producto con tu logo mediante grabado láser, serigrafía, bordado o sublimación, ajustando cada pedido al presupuesto y la cantidad que necesites.',
+    intro: 'En Comercial Moderna diseñamos y producimos regalos empresariales personalizados en Medellín, con entrega a toda Colombia. Trabajamos con empresas e instituciones que buscan fortalecer su marca a través de detalles corporativos de calidad, desde termos y libretas ejecutivas hasta kits completos para eventos y fechas especiales. Personalizamos cada producto con tu logo mediante grabado láser, serigrafía, bordado o sublimación, ajustando cada pedido al presupuesto y la cantidad que necesites.',
     faqs: [
       {
         question: '¿Qué tipos de regalos empresariales manejan?',
-        answer: 'Termos, libretas ejecutivas, parlantes, paraguas, kits de oficina, gorras y más — todos personalizables con tu logo. También desarrollamos productos a medida según la necesidad de tu empresa.',
+        answer: 'Termos, libretas ejecutivas, parlantes, paraguas, kits de oficina, gorras y más, todos personalizables con tu logo. También desarrollamos productos a medida según la necesidad de tu empresa.',
       },
       {
         question: '¿Cuál es el pedido mínimo para regalos empresariales?',
@@ -97,6 +99,10 @@ export const categoryMeta: Record<string, CategoryMeta> = {
   },
   'desarrollo-de-producto': {
     label: 'Desarrollo de Producto',
+    servicios: [
+      'Un producto que no está en el catálogo y que quieres crear desde cero.',
+      'Un producto desarrollado según tu necesidad y personalizado con tu logo.',
+    ],
     description: 'Creamos productos a medida desde cero según tu idea, trabajando directo con fabricantes verificados y con entrega en toda Colombia.',
     intro: 'Si lo que necesitas no está en el catálogo, lo desarrollamos. Nos cuentas tu idea, te proponemos opciones con una cotización detallada y pasamos a producción y personalización con tu logo.',
     faqs: [
@@ -116,6 +122,11 @@ export const categoryMeta: Record<string, CategoryMeta> = {
   },
   'litografia': {
     label: 'Litografía',
+    servicios: [
+      'Folletos y catálogos con la imagen de tu empresa.',
+      'Etiquetas para tus productos.',
+      'Otros impresos corporativos según lo que necesites.',
+    ],
     description: 'Impresión corporativa de alta calidad: folletos, catálogos, etiquetas y más con la imagen de tu empresa, entregados en toda Colombia.',
     intro: 'Imprimimos material corporativo con la imagen de tu empresa: folletos, catálogos, etiquetas y más. Cuéntanos qué necesitas imprimir y en qué cantidad, y te enviamos una cotización detallada.',
     faqs: [

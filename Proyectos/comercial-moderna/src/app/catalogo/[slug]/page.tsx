@@ -126,10 +126,21 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               </a>
             </>
           ) : (
-            <>
-              <p className="font-fustat font-bold text-xl text-dark mb-2">Próximamente</p>
-              <p className="font-inter text-muted mb-8">Estamos preparando esta categoría. Escríbenos para más información.</p>
-            </>
+            <div className="max-w-xl mx-auto text-left mb-8">
+              <p className="font-fustat font-bold text-xl text-dark mb-4 text-center">Qué puedes pedirnos</p>
+              {meta.servicios && (
+                <ul className="list-disc pl-5 space-y-2 font-inter text-muted mb-6">
+                  {meta.servicios.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              <p className="font-inter text-muted text-center">
+                Cuéntanos tu idea por WhatsApp, correo o el{' '}
+                <Link href="/cotizar" className="text-primary font-semibold hover:underline">formulario de cotización</Link>.
+                Te respondemos con opciones y una cotización detallada, sin costo.
+              </p>
+            </div>
           )}
           <a
             href={waUrl}

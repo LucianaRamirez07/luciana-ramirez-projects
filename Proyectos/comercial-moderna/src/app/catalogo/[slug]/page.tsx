@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { products } from '@/data/products'
 import { categoryMeta } from '@/data/categories'
+import { guias } from '@/data/guias'
 import type { ProductTipo } from '@/types'
 
 export async function generateStaticParams() {
@@ -137,6 +138,21 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             Cotizar por WhatsApp
           </a>
         </div>
+      )}
+
+      {slug === 'regalos-empresariales' && (
+        <section aria-label="Guías relacionadas" className="mt-16 max-w-2xl">
+          <h2 className="font-fustat font-bold text-2xl text-dark mb-4">Guías para elegir tus regalos</h2>
+          <ul className="space-y-2">
+            {guias.map((g) => (
+              <li key={g.slug}>
+                <Link href={`/guias/${g.slug}`} className="text-primary font-inter font-semibold hover:underline">
+                  {g.titulo} →
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
 
       {/* CTA */}

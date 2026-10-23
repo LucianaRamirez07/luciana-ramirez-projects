@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { permanentRedirect } from 'next/navigation'
 import { categoryMeta } from '@/data/categories'
+import { guias } from '@/data/guias'
 
 export const metadata: Metadata = {
   title: 'Catálogo de Regalos Corporativos',
@@ -125,6 +126,19 @@ export default async function CatalogoPage({
           ))}
         </ul>
       </nav>
+
+      <section aria-label="Guías" className="mb-12">
+        <h2 className="font-fustat font-bold text-2xl text-dark mb-4">Guías para elegir tus regalos</h2>
+        <ul className="grid gap-3">
+          {guias.map((g) => (
+            <li key={g.slug}>
+              <Link href={`/guias/${g.slug}`} className="text-primary font-inter font-semibold hover:underline">
+                {g.titulo} →
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-4 mb-20">
         <a

@@ -26,6 +26,7 @@ const columns = [
       { href: '/nosotros', label: 'Nosotros' },
       { href: '/portafolio', label: 'Portafolio' },
       { href: '/proceso', label: 'Cómo trabajamos' },
+      { href: '/guias', label: 'Guías' },
     ],
   },
 ]

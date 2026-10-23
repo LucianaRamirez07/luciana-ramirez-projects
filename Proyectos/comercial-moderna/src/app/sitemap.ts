@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { categoryMeta } from '@/data/categories'
+import { guias } from '@/data/guias'
 
 // Sin `lastModified` en las páginas normales: antes todas llevaban la fecha de
 // cada despliegue, que no dice cuándo cambió el contenido, y Google ignora una
@@ -20,11 +21,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: fecha,
     priority: 0.7,
   }))
+  const guiasUrls = guias.map((g) => ({
+    url: `${base}/guias/${g.slug}`,
+    lastModified: g.actualizada,
+    priority: 0.7,
+  }))
   return [
     { url: base, priority: 1.0 },
     { url: `${base}/catalogo`, priority: 0.9 },
     ...categoryUrls,
     ...catalogos,
+    { url: `${base}/guias`, priority: 0.7 },
+    ...guiasUrls,
     { url: `${base}/portafolio`, priority: 0.7 },
     { url: `${base}/proceso`, priority: 0.6 },
     { url: `${base}/nosotros`, priority: 0.5 },

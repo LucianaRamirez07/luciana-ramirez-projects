@@ -922,7 +922,7 @@
       const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
       const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
       const navReserve = navbarEl ? navbarEl.offsetHeight : 96;
-      const margin = 24;
+      const margin = vw < 600 ? 6 : 24;
       const availW = vw - margin * 2;
       const availH = vh - navReserve - margin * 2;
       const scale = Math.min(availW / PAGE_W, availH / PAGE_H, 1);

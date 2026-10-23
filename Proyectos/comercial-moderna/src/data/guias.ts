@@ -29,7 +29,7 @@ export const guias: Guia[] = [
     descripcion:
       'Qué define el precio de un regalo empresarial personalizado en Colombia: producto, cantidad, personalización, empaque y fecha. Cómo ajustar tu presupuesto.',
     resumen:
-      'El precio de un regalo empresarial personalizado no es fijo: depende del producto, la cantidad, la técnica de personalización, el empaque y la fecha de entrega. En Comercial Moderna cotizamos sin costo, trabajamos con distintos presupuestos y recibimos pedidos desde 10 unidades.',
+      'El precio de un regalo empresarial personalizado depende del tipo de producto, la cantidad solicitada, la técnica de personalización, el empaque y el tiempo de entrega. En Comercial Moderna ofrecemos diferentes opciones que se adaptan a las necesidades y presupuestos de cada empresa. Solicita una cotización personalizada y encuentra la mejor opción para tu marca.',
     publicada: '2026-10-23',
     actualizada: '2026-10-23',
     bloques: [
@@ -120,7 +120,7 @@ export const guias: Guia[] = [
     descripcion:
       'Ideas de regalos corporativos de Navidad para empleados: bienestar, familia, directivos, viaje y detalles sencillos, con el logo de tu empresa.',
     resumen:
-      'Para elegir qué regalar a tus empleados en diciembre, parte de tres preguntas: cuántas personas son, cuánto quieres invertir por persona y qué quieres transmitir, ya sea agradecimiento, bienestar o unión. Estas ideas salen de nuestro catálogo de Navidad y se personalizan con la identidad de tu empresa.',
+      'La Navidad es una oportunidad perfecta para agradecer el esfuerzo y compromiso de tus colaboradores. En Comercial Moderna ofrecemos una amplia variedad de kits navideños, ideales para regalar bienestar, compartir en familia, sorprender a directivos y clientes o acompañar momentos especiales. Descubre detalles personalizados que se adaptan a tu presupuesto y fortalecen los lazos con tu equipo.',
     publicada: '2026-10-23',
     actualizada: '2026-10-23',
     bloques: [

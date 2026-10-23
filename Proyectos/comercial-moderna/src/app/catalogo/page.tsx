@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { categoryMeta } from '@/data/categories'
 
 export const metadata: Metadata = {
-  title: 'Catálogo de Regalos Empresariales y Productos Publicitarios | Comercial Moderna',
+  title: 'Catálogo de Regalos Corporativos',
   description: 'Catálogo de regalos empresariales, productos publicitarios, kits escolares, dotaciones y litografía en Colombia. Personalización con logo, entrega nacional.',
   alternates: { canonical: '/catalogo' },
 }
@@ -83,6 +85,32 @@ export default function CatalogoPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      <div className="text-center mb-12">
+        <h1 className="font-fustat font-extrabold text-4xl sm:text-5xl text-dark leading-tight mb-4">
+          Catálogo de regalos corporativos y productos publicitarios
+        </h1>
+        <p className="text-muted font-inter text-lg leading-relaxed">
+          Regalos empresariales, productos publicitarios, kits escolares, dotaciones, desarrollo de producto y litografía.
+          Todo personalizado con tu logo, desde 10 unidades y con entrega en toda Colombia.
+        </p>
+      </div>
+
+      <nav aria-label="Categorías del catálogo" className="mb-12">
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {Object.entries(categoryMeta).map(([slug, c]) => (
+            <li key={slug}>
+              <Link
+                href={`/catalogo/${slug}`}
+                className="block h-full border border-gray-200 p-4 hover:border-primary hover:bg-primary/5 transition-colors"
+              >
+                <span className="block font-fustat font-bold text-lg text-dark">{c.label}</span>
+                <span className="block mt-1 text-sm text-muted font-inter leading-snug">{c.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-4 mb-20">
         <a

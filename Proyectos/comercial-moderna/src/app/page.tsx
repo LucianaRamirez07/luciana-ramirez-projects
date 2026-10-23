@@ -17,8 +17,11 @@ const localBusinessSchema = {
   url: 'https://www.comercialmoderna.com',
   telephone: '+573005544573',
   email: 'luciana@comercialmoderna.com',
+  logo: 'https://www.comercialmoderna.com/logo.png',
+  image: 'https://www.comercialmoderna.com/logo.png',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Calle 12 Sur #18-210, El Poblado',
     addressLocality: 'Medellín',
     addressRegion: 'Antioquia',
     addressCountry: 'CO',

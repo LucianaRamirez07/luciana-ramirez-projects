@@ -42,8 +42,22 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     })),
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: 'https://www.comercialmoderna.com' },
+      { '@type': 'ListItem', position: 2, name: 'Catálogo', item: 'https://www.comercialmoderna.com/catalogo' },
+      { '@type': 'ListItem', position: 3, name: meta.label, item: `https://www.comercialmoderna.com/catalogo/${slug}` },
+    ],
+  }
+
   return (
     <div className="pt-44 pb-24 px-4 max-w-7xl mx-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {faqSchema && (
         <script
           type="application/ld+json"
@@ -95,8 +109,25 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         </div>
       ) : (
         <div className="text-center py-24 border border-dashed border-gray-200 rounded-2xl">
-          <p className="font-fustat font-bold text-xl text-dark mb-2">Próximamente</p>
-          <p className="font-inter text-muted mb-8">Estamos preparando esta categoría. Escríbenos para más información.</p>
+          {meta.catalogoUrl ? (
+            <>
+              <p className="font-fustat font-bold text-xl text-dark mb-2">Mira el catálogo completo</p>
+              <p className="font-inter text-muted mb-8">Ábrelo para ver las propuestas, o escríbenos y te cotizamos.</p>
+              <a
+                href={meta.catalogoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center bg-primary text-white font-inter font-semibold px-8 py-3 mb-4 mr-3 hover:bg-primary/90 transition-all"
+              >
+                Ver catálogo de {meta.label.toLowerCase()} →
+              </a>
+            </>
+          ) : (
+            <>
+              <p className="font-fustat font-bold text-xl text-dark mb-2">Próximamente</p>
+              <p className="font-inter text-muted mb-8">Estamos preparando esta categoría. Escríbenos para más información.</p>
+            </>
+          )}
           <a
             href={waUrl}
             target="_blank"

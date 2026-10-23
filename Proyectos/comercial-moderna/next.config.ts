@@ -16,7 +16,19 @@ const rutasMedios = [
   '/logo-192.png',
 ]
 
+// Direcciones viejas que Google todavía rastrea y hoy dan 404 (aparecen en Search Console):
+// se mandan de forma permanente a la página equivalente para no perder esa señal.
+const redireccionesViejas = [
+  { source: '/regalos-empresariales', destination: '/catalogo/regalos-empresariales' },
+  { source: '/catalogo-variedades', destination: '/catalogo' },
+  { source: '/catalogoLitografía', destination: '/catalogo/litografia' },
+  { source: '/catalogoLitograf%C3%ADa', destination: '/catalogo/litografia' },
+]
+
 const nextConfig: NextConfig = {
+  async redirects() {
+    return redireccionesViejas.map((r) => ({ ...r, permanent: true }))
+  },
   async headers() {
     return rutasMedios.map((source) => ({
       source,

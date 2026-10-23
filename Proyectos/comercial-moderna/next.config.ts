@@ -27,7 +27,9 @@ const redireccionesViejas = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return redireccionesViejas.map((r) => ({ ...r, permanent: true }))
+    return [
+      ...redireccionesViejas.map((r) => ({ ...r, permanent: true })),
+    ]
   },
   async headers() {
     return rutasMedios.map((source) => ({

@@ -6,18 +6,18 @@ const columns = [
   {
     title: 'Servicios',
     links: [
-      { href: '/catalogo?tipo=regalos-empresariales', label: 'Regalos Empresariales' },
-      { href: '/catalogo?tipo=productos-publicitarios', label: 'Productos Publicitarios' },
-      { href: '/catalogo?tipo=kits-escolares', label: 'Kits Escolares' },
+      { href: '/catalogo/regalos-empresariales', label: 'Regalos Empresariales' },
+      { href: '/catalogo/productos-publicitarios', label: 'Productos Publicitarios' },
+      { href: '/catalogo/kits-escolares', label: 'Kits Escolares' },
     ],
   },
   {
     title: 'Catálogo',
     links: [
-      { href: '/catalogo?categoria=tecnologia', label: 'Tecnología' },
-      { href: '/catalogo?categoria=oficina-papeleria', label: 'Oficina y Papelería' },
-      { href: '/catalogo?categoria=hogar-estilo-vida', label: 'Hogar' },
-      { href: '/catalogo?categoria=exteriores-accesorios', label: 'Exteriores' },
+      { href: '/catalogo', label: 'Tecnología' },
+      { href: '/catalogo', label: 'Oficina y Papelería' },
+      { href: '/catalogo', label: 'Hogar' },
+      { href: '/catalogo', label: 'Exteriores' },
     ],
   },
   {

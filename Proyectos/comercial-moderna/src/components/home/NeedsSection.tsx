@@ -4,17 +4,17 @@ const services = [
   {
     title: 'Regalos Empresariales',
     description: 'Detalles corporativos para campañas y eventos que fortalecen tu empresa.',
-    href: '/catalogo?tipo=regalos-empresariales',
+    href: '/catalogo/regalos-empresariales',
   },
   {
     title: 'Productos Publicitarios',
     description: 'Artículos promocionales alineados a la identidad y objetivos de tu empresa.',
-    href: '/catalogo?tipo=productos-publicitarios',
+    href: '/catalogo/productos-publicitarios',
   },
   {
     title: 'Kits Escolares',
     description: 'Armado y entrega de kits para programas sociales y proyectos empresariales.',
-    href: '/catalogo?tipo=kits-escolares',
+    href: '/catalogo/kits-escolares',
   },
   {
     title: 'Dotaciones Empresariales',

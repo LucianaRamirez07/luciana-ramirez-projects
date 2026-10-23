@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { permanentRedirect } from 'next/navigation'
 import { categoryMeta } from '@/data/categories'
 
 export const metadata: Metadata = {
@@ -78,7 +79,20 @@ const catalogFaqs = [
   },
 ]
 
-export default function CatalogoPage() {
+// Filtros del catálogo anterior (?tipo=… / ?categoria=…): Google los guardó como páginas
+// duplicadas. El tipo hoy es una categoría; cualquier otro filtro vuelve al catálogo, a una
+// dirección sin parámetros para que la redirección no pueda repetirse.
+const TIPOS_QUE_SON_CATEGORIA = ['regalos-empresariales', 'productos-publicitarios', 'kits-escolares']
+
+export default async function CatalogoPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tipo?: string; categoria?: string }>
+}) {
+  const { tipo, categoria } = await searchParams
+  if (tipo && TIPOS_QUE_SON_CATEGORIA.includes(tipo)) permanentRedirect(`/catalogo/${tipo}`)
+  if (tipo || categoria) permanentRedirect('/catalogo')
+
   return (
     <div className="pt-44 pb-24 px-4 max-w-3xl mx-auto">
       <script

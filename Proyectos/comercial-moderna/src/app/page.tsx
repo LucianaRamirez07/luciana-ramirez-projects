@@ -36,7 +36,11 @@ const localBusinessSchema = {
   priceRange: 'COP',
   foundingDate: '2005',
   numberOfEmployees: { '@type': 'QuantitativeValue', minValue: 5, maxValue: 50 },
-  sameAs: ['https://wa.me/573005544573'],
+  sameAs: [
+    'https://wa.me/573005544573',
+    'https://www.instagram.com/comercialmoderna.corp/',
+    'https://www.linkedin.com/company/comercialmoderna/',
+  ],
 }
 
 export default function HomePage() {

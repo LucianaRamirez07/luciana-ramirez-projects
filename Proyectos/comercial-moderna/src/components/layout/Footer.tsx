@@ -2,6 +2,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { WHATSAPP_CONTACTS } from '@/lib/contactNumbers'
 
+const REDES = [
+  { href: 'https://www.instagram.com/comercialmoderna.corp/', label: 'Instagram' },
+  { href: 'https://www.linkedin.com/company/comercialmoderna/', label: 'LinkedIn' },
+]
+
 const columns = [
   {
     title: 'Servicios',
@@ -54,6 +59,19 @@ export function Footer() {
                   className="inline-flex items-center gap-2 text-sm text-primary font-inter hover:text-primary/80 transition-colors"
                 >
                   WhatsApp: {contact.display}
+                </a>
+              ))}
+            </div>
+            <div className="mt-4 flex gap-4">
+              {REDES.map((red) => (
+                <a
+                  key={red.href}
+                  href={red.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-300 font-inter hover:text-white transition-colors"
+                >
+                  {red.label}
                 </a>
               ))}
             </div>

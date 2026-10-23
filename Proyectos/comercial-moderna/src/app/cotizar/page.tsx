@@ -9,9 +9,28 @@ export const metadata: Metadata = {
   alternates: { canonical: '/cotizar' },
 }
 
+const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Solicitar cotización',
+  url: 'https://www.comercialmoderna.com/cotizar',
+  description: 'Solicita tu cotización de regalos empresariales y productos publicitarios personalizados.',
+  about: {
+    '@type': 'Organization',
+    name: 'Comercial Moderna Corp. S.A.S.',
+    url: 'https://www.comercialmoderna.com',
+    telephone: '+573005544573',
+    email: 'luciana@comercialmoderna.com',
+  },
+}
+
 export default function CotizarPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 pt-40 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
       <div className="text-center mb-12">
         <h1 className="font-fustat font-bold text-4xl sm:text-5xl text-dark">Solicitar cotización</h1>
         <p className="mt-4 text-muted font-inter text-lg">

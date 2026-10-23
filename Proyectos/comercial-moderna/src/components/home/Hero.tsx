@@ -1,15 +1,31 @@
 'use client'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [conVideo, setConVideo] = useState(false)
 
+  // El video pesa 3 MB: en celular o con ahorro de datos se queda la foto, y en computador
+  // empieza a bajar cuando la página ya cargó, para que no retrase el contenido.
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.75
+    const conexion = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+    if (!window.matchMedia('(min-width: 768px)').matches || conexion?.saveData) return
+    const activar = () => setConVideo(true)
+    if (document.readyState === 'complete') activar()
+    else {
+      window.addEventListener('load', activar, { once: true })
+      return () => window.removeEventListener('load', activar)
     }
   }, [])
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!conVideo || !video) return
+    video.playbackRate = 0.75
+    video.load()
+    video.play().catch(() => {})
+  }, [conVideo])
 
   return (
     <section className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden pt-28 pb-44 md:pt-0 md:pb-0 md:h-screen md:min-h-[600px]">
@@ -21,10 +37,11 @@ export function Hero() {
         muted
         loop
         playsInline
+        preload="none"
         poster="/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover z-0 scale-105"
       >
-        <source src="/hero-bg.mp4" type="video/mp4" />
+        {conVideo && <source src="/hero-bg.mp4" type="video/mp4" />}
       </video>
 
       {/* Overlay oscuro con gradiente — estilo editorial */}

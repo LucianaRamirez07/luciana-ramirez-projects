@@ -428,6 +428,88 @@ export const guias: Guia[] = [
       },
     ],
   },
+  {
+    slug: 'que-regalos-empresariales-son-ideales-para-clientes',
+    categoria: 'regalos-empresariales',
+    titulo: '¿Qué regalos empresariales son ideales para clientes?',
+    descripcion:
+      'Ideas de regalos corporativos para clientes: termos, agendas, kits de bienestar y artículos tecnológicos, y en qué ocasiones regalarlos con el logo de tu empresa.',
+    resumen:
+      'En Comercial Moderna ofrecemos una amplia variedad de regalos corporativos personalizados, como termos, agendas, kits de bienestar, artículos tecnológicos y otros detalles especiales. Son ideales para fin de año, aniversarios empresariales, ferias, eventos corporativos y celebraciones de negocios, y se adaptan a la identidad de tu marca para fortalecer relaciones y fidelizar clientes.',
+    publicada: '2026-10-23',
+    actualizada: '2026-10-23',
+    bloques: [
+      { tipo: 'h2', texto: 'Regalos que funcionan para clientes' },
+      {
+        tipo: 'tarjetas',
+        items: [
+          { titulo: 'Termos', texto: 'Un producto de uso diario que lleva tu logo a la oficina, al gimnasio o al viaje de tu cliente.' },
+          { titulo: 'Agendas', texto: 'Un clásico corporativo que se usa todo el año y mantiene tu marca a la vista.' },
+          { titulo: 'Kits de bienestar', texto: 'Un detalle completo para cuidar a tu cliente, empacado y listo para entregar.' },
+          { titulo: 'Artículos tecnológicos', texto: 'Útiles y actuales, con tu logo en un producto que se usa con frecuencia.' },
+        ],
+      },
+      { tipo: 'h2', texto: 'En qué ocasiones regalar a tus clientes' },
+      {
+        tipo: 'lista',
+        items: [
+          'Fin de año, para agradecer la relación comercial.',
+          'Aniversarios empresariales, tuyos o de tu cliente.',
+          'Ferias y eventos corporativos, para que te recuerden después.',
+          'Celebraciones de negocios, como un contrato nuevo o un cierre importante.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Cómo hacer que el regalo cuente' },
+      {
+        tipo: 'lista',
+        items: [
+          'Personalízalo con la identidad de tu marca: logo, colores y empaque coherentes.',
+          'Elige algo que tu cliente use con frecuencia, no que guarde en un cajón.',
+          'Define cuántos clientes recibirán regalo y con qué inversión por persona, para comparar opciones.',
+          'Cotiza con anticipación: personalizar y empacar requiere tiempo de producción.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Cómo pedir tu cotización en 4 pasos' },
+      {
+        tipo: 'pasos',
+        items: [
+          'Nos cuentas tu idea por WhatsApp, correo o el formulario de cotización.',
+          'Te proponemos opciones con una cotización detallada.',
+          'Producimos y personalizamos con tu logo.',
+          'Entregamos llave en mano en tu oficina, en cualquier ciudad de Colombia.',
+        ],
+      },
+      { tipo: 'h2', texto: 'Dónde ver más' },
+      {
+        tipo: 'enlaces',
+        items: [
+          { href: '/catalogo/regalos-empresariales', texto: 'Regalos empresariales' },
+          { href: '/guias/cuanto-cuesta-un-regalo-empresarial-personalizado', texto: '¿Cuánto cuesta un regalo empresarial personalizado?' },
+          { href: '/guias/que-regalar-a-empleados-en-diciembre', texto: 'Qué regalar a empleados en diciembre' },
+          { href: '/cotizar', texto: 'Pedir una cotización' },
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: '¿Qué regalos empresariales son ideales para clientes?',
+        answer:
+          'Termos, agendas, kits de bienestar, artículos tecnológicos y otros detalles especiales, personalizados con la identidad de tu marca.',
+      },
+      {
+        question: '¿En qué ocasiones conviene regalar a los clientes?',
+        answer: 'En fin de año, aniversarios empresariales, ferias, eventos corporativos y celebraciones de negocios.',
+      },
+      {
+        question: '¿Se pueden personalizar con el logo de mi empresa?',
+        answer: 'Sí. Cada regalo se adapta a la identidad de tu marca.',
+      },
+      {
+        question: '¿La cotización tiene costo?',
+        answer: 'No. Ofrecemos cotización gratuita.',
+      },
+    ],
+  },
 ]
 
 export function getGuia(slug: string): Guia | undefined {

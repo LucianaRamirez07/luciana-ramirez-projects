@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
   const catalogos = [
     { archivo: 'catalogo-virtual.html', fecha: '2026-10-22' },
-    { archivo: 'catalogo-navidad.html', fecha: '2026-10-22' },
+    { archivo: 'catalogo-navidad.html', fecha: '2026-10-23' },
     { archivo: 'catalogo-dotaciones.html', fecha: '2026-10-22' },
     { archivo: 'catalogo-halloween.html', fecha: '2026-10-22' },
   ].map(({ archivo, fecha }) => ({

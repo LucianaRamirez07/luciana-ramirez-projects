@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Nosotros | Empresa de Regalos Empresariales en Medellín',
+  title: 'Nosotros | Regalos empresariales en Medellín',
   description: 'Empresa familiar de Medellín con más de 20 años de experiencia en regalos empresariales, productos publicitarios y kits escolares para empresas de Colombia.',
   alternates: { canonical: '/nosotros' },
 }

@@ -13,6 +13,8 @@ export type GuiaBloque =
 export type Guia = {
   slug: string
   titulo: string
+  /** Título corto para la pestaña y Google (con la marca no debe pasar de unos 60 caracteres). */
+  tituloSeo?: string
   descripcion: string
   /** Respuesta corta de 40 a 60 palabras, que las IA y Google pueden citar tal cual. */
   resumen: string
@@ -27,6 +29,7 @@ export type Guia = {
 export const guias: Guia[] = [
   {
     slug: 'cuanto-cuesta-un-regalo-empresarial-personalizado',
+    tituloSeo: 'Cuánto cuesta un regalo empresarial',
     categoria: 'regalos-empresariales',
     titulo: '¿Cuánto cuesta un regalo empresarial personalizado?',
     descripcion:
@@ -119,6 +122,7 @@ export const guias: Guia[] = [
   },
   {
     slug: 'que-regalar-a-empleados-en-diciembre',
+    tituloSeo: 'Qué regalar a empleados en diciembre',
     categoria: 'regalos-empresariales',
     titulo: 'Qué regalar a empleados en diciembre: ideas de Navidad',
     descripcion:
@@ -348,6 +352,7 @@ export const guias: Guia[] = [
   },
   {
     slug: 'dotaciones-empresariales-como-elegir-uniformes',
+    tituloSeo: 'Cómo elegir uniformes y dotaciones',
     categoria: 'dotaciones-empresariales',
     titulo: 'Dotaciones empresariales: cómo elegir uniformes para tu equipo',
     descripcion:
@@ -430,6 +435,7 @@ export const guias: Guia[] = [
   },
   {
     slug: 'que-regalos-empresariales-son-ideales-para-clientes',
+    tituloSeo: 'Regalos empresariales para clientes',
     categoria: 'regalos-empresariales',
     titulo: '¿Qué regalos empresariales son ideales para clientes?',
     descripcion:
@@ -512,10 +518,11 @@ export const guias: Guia[] = [
   },
   {
     slug: 'que-productos-publicitarios-recomendamos-para-ferias-y-eventos',
+    tituloSeo: 'Productos publicitarios para ferias',
     categoria: 'productos-publicitarios',
     titulo: '¿Qué productos publicitarios recomendamos para ferias y eventos?',
     descripcion:
-      'Productos publicitarios para ferias y eventos corporativos: termos, lapiceros, libretas, bolsas ecológicas, llaveros y artículos tecnológicos con el logo de tu empresa.',
+      'Productos publicitarios para ferias y eventos: termos, lapiceros, libretas, bolsas ecológicas, llaveros y artículos tecnológicos con el logo de tu empresa.',
     resumen:
       'En Comercial Moderna recomendamos productos publicitarios como termos, lapiceros, libretas, bolsas ecológicas, llaveros, artículos tecnológicos y otros detalles personalizados. Son ideales para ferias y eventos corporativos porque son prácticos, útiles y permiten que tu marca permanezca presente en la vida cotidiana de los clientes.',
     publicada: '2026-10-23',

@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const g = getGuia(slug)
   if (!g) return {}
   return {
-    title: g.titulo,
+    title: g.tituloSeo ?? g.titulo,
     description: g.descripcion,
     alternates: { canonical: `/guias/${slug}` },
     openGraph: { type: 'article', title: g.titulo, description: g.descripcion, publishedTime: g.publicada, modifiedTime: g.actualizada },

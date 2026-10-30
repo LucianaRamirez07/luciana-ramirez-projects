@@ -111,36 +111,7 @@ export default async function CatalogoPage({
         </p>
       </div>
 
-      <nav aria-label="Categorías del catálogo" className="mb-12">
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {Object.entries(categoryMeta).map(([slug, c]) => (
-            <li key={slug}>
-              <Link
-                href={`/catalogo/${slug}`}
-                className="block h-full border border-gray-200 p-4 hover:border-primary hover:bg-primary/5 transition-colors"
-              >
-                <span className="block font-fustat font-bold text-lg text-dark">{c.label}</span>
-                <span className="block mt-1 text-sm text-muted font-inter leading-snug">{c.description}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <section aria-label="Guías" className="mb-12">
-        <h2 className="font-fustat font-bold text-2xl text-dark mb-4">Guías para elegir tus regalos</h2>
-        <ul className="grid gap-3">
-          {guias.map((g) => (
-            <li key={g.slug}>
-              <Link href={`/guias/${g.slug}`} className="text-primary font-inter font-semibold hover:underline">
-                {g.titulo} →
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-4 mb-20">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-4 mb-12">
         <a
           href="/catalogo-virtual.html"
           target="_blank"
@@ -174,6 +145,35 @@ export default async function CatalogoPage({
           Catálogo de Halloween →
         </a>
       </div>
+
+      <nav aria-label="Categorías del catálogo" className="mb-12">
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {Object.entries(categoryMeta).map(([slug, c]) => (
+            <li key={slug}>
+              <Link
+                href={`/catalogo/${slug}`}
+                className="block h-full border border-gray-200 p-4 hover:border-primary hover:bg-primary/5 transition-colors"
+              >
+                <span className="block font-fustat font-bold text-lg text-dark">{c.label}</span>
+                <span className="block mt-1 text-sm text-muted font-inter leading-snug">{c.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <section aria-label="Guías" className="mb-12">
+        <h2 className="font-fustat font-bold text-2xl text-dark mb-4">Guías para elegir tus regalos</h2>
+        <ul className="grid gap-3">
+          {guias.map((g) => (
+            <li key={g.slug}>
+              <Link href={`/guias/${g.slug}`} className="text-primary font-inter font-semibold hover:underline">
+                {g.titulo} →
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {/* FAQ */}
       <div>

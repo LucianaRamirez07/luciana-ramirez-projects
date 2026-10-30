@@ -130,7 +130,7 @@ export const guias: Guia[] = [
     resumen:
       'La Navidad es una oportunidad perfecta para agradecer el esfuerzo y compromiso de tus colaboradores. En Comercial Moderna ofrecemos una amplia variedad de kits navideños, ideales para regalar bienestar, compartir en familia, sorprender a directivos y clientes o acompañar momentos especiales. Descubre detalles personalizados que se adaptan a tu presupuesto y fortalecen los lazos con tu equipo.',
     publicada: '2026-10-23',
-    actualizada: '2026-10-23',
+    actualizada: '2026-10-30',
     bloques: [
       { tipo: 'h2', texto: 'Regalos de bienestar y descanso' },
       {
@@ -182,6 +182,16 @@ export const guias: Guia[] = [
             texto: 'Para armar una mesa de fiesta, en caja de regalo con moño rojo y tarjeta personalizada.',
             contenido: '4 individuales tejidos, set de cubiertos dorados, vela aromática, 4 posavasos y set de servilletas de tela.',
           },
+          {
+            titulo: 'Kit Navideño Especial',
+            texto: 'Una propuesta cálida y familiar para transmitir unión y tradición, en caja de cartón corrugado con cinta, moño y detalles navideños.',
+            contenido: '1 parlante Bluetooth, 4 velitas de Navidad (Amor, Familia, Respeto y Unión), frasco de galletas de mantequilla y tarjeta de Feliz Navidad.',
+          },
+          {
+            titulo: 'Kit Juegos en Familia',
+            texto: 'Juegos y música para compartir en familia, en un maletín de madera con marcación láser.',
+            contenido: 'Juegos Basta, Jenga, UNO, póker y bingo, parlante Bluetooth, velas con intenciones y frasco de galletas navideñas.',
+          },
         ],
       },
       { tipo: 'h2', texto: 'Regalos para directivos y clientes especiales' },
@@ -203,6 +213,16 @@ export const guias: Guia[] = [
             texto: 'Tecnología útil para el día a día, en caja rígida negra con cinta dorada.',
             contenido: 'Power bank, audífonos inalámbricos, soporte plegable para celular, cable 3 en 1 y estuche organizador.',
           },
+          {
+            titulo: 'Kit Tecnológico: Power Bank y Audífonos',
+            texto: 'Tecnología útil y moderna, en caja de cartón corrugado forrada con mensaje personalizado.',
+            contenido: '1 power bank de 20.000 mAh con 4 cables integrados y pantalla digital, y audífonos inalámbricos Bluetooth con estuche de carga.',
+          },
+          {
+            titulo: 'Kit Coctelería',
+            texto: 'Brindemos por lo que viene, en caja con moño y tarjeta.',
+            contenido: 'Shaker, vasos, accesorios de coctelería y tarjetas con recetas.',
+          },
         ],
       },
       { tipo: 'h2', texto: 'Para quien viaja o trabaja al aire libre' },
@@ -218,6 +238,78 @@ export const guias: Guia[] = [
             titulo: 'Kit Aventura & Camping',
             texto: 'Para los planes al aire libre, en caja kraft con moño y rama decorativa.',
             contenido: '1 silla plegable de camping, 1 cooler bag y 1 vaso térmico.',
+          },
+          {
+            titulo: 'Kit Viajero Diamond',
+            texto: 'Equipaje de cabina y organización para viajar con estilo, en bolsa de material no tejido con tarjeta alusiva a la ocasión.',
+            contenido: 'Maletín Lightweight Travel Bag de cabina de 20 L, kit organizador de viaje y portapasaporte, con marcación láser en placa metálica.',
+          },
+          {
+            titulo: 'Kit Viajero Luxe',
+            texto: 'Un set de viaje práctico y moderno.',
+            contenido: 'Maletín tipo cabina, portapasaporte y marcador de maleta.',
+          },
+        ],
+      },
+      { tipo: 'h2', texto: 'Regalos de café, sabores y bienestar natural' },
+      {
+        tipo: 'tarjetas',
+        items: [
+          {
+            titulo: 'Kit Ritual Café',
+            texto: 'Una pausa de café para agradecer, en caja de lujo con moño y tarjeta.',
+            contenido: '1 mug, 1 portamug de corcho, 1 prensa francesa, 4 galletas y 1 bolsa de café.',
+          },
+          {
+            titulo: 'Kit Café con Propósito',
+            texto: 'Celebra la tradición cafetera colombiana, en caja de cartón kraft con relleno de papel ecológico.',
+            contenido: 'Café colombiano premium en bolsa kraft, prensa francesa, taza y plato de cerámica artesanal.',
+          },
+          {
+            titulo: 'Kit de Bienestar Natural',
+            texto: 'Sabores naturales y bienestar en un regalo sostenible, en caja kraft.',
+            contenido: 'Frutas deshidratadas, 2 infusiones (manzanilla y hierbabuena), frasco de miel y cucharita de madera.',
+          },
+          {
+            titulo: 'Kit de Aromas y Bienestar',
+            texto: 'Aromas delicados para crear ambientes de calma y armonía, en caja de cartón kraft.',
+            contenido: 'Vela aromática artesanal, difusor de aromas con varillas de madera y esencia aromática.',
+          },
+          {
+            titulo: 'Kit de Snacks: Una Pausa para Ti',
+            texto: 'Un momento de descanso y agradecimiento para tus colaboradores, en caja kraft con tarjeta personalizada.',
+            contenido: '1 bebida Hatsu Tea de 200 ml, galletas de mantequilla, papas artesanales y tarjeta con mensaje.',
+          },
+          {
+            titulo: 'Kit Pequeñas Dosis de Energía',
+            texto: 'Tres porciones de granola para recargar energía, en cajita kraft.',
+            contenido: '3 bolsitas de granola (almendras y semillas; coco y arándanos; banano y canela) y tarjeta.',
+          },
+          {
+            titulo: 'Frasco de Energía Positiva',
+            texto: 'Un frasco con frutos secos y una tarjeta motivacional.',
+            contenido: 'Almendras, maní, nueces y arándanos deshidratados, preferiblemente sin azúcar añadida.',
+          },
+          {
+            titulo: 'Kit Pastillas de la Felicidad',
+            texto: 'Pequeñas dosis de alegría y ánimo para cada día, en frasco con etiqueta personalizada.',
+            contenido: 'Gomitas de colores y sabores surtidos, y tarjeta: «Saca una cada vez que necesites ánimo».',
+          },
+        ],
+      },
+      { tipo: 'h2', texto: 'Regalos sostenibles' },
+      {
+        tipo: 'tarjetas',
+        items: [
+          {
+            titulo: 'Kit Corporativo Eco Natural',
+            texto: 'Funcional y sostenible, en caja de cartón kraft con relleno de papel ecológico.',
+            contenido: 'Libreta de corcho, bolígrafo ecológico, botella de vidrio con base de bambú, mini suculenta en matera de cerámica y libreta kraft.',
+          },
+          {
+            titulo: 'Kit de Huerta y Suculentas',
+            texto: 'Un regalo vivo que invita a cuidar el medioambiente, en caja de cartón kraft.',
+            contenido: '4 suculentas, 3 sobres de semillas (albahaca, cilantro y tomate cherry), materas, sustrato, pastillas de tierra, pala, rastrillo y atomizador.',
           },
         ],
       },

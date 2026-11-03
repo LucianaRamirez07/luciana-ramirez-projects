@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const meta = categoryMeta[slug]
   if (!meta) return {}
   return {
-    title: meta.label,
-    description: meta.description,
+    title: meta.seoTitle ?? meta.label,
+    description: meta.seoDescription ?? meta.description,
     alternates: { canonical: `/catalogo/${slug}` },
   }
 }

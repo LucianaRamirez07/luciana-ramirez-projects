@@ -3,6 +3,9 @@ export type CategoryFaq = { question: string; answer: string }
 export type CategoryMeta = {
   label: string
   description: string
+  /** Título y descripción para Google cuando deben diferir de `label` y `description`. */
+  seoTitle?: string
+  seoDescription?: string
   tipo?: string
   /** Catálogo propio (archivo en /public) cuando la categoría no tiene productos en la lista. */
   catalogoUrl?: string
@@ -75,9 +78,11 @@ export const categoryMeta: Record<string, CategoryMeta> = {
   },
   'dotaciones-empresariales': {
     label: 'Dotaciones Empresariales',
+    seoTitle: 'Dotaciones empresariales con logo',
+    seoDescription: 'Dotaciones empresariales personalizadas: uniformes y ropa corporativa con tu logo (bordado, serigrafía, sublimación). Cotiza y recibe en toda Colombia.',
     catalogoUrl: '/catalogo-dotaciones.html',
     description: 'Uniformes, ropa corporativa y accesorios con tu identidad visual, personalizados con tu logo y entregados en toda Colombia.',
-    intro: 'Las dotaciones empresariales son los uniformes, la ropa corporativa y los accesorios que identifican a tu equipo. En Comercial Moderna las personalizamos con tu logo y las entregamos con empaque listo para distribuir, en cualquier ciudad del país. También tenemos un catálogo de uniformes deportivos institucionales.',
+    intro: 'Las dotaciones empresariales son los uniformes, la ropa corporativa y los accesorios que identifican a tu equipo. Si buscas una dotación empresarial para tu empresa, en Comercial Moderna la personalizamos con tu logo y la entregamos con empaque listo para distribuir, en cualquier ciudad del país. También tenemos un catálogo de uniformes deportivos institucionales.',
     faqs: [
       {
         question: '¿Qué dotaciones empresariales manejan?',

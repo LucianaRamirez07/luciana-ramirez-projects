@@ -444,7 +444,7 @@ export const guias: Guia[] = [
   },
   {
     slug: 'dotaciones-empresariales-como-elegir-uniformes',
-    tituloSeo: 'Cómo elegir uniformes y dotaciones',
+    tituloSeo: 'Dotaciones empresariales: elige uniformes',
     categoria: 'dotaciones-empresariales',
     titulo: 'Dotaciones empresariales: cómo elegir uniformes para tu equipo',
     descripcion:
